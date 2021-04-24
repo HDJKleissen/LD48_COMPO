@@ -20,6 +20,12 @@ TextureImporter:
   - first:
       213: 1430257286303847182
     second: isometrictileset_5
+  - first:
+      213: 3089187972486043035
+    second: isometrictileset_6
+  - first:
+      213: 2208787586281731289
+    second: isometrictileset_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -66,7 +72,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -235,8 +241,8 @@ TextureImporter:
       name: isometrictileset_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
+        x: 192
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -260,7 +266,7 @@ TextureImporter:
       name: isometrictileset_4
       rect:
         serializedVersion: 2
-        x: 64
+        x: 0
         y: 128
         width: 64
         height: 64
@@ -285,7 +291,7 @@ TextureImporter:
       name: isometrictileset_5
       rect:
         serializedVersion: 2
-        x: 128
+        x: 64
         y: 128
         width: 64
         height: 64
@@ -302,6 +308,56 @@ TextureImporter:
       bones: []
       spriteID: e031e8f8c6b49d310800000000000000
       internalID: 1430257286303847182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isometrictileset_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 0, y: 0}
+        - {x: -32, y: -16}
+        - {x: 0, y: -32}
+        - {x: 32, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b95907008100fda20800000000000000
+      internalID: 3089187972486043035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isometrictileset_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 0, y: 0}
+        - {x: -32, y: -16}
+        - {x: 0, y: -32}
+        - {x: 32, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d47d986b9037ae10800000000000000
+      internalID: 2208787586281731289
       vertices: []
       indices: 
       edges: []

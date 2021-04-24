@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: isometrictileset_2
+  m_Name: isometrictileset_7
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 3677795520939269578, guid: 0a53ce1f788ac9e45b8a30da0d0f1c67, type: 3}
+  m_Sprite: {fileID: 2208787586281731289, guid: 0a53ce1f788ac9e45b8a30da0d0f1c67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
