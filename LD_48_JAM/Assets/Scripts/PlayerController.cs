@@ -14,30 +14,78 @@ public class PlayerController : MonoBehaviour
     public Sprite[] sprites;
 
     SpriteRenderer spriteRenderer;
-    BoxCollider2D feetCollider;
+    CircleCollider2D feetCollider;
 
     PlayerDirection movingDirection = PlayerDirection.None;
 
+    public List<Interactable> interactablesInRange = new List<Interactable>();
 
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        feetCollider = GetComponent<BoxCollider2D>();
+        feetCollider = GetComponent<CircleCollider2D>();
+    }
+
+    void Update()
+    {
+        if (Input.GetButtonDown("Interact"))
+        {
+            if (interactablesInRange.Count > 0)
+            {
+                Interactable interactable = interactablesInRange[0];
+
+                bool success = interactable.Interact();
+
+                // Can do dialogue or something like that ("Hmm... This door is locked.")
+            }
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0) * MoveSpeed * Time.deltaTime;
+        Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized * MoveSpeed * Time.deltaTime;
 
         UpdatePlayerDirection(movement);
-
-        movement = CheckForWalls(movement);
 
         transform.position += movement;
 
         UpdateSprite();
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Interactable")
+        {
+            Interactable other = collision.GetComponent<Interactable>();
+            if(other != null)
+            {
+                interactablesInRange.Insert(0, collision.GetComponent<Interactable>());
+            }
+            else
+            {
+                Debug.LogWarning("Object " + collision.name + " has the interactable tag but no Interactable component! Please fix!");
+            }
+        }
+    }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Interactable")
+        {
+            Interactable other = collision.GetComponent<Interactable>();
+            if (other != null)
+            {
+                if (interactablesInRange.Contains(other))
+                {
+                    interactablesInRange.Remove(collision.GetComponent<Interactable>());
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Object " + collision.name + " has the interactable tag but no Interactable component! Please fix!");
+            }
+        }
     }
 
     private void UpdatePlayerDirection(Vector3 movement)
@@ -66,40 +114,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    Vector3 CheckForWalls(Vector3 movement)
-    {
-        RaycastHit2D hitDown = Physics2D.Raycast(feetCollider.bounds.center + new Vector3(0, -feetCollider.bounds.extents.y, 0), new Vector2(0, -1), FeetRayLength, WallsLayer);
-        RaycastHit2D hitUp = Physics2D.Raycast(feetCollider.bounds.center + new Vector3(0, feetCollider.bounds.extents.y, 0), new Vector2(0, 1), FeetRayLength, WallsLayer);
-        RaycastHit2D hitLeft = Physics2D.Raycast(feetCollider.bounds.center + new Vector3(-feetCollider.bounds.extents.x, 0, 0), new Vector2(-1, 0), FeetRayLength, WallsLayer);
-        RaycastHit2D hitRight = Physics2D.Raycast(feetCollider.bounds.center + new Vector3(feetCollider.bounds.extents.x, 0, 0), new Vector2(1, 0), FeetRayLength, WallsLayer);
-
-        //Debug.DrawRay(feetCollider.bounds.center + new Vector3(0, -feetCollider.bounds.extents.y , 0), new Vector2(0, -FeetRayLength), Color.green);
-        //Debug.DrawRay(feetCollider.bounds.center + new Vector3(0, feetCollider.bounds.extents.y, 0), new Vector2(0, FeetRayLength), Color.green);
-        //Debug.DrawRay(feetCollider.bounds.center + new Vector3(-feetCollider.bounds.extents.x , 0, 0), new Vector2(-FeetRayLength, 0), Color.green);
-        //Debug.DrawRay(feetCollider.bounds.center + new Vector3(feetCollider.bounds.extents.x , 0, 0), new Vector2(FeetRayLength, 0), Color.green);
-
-        // If it hits something...
-        if (hitUp.collider != null)
-        {
-            movement.y = Mathf.Clamp(movement.y, movement.y, 0);
-        }
-        if (hitDown.collider != null)
-        {
-            movement.y = Mathf.Clamp(movement.y, 0, movement.y);
-        }
-        if (hitLeft.collider != null)
-        {
-            movement.x = Mathf.Clamp(movement.x, 0, movement.x);
-        }
-        if (hitRight.collider != null)
-        {
-            movement.x = Mathf.Clamp(movement.x, movement.x, 0);
-        }
-
-        return movement;
-    }
-
+    
     void UpdateSprite()
     {
         if((int)movingDirection < sprites.Length)
