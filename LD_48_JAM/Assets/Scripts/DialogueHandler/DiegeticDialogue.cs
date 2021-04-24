@@ -5,6 +5,8 @@ using TMPro;
 
 public class DiegeticDialogue : MonoBehaviour
 {
+    public float DistanceToAboveHead;
+
     public Transform Character;
 
     public TMP_Text dialogueText;
@@ -24,7 +26,7 @@ public class DiegeticDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Camera.main.WorldToScreenPoint(Character.position);
+        transform.position = Camera.main.WorldToScreenPoint(Character.position) + new Vector3(0,DistanceToAboveHead);
 
         timer += Time.deltaTime;
         if (timer > currentDialogue.ShowTime)
