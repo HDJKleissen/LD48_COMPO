@@ -4,19 +4,31 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
-    public float MoveSpeed;
+    public float MoveSpeed, ViewDistance;
     
     public NPCAnimationController animationController;
     public CircleCollider2D NPCCollider;
     
     Vector2 Destination;
+    public int LookDirection;
+
+    PlayerController player;
 
     bool waitingForDestination = true;
+
+    public Vector3[] lookCones = new Vector3[]
+    {
+        new Vector3(1,-1),
+        new Vector3(1,1),
+        new Vector3(-1,1),
+        new Vector3(-1,-1),
+    };
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(ChooseRandomPosition());
+        player = GameManager.Instance.Player;
     }
 
     // Update is called once per frame
@@ -33,10 +45,13 @@ public class NPCController : MonoBehaviour
             movement.Normalize();
             //Debug.Log(movement);
             Debug.DrawRay(transform.position, movement);
+
+            float angle = Mathf.Atan2(0 - movement.x, 1 - movement.y);
+            LookDirection = Mathf.FloorToInt((((angle * Mathf.Rad2Deg) / 90) + 1) * 2);
         }
         else if (!waitingForDestination)
         {
-            Debug.Log("Delaying random pos chooose");
+            //Debug.Log("Delaying random pos choose");
             StartCoroutine("ChooseRandomPosition");
             waitingForDestination = true;
         }
@@ -45,6 +60,22 @@ public class NPCController : MonoBehaviour
 
         transform.position += movement * MoveSpeed * Time.fixedDeltaTime;
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
+
+
+        Debug.DrawRay(transform.position, (Quaternion.AngleAxis(-33, Vector3.forward) * lookCones[LookDirection]).normalized * ViewDistance, Color.red);
+        Debug.DrawRay(transform.position, (Quaternion.AngleAxis(33, Vector3.forward) * lookCones[LookDirection]).normalized * ViewDistance, Color.red);
+        Debug.DrawRay(transform.position, lookCones[LookDirection].normalized * ViewDistance, Color.red);
+
+        //Debug.Log(Vector3.Dot((player.transform.position - transform.position).normalized, LookDirection.normalized));
+
+        if (Vector3.Dot((player.transform.position - transform.position).normalized, lookCones[LookDirection].normalized) > 0.66f && Vector3.Distance(transform.position, player.transform.position) < ViewDistance)
+        {
+            animationController.ColorSprite(Color.red);
+        }
+        else
+        {
+            animationController.ColorSprite(Color.white);
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)

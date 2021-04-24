@@ -25,4 +25,9 @@ public class NPCAnimationController : MonoBehaviour
             spriteRenderer.flipX = false;
         }
     }
+
+    internal void ColorSprite(Color color)
+    {
+        spriteRenderer.color = color;
+    }
 }
