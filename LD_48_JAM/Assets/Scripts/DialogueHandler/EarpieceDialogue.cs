@@ -94,7 +94,7 @@ public class EarpieceDialogue : MonoBehaviour
             char currentLetter = currentDialogue[Mathf.Clamp(displayIndex - 1, 0, currentDialogue.Length)];
             if (Char.IsLetter(currentLetter))
             {
-                FMODUnity.RuntimeManager.PlayOneShot("event:/" + currentLetter);
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Alphabet/" + currentLetter);
             }
 
             switch (currentLetter)
