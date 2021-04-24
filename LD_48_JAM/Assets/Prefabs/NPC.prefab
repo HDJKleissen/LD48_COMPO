@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 1066810117746439442}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 43da715dbbf5403429fcb2a602d84b98, type: 2}
+  m_Controller: {fileID: 9100000, guid: 69557681cb2ef74438cf722b12e10dd5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -219,8 +219,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 0.8
-  WallsLayer:
-    serializedVersion: 2
-    m_Bits: 64
+  ViewDistance: 5
   animationController: {fileID: 1066810117746439443}
   NPCCollider: {fileID: 1066810117912845366}
+  LookDirection: 0
+  lookCones:
+  - {x: 1, y: 1, z: 0}
+  - {x: 1, y: -1, z: 0}
+  - {x: -1, y: -1, z: 0}
+  - {x: -1, y: 1, z: 0}
