@@ -49,7 +49,8 @@ public class EarpieceDialogue : MonoBehaviour
                     gameObject.SetActive(false);
                 }, 1));
             }
-            
+
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Radio_Static");
             StartCoroutine("PlayText");
         }
     }
@@ -83,6 +84,7 @@ public class EarpieceDialogue : MonoBehaviour
             currentDialogue = dialogueQueue.Dequeue();
         }
 
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Radio_Static");
         StartCoroutine("PlayText");
     }
 
