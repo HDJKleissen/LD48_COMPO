@@ -394,7 +394,7 @@ MonoBehaviour:
   HasSourceProject: 1
   HasPlatforms: 1
   sourceProjectPath: ../LD48_JAM_FMOD/LD48_JAM_FMOD.fspro
-  sourceBankPath: ..\LD48_JAM_FMOD\Build
+  sourceBankPath: ../LD48_JAM_FMOD/Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0
@@ -417,6 +417,7 @@ MonoBehaviour:
   - Master
   Banks:
   - Music_Bank
+  - SFX_Bank
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
