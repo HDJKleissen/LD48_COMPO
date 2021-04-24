@@ -35,7 +35,7 @@ public class NPCController : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 movement = Vector3.zero;
-        if (!waitingForDestination && Vector2.Distance(new Vector2(transform.position.x, transform.position.y), Destination) > 0.05f)
+        if (!waitingForDestination && Vector2.Distance(new Vector2(transform.position.x, transform.position.y), Destination) > 0.5f)
         {
             //Debug.Log("movement");
             movement = new Vector3(Destination.x, Destination.y, 0) - transform.position;
