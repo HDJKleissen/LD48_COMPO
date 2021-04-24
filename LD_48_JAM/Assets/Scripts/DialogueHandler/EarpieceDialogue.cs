@@ -90,7 +90,6 @@ public class EarpieceDialogue : MonoBehaviour
     {
         while (!CurrentDialogueIsDone)
         {
-            Debug.Log(displayIndex);
             dialogueText.text = currentDialogue.Insert(displayIndex, colorEndTag);
 
             switch (currentDialogue[Mathf.Clamp(displayIndex - 1, 0, currentDialogue.Length)])
