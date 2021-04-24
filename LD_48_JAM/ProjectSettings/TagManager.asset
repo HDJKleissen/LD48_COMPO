@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Walls
   - Interactable
+  - Tilemap
   layers:
   - Default
   - TransparentFX
