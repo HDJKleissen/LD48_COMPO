@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2959473316918222823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Background_Music
+  m_EditorClassIdentifier: 
+  Path: event:/Background_Music
+  guid: 065af8290fc1224ab86652649c75b3e9
+  Banks:
+  - {fileID: 557905556452192838}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 96000
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,14 +38,35 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: 3928816666632647206}
   - {fileID: 2164951207737434564}
-  EditorEvents: []
+  - {fileID: 557905556452192838}
+  EditorEvents:
+  - {fileID: -2959473316918222823}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2164951207737434564}
   StringsBanks:
   - {fileID: 3928816666632647206}
-  stringsBankWriteTime: 637547856390000000
+  stringsBankWriteTime: 637548770920000000
   cacheVersion: 6
+--- !u!114 &557905556452192838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music_Bank.bank
+  m_EditorClassIdentifier: 
+  Path: ../LD48_JAM_FMOD/Build/Desktop/Music_Bank.bank
+  Name: Music_Bank
+  StudioPath: bank:/Music_Bank
+  lastModified: 637548770920000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &2164951207737434564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,7 +82,7 @@ MonoBehaviour:
   Path: ../LD48_JAM_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637547856390000000
+  lastModified: 637548770920000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -57,7 +101,7 @@ MonoBehaviour:
   Path: ../LD48_JAM_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637547856390000000
+  lastModified: 637548770920000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
