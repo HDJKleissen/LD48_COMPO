@@ -242,7 +242,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &438297472
 GameObject:
@@ -1653,7 +1653,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438b6bfa1ca61eb46b8f1d2d4f7ff083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerchar: {fileID: 438297476}
+  Canvas: {fileID: 1923813789}
   earpieceDialogue: {fileID: 1793207134}
+  DiegeticDialogueBoxPrefab: {fileID: 8989278502168712807, guid: 339ae3ed2abcf4b489b3fbb5122d494b, type: 3}
 --- !u!4 &1152949031
 Transform:
   m_ObjectHideFlags: 0
@@ -1667,7 +1670,7 @@ Transform:
   m_Children:
   - {fileID: 1923813789}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1156416207
 PrefabInstance:
@@ -1676,31 +1679,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1923813789}
     m_Modifications:
-    - target: {fileID: 4520775196041888302, guid: ef46ad432bbfb01488ea05912ecc5b62, type: 3}
-      propertyPath: m_text
-      value: Hey, it's your buddy Dieper here. Thank god we remembered about the
-        thing in the place, else we never would have made it out of there alive.
-        Good luck Deaper, you'll need it.
-      objectReference: {fileID: 0}
-    - target: {fileID: 4520775196041888302, guid: ef46ad432bbfb01488ea05912ecc5b62, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4520775196041888302, guid: ef46ad432bbfb01488ea05912ecc5b62, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4520775196041888302, guid: ef46ad432bbfb01488ea05912ecc5b62, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4520775196041888302, guid: ef46ad432bbfb01488ea05912ecc5b62, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278190080
-      objectReference: {fileID: 0}
     - target: {fileID: 4520775197235893664, guid: ef46ad432bbfb01488ea05912ecc5b62, type: 3}
       propertyPath: m_Name
       value: EarpieceDialogueBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520775197235893664, guid: ef46ad432bbfb01488ea05912ecc5b62, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4520775197235893665, guid: ef46ad432bbfb01488ea05912ecc5b62, type: 3}
       propertyPath: m_Pivot.x
@@ -3488,27 +3473,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1793207133 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4520775197235893664, guid: ef46ad432bbfb01488ea05912ecc5b62, type: 3}
+--- !u!114 &1793207134 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1793207134, guid: ef46ad432bbfb01488ea05912ecc5b62, type: 3}
   m_PrefabInstance: {fileID: 1156416207}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1793207134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793207133}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 941274fa827186c4fbdc01f4e78ab3c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBetweenChars: 0.05
-  TimeAfterPeriods: 1
-  TimeAfterCommas: 0.5
-  dialogueText: {fileID: 2063968116}
 --- !u!1 &1923813788
 GameObject:
   m_ObjectHideFlags: 0
@@ -3609,17 +3584,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &2063968116 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4520775196041888302, guid: ef46ad432bbfb01488ea05912ecc5b62, type: 3}
-  m_PrefabInstance: {fileID: 1156416207}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &843480351196389155
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -63,7 +63,7 @@ MonoBehaviour:
   threadAffinities:
     Value: []
     HasValue: 0
---- !u!114 &-9061031128735751437
+--- !u!114 &-8078069148533814895
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -394,7 +394,7 @@ MonoBehaviour:
   HasSourceProject: 1
   HasPlatforms: 1
   sourceProjectPath: ../LD48_JAM_FMOD/LD48_JAM_FMOD.fspro
-  sourceBankPath: ../LD48_JAM_FMOD/Build
+  sourceBankPath: ..\LD48_JAM_FMOD\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0

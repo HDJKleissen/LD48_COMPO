@@ -46,7 +46,7 @@ MonoBehaviour:
   - {fileID: 2164951207737434564}
   StringsBanks:
   - {fileID: 3928816666632647206}
-  stringsBankWriteTime: 637548770920000000
+  stringsBankWriteTime: 637548778283261768
   cacheVersion: 6
 --- !u!114 &557905556452192838
 MonoBehaviour:
@@ -63,7 +63,7 @@ MonoBehaviour:
   Path: ../LD48_JAM_FMOD/Build/Desktop/Music_Bank.bank
   Name: Music_Bank
   StudioPath: bank:/Music_Bank
-  lastModified: 637548770920000000
+  lastModified: 637548778283341541
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -82,7 +82,7 @@ MonoBehaviour:
   Path: ../LD48_JAM_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637548770920000000
+  lastModified: 637548564798576574
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -101,7 +101,9 @@ MonoBehaviour:
   Path: ../LD48_JAM_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637548770920000000
+  lastModified: 637548778283261768
   LoadResult: 0
-  FileSizes: []
+  FileSizes:
+  - Name: Desktop
+    Value: 806
   Exists: 1

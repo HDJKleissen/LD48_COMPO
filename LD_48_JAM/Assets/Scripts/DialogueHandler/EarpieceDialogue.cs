@@ -6,7 +6,7 @@ using TMPro;
 
 public class EarpieceDialogue : MonoBehaviour
 {
-    public float TimeBetweenChars, TimeAfterPeriods, TimeAfterCommas;
+    public float TimeBetweenChars, TimeAfterCommas, TimeAfterSentences;
 
     public TMP_Text dialogueText;
 
@@ -95,7 +95,9 @@ public class EarpieceDialogue : MonoBehaviour
             switch (currentDialogue[Mathf.Clamp(displayIndex - 1, 0, currentDialogue.Length)])
             {
                 case '.':
-                    yield return new WaitForSeconds(TimeAfterPeriods);
+                case '!':
+                case '?':
+                    yield return new WaitForSeconds(TimeAfterSentences);
                     break;
                 case ',':
                     yield return new WaitForSeconds(TimeAfterCommas);

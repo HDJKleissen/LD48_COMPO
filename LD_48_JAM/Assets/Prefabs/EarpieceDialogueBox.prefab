@@ -65,9 +65,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hey, it's your buddy Dieper here. Thank god we remembered about the thing
-    in the place, else we never would have made it out of there alive. Good luck
-    Deaper, you'll need it.
+  m_text: 'Lorem ipsum i dont actually feel like looking up lorem ipsum. Lorem ipsum
+    i dont actually feel like looking up lorem ipsum. Lorem ipsum i dont actually
+    feel like looking up lorem ipsum. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d8b44d7509f4e964781951dec633ab8e, type: 2}
   m_sharedMaterial: {fileID: -2781603614652206201, guid: d8b44d7509f4e964781951dec633ab8e, type: 2}
@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 4520775197235893665}
   - component: {fileID: 4520775197235893671}
   - component: {fileID: 4520775197235893670}
+  - component: {fileID: 1793207134}
   m_Layer: 5
   m_Name: EarpieceDialogueBox
   m_TagString: Untagged
@@ -288,3 +289,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1793207134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4520775197235893664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 941274fa827186c4fbdc01f4e78ab3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeBetweenChars: 0.035
+  TimeAfterCommas: 0.3
+  TimeAfterSentences: 0.7
+  dialogueText: {fileID: 4520775196041888302}
