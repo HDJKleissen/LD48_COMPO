@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8094966504745624118}
+  - component: {fileID: 4921462090638870143}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -31,6 +32,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4921462090638870143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226971992826249404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4726af307844b643ac7a2a67c60c616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 0}
 --- !u!1 &4921462090710607718
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,7 +59,6 @@ GameObject:
   - component: {fileID: 4921462090710607708}
   - component: {fileID: 4921462090710607715}
   - component: {fileID: 4921462090710607714}
-  - component: {fileID: 4921462090710607709}
   m_Layer: 6
   m_Name: Door
   m_TagString: Interactable
@@ -61,7 +74,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4921462090710607718}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.2529106, y: 93.67737, z: -0.44164503}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8094966504745624118}
@@ -144,9 +157,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.003674984, y: 0.2518375}
-      - {x: -0.50261235, y: -0.0062871575}
-      - {x: -0.45440808, y: -0.027185082}
+    - - {x: 0.00027096272, y: 0.24996835}
+      - {x: -0.49967933, y: -0.00012785196}
+      - {x: -0.4497153, y: -0.025425315}
       - {x: 0.049753755, y: 0.2257151}
 --- !u!60 &4921462090710607708
 PolygonCollider2D:
@@ -173,10 +186,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.022034764, y: 0.24223238}
+    - - {x: -0.017673373, y: 0.24098629}
       - {x: 0.47910213, y: -0.013182372}
       - {x: 0.4973879, y: -0.001549542}
-      - {x: -0.003674984, y: 0.2518375}
+      - {x: -0.00014436245, y: 0.250176}
 --- !u!114 &4921462090710607715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,16 +208,15 @@ MonoBehaviour:
       - m_Target: {fileID: 4921462090710607714}
         m_TargetAssemblyTypeName: Door, Assembly-CSharp
         m_MethodName: ToggleDoor
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: ToggleOpen
           m_BoolArgument: 0
         m_CallState: 2
-  CanInteract: 1
 --- !u!114 &4921462090710607714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,17 +233,5 @@ MonoBehaviour:
   OpenSprite: {fileID: 3499016228068214713, guid: 76f282e9cf03a044eb97efebee5f10cb, type: 3}
   OpenCollider: {fileID: 4921462090710607708}
   ClosedCollider: {fileID: 4921462090710607713}
-  Closed: 1
---- !u!114 &4921462090710607709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4921462090710607718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4726af307844b643ac7a2a67c60c616, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tilemap: {fileID: 0}
+  Open: 0
+  Locked: 0

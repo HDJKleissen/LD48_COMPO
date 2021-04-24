@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
             {
                 Interactable interactable = interactablesInRange[0];
 
-                bool success = interactable.Interact();
+                interactable.Interact();
 
                 // Can do dialogue or something like that ("Hmm... This door is locked.")
             }

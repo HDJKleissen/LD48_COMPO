@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Interactable: MonoBehaviour
+public class Interactable : MonoBehaviour
 {
     public UnityEvent OnInteract;
-    public bool CanInteract;
 
     void Awake()
     {
@@ -14,18 +13,9 @@ public class Interactable: MonoBehaviour
             OnInteract = new UnityEvent();
     }
 
-    public void ToggleCanInteract()
-    {
-        CanInteract = !CanInteract;
-    }
 
-    public bool Interact()
+    public void Interact()
     {
-        if (CanInteract)
-        {
-            OnInteract.Invoke();
-        }
-
-        return CanInteract;
+        OnInteract.Invoke();
     }
 }

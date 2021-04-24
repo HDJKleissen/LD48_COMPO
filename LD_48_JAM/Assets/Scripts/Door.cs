@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,10 +7,10 @@ public class Door : MonoBehaviour
     public Sprite ClosedSprite, OpenSprite;
     public PolygonCollider2D OpenCollider, ClosedCollider;
 
-    public bool Closed;
+    public bool Open, Locked;
 
     SpriteRenderer spriteRenderer;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,20 +25,43 @@ public class Door : MonoBehaviour
         
     }
 
-    public void ToggleDoor()
+    public void ToggleDoor(string interactionTypeString)
     {
-        Closed = !Closed;
+        DoorInteraction interactionType = (DoorInteraction)Enum.Parse(typeof(DoorInteraction), interactionTypeString);
+        switch (interactionType)
+        {
+            case DoorInteraction.ToggleOpen:
+                if (Locked)
+                {
+                    // Some dialogue probably
+                }
+                else
+                {
+                    Open = !Open;
+                }
+                break;
+            case DoorInteraction.ToggleLocked:
+                Locked = !Locked;
+                break;
+        }
         UpdateSprite();
         UpdateCollider();
     }
 
     void UpdateSprite()
     {
-        spriteRenderer.sprite = Closed ? ClosedSprite : OpenSprite;
+        spriteRenderer.sprite = Open ? OpenSprite : ClosedSprite;
     }
     void UpdateCollider()
     {
-        OpenCollider.enabled = !Closed;
-        ClosedCollider.enabled = Closed;
+        OpenCollider.enabled = Open;
+        ClosedCollider.enabled = !Open;
     }
+}
+
+[Serializable]
+public enum DoorInteraction
+{
+    ToggleOpen,
+    ToggleLocked
 }
