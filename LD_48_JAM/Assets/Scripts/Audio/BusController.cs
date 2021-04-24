@@ -3,20 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMOD.Studio;
 using FMODUnity;
+using UnityEngine.UI;
 
 public class BusController : MonoBehaviour
 {
-    Bus Bus;
-    public string BusPath;
+    Bus bus;
+    public string busPath;
+    private float busVolume;
+    private Slider slider;
+    EventInstance levelTest;
+    PLAYBACK_STATE pb;
 
     // Start is called before the first frame update
     void Start()
     {
-        Bus = RuntimeManager.GetBus("bus:/"+ BusPath);
+        bus = RuntimeManager.GetBus("bus:/"+ busPath);
+        bus.getVolume(out busVolume);
+
+        slider = GetComponent<Slider>();
+        slider.value = busVolume;
+
+        if (busPath == "SFX")
+        {
+            levelTest = RuntimeManager.CreateInstance("event:/LevelTest");
+        }
+        else
+            levelTest.release();
     }
 
     public void VolumeLevel(float sliderValue)
     {
-        Bus.setVolume(sliderValue);
+        bus.setVolume(sliderValue);
+        if(busPath == "SFX")
+        {
+            levelTest.getPlaybackState(out pb);
+            if(pb != PLAYBACK_STATE.PLAYING)
+            {
+                levelTest.start();
+            }
+        }
     }
+ 
 }
