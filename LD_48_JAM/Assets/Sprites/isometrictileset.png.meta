@@ -17,6 +17,9 @@ TextureImporter:
   - first:
       213: 5000949732524379515
     second: isometrictileset_4
+  - first:
+      213: 1430257286303847182
+    second: isometrictileset_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -206,6 +209,27 @@ TextureImporter:
       bones: []
       spriteID: b7d43ba1941f66540800000000000000
       internalID: 5000949732524379515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: isometrictileset_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e031e8f8c6b49d310800000000000000
+      internalID: 1430257286303847182
       vertices: []
       indices: 
       edges: []
