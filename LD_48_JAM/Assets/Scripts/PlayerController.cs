@@ -37,13 +37,9 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized * MoveSpeed * Time.deltaTime;
 
-        UpdatePlayerDirection(movement);
-
         animationController.UpdateAnimator(movement);
 
         transform.position += movement;
-
-        UpdateSprite();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -79,22 +75,4 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    private void UpdatePlayerDirection(Vector3 movement)
-    {
-    }
-    
-    void UpdateSprite()
-    {
-        //if((int)movingDirection < sprites.Length)
-        //{
-        //    spriteRenderer.sprite = sprites[(int)movingDirection];
-        //}
-        //else
-        //{
-        //    spriteRenderer.sprite = sprites[1];
-        //}
-        
-    }
-
 }
