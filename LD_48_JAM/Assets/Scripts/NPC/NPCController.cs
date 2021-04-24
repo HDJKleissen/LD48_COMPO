@@ -5,9 +5,7 @@ using UnityEngine;
 public class NPCController : MonoBehaviour
 {
     public float MoveSpeed;
-
-    public LayerMask WallsLayer;
-
+    
     public NPCAnimationController animationController;
     public CircleCollider2D NPCCollider;
     
