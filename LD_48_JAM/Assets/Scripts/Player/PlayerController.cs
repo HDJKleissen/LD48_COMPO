@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public LayerMask WallsLayer;
-
     public float MoveSpeed;
     public PlayerAnimationController animationController;
 
@@ -35,11 +33,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized * MoveSpeed * Time.deltaTime;
+        Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized * MoveSpeed * Time.fixedDeltaTime;
 
         animationController.UpdateAnimator(movement);
 
         transform.position += movement;
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
