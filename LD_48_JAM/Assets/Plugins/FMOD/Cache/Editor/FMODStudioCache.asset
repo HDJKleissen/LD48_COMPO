@@ -21,7 +21,7 @@ MonoBehaviour:
   - {fileID: 2164951207737434564}
   StringsBanks:
   - {fileID: 3928816666632647206}
-  stringsBankWriteTime: 637548564798586551
+  stringsBankWriteTime: 637547856390000000
   cacheVersion: 6
 --- !u!114 &2164951207737434564
 MonoBehaviour:
@@ -38,7 +38,7 @@ MonoBehaviour:
   Path: ../LD48_JAM_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637548564798576574
+  lastModified: 637547856390000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -57,9 +57,7 @@ MonoBehaviour:
   Path: ../LD48_JAM_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637548564798586551
+  lastModified: 637547856390000000
   LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 700
+  FileSizes: []
   Exists: 1
