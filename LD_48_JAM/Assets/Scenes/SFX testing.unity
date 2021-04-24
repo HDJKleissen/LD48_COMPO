@@ -911,7 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa070062c114421fb81f23577960081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BusPath: Music
+  busPath: Music
 --- !u!1 &573080978
 GameObject:
   m_ObjectHideFlags: 0
@@ -4661,7 +4661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa070062c114421fb81f23577960081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BusPath: SFX
+  busPath: SFX
 --- !u!1 &1923813788
 GameObject:
   m_ObjectHideFlags: 0
