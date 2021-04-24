@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         animationController.UpdateAnimator(movement);
 
         transform.position += movement;
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
+        //transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
     }
 
     void OnTriggerEnter2D(Collider2D collision)

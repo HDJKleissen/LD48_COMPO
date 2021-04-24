@@ -59,7 +59,7 @@ public class NPCController : MonoBehaviour
         animationController.UpdateAnimator(movement);
 
         transform.position += movement * MoveSpeed * Time.fixedDeltaTime;
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
+        //transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
 
 
         Debug.DrawRay(transform.position, (Quaternion.AngleAxis(-33, Vector3.forward) * lookCones[LookDirection]).normalized * ViewDistance, Color.red);
@@ -93,7 +93,7 @@ public class NPCController : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(1.5f, 4));
         do
         {
-            Destination = transform.position + new Vector3(Random.Range(0.25f, 0.75f) * (Random.Range(0, 2) * 2 - 1), Random.Range(0.25f, 0.75f) * (Random.Range(0, 2) * 2 - 1), 0);
+            Destination = transform.position + new Vector3(Random.Range(2.5f, 7.5f) * (Random.Range(0, 2) * 2 - 1), Random.Range(2.5f, 7.5f) * (Random.Range(0, 2) * 2 - 1), 0);
             //Debug.Log("Position: " + transform.position);
             //Debug.Log("Destination: " + Destination);
             //Debug.DrawRay(NPCCollider.bounds.center, Destination - new Vector2(transform.position.x, transform.position.y), Color.green, 1f);
