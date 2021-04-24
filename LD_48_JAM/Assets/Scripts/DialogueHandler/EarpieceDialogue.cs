@@ -92,7 +92,10 @@ public class EarpieceDialogue : MonoBehaviour
         {
             dialogueText.text = currentDialogue.Insert(displayIndex, colorEndTag);
             char currentLetter = currentDialogue[Mathf.Clamp(displayIndex - 1, 0, currentDialogue.Length)];
-            FMODUnity.RuntimeManager.PlayOneShot("event:/" + currentLetter);
+            if (Char.IsLetter(currentLetter))
+            {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/" + currentLetter);
+            }
 
             switch (currentLetter)
             {
