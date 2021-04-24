@@ -8,23 +8,15 @@ public class PlayerController : MonoBehaviour
     public LayerMask WallsLayer;
 
     public float MoveSpeed;
-    public float FeetRayLength;
-    public Transform FeetPosition;
+    public PlayerAnimationController animationController;
 
     public Sprite[] sprites;
-
-    SpriteRenderer spriteRenderer;
-    CircleCollider2D feetCollider;
-
-    PlayerDirection movingDirection = PlayerDirection.None;
 
     public List<Interactable> interactablesInRange = new List<Interactable>();
 
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        feetCollider = GetComponent<CircleCollider2D>();
     }
 
     void Update()
@@ -36,8 +28,6 @@ public class PlayerController : MonoBehaviour
                 Interactable interactable = interactablesInRange[0];
 
                 interactable.Interact();
-
-                // Can do dialogue or something like that ("Hmm... This door is locked.")
             }
         }
     }
@@ -48,6 +38,8 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized * MoveSpeed * Time.deltaTime;
 
         UpdatePlayerDirection(movement);
+
+        animationController.UpdateAnimator(movement);
 
         transform.position += movement;
 
@@ -90,49 +82,19 @@ public class PlayerController : MonoBehaviour
 
     private void UpdatePlayerDirection(Vector3 movement)
     {
-        if (Input.GetButton("Vertical"))
-        {
-            if (movement.y < 0)
-            {
-                movingDirection = PlayerDirection.Down;
-            }
-            else
-            {
-
-                movingDirection = PlayerDirection.Up;
-            }
-        }
-        else if (Input.GetButton("Horizontal"))
-        {
-            if (movement.x < 0)
-            {
-                movingDirection = PlayerDirection.Left;
-            }
-            else
-            {
-                movingDirection = PlayerDirection.Right;
-            }
-        }
     }
     
     void UpdateSprite()
     {
-        if((int)movingDirection < sprites.Length)
-        {
-            spriteRenderer.sprite = sprites[(int)movingDirection];
-        }
-        else
-        {
-            spriteRenderer.sprite = sprites[1];
-        }
+        //if((int)movingDirection < sprites.Length)
+        //{
+        //    spriteRenderer.sprite = sprites[(int)movingDirection];
+        //}
+        //else
+        //{
+        //    spriteRenderer.sprite = sprites[1];
+        //}
         
     }
 
-    enum PlayerDirection {
-        Up,
-        Down,
-        Left,
-        Right,
-        None
-    }
 }
