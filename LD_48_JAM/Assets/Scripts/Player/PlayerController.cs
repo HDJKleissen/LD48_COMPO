@@ -89,7 +89,8 @@ public class PlayerController : MonoBehaviour
     {
         Disguise = disguise;
         animationController.ChangeDisguise(disguise);
-        // Play whoosh sound
+        //needs wrapping in an if statement to check that the new disguise is not the same as the previous one
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/ClothesSwap", gameObject);
     }
 }
 
