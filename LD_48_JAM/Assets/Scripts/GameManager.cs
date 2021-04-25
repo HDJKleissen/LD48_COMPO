@@ -8,10 +8,12 @@ public class GameManager : UnitySingleton<GameManager>
     public PlayerController Player;
     public AreaDescriber areaDescriber;
     public Suspiciometer suspiciometer;
-
+    public SpriteRenderer LightsOffOverlay;
     public float SuspicionLostPerSecond;
     public float PanicThreshold;
+
     float suspicionAmount;
+    bool lightsOn;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +52,22 @@ public class GameManager : UnitySingleton<GameManager>
             // Stop all sounds here, or they (for example camera beeping) continues into end screen
             Player.transform.position = new Vector3(-20000,20000,20000);
             SceneManager.LoadScene("MainMenu");
+        }
+    }
+
+    public void ToggleLights()
+    {
+        if (lightsOn)
+        {
+            // Turn them off sequence
+            lightsOn = false;
+            LightsOffOverlay.gameObject.SetActive(true);
+        }
+        else
+        {
+            // Turn them on sequence
+            lightsOn = true;
+            LightsOffOverlay.gameObject.SetActive(false);
         }
     }
 }

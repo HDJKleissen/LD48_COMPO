@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
         animationController.UpdateAnimator(Velocity);
 
         transform.position += Velocity;
-        if (CurrentArea.FloorHeight != (int)transform.position.z)
+        if (CurrentArea?.FloorHeight != (int)transform.position.z)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, CurrentArea.FloorHeight);
         }

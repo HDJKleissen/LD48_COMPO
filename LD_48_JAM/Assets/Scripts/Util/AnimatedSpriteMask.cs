@@ -15,7 +15,7 @@ public class AnimatedSpriteMask : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         spriteMask.sprite = spriteRenderer.sprite;
         if (spriteRenderer.flipX)

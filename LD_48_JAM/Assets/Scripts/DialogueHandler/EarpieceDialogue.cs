@@ -95,8 +95,8 @@ public class EarpieceDialogue : MonoBehaviour
         while (!CurrentDialogueIsDone)
         {
             dialogueText.text = currentDialogue.Insert(displayIndex, colorEndTag);
-            char currentLetter = currentDialogue[Mathf.Clamp(displayIndex - 1, 0, currentDialogue.Length)];
-            char nextLetter = currentDialogue[Mathf.Clamp(displayIndex, 0, currentDialogue.Length)];
+            char currentLetter = currentDialogue[Mathf.Clamp(displayIndex - 1, 0, currentDialogue.Length - 1)];
+            char nextLetter = currentDialogue[Mathf.Clamp(displayIndex, 0, currentDialogue.Length - 1)];
             if (Char.IsLetter(currentLetter))
             {
                 if (playLetterSound)
