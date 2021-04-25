@@ -95,9 +95,6 @@
 		<property name="length">
 			<value>0.25390625</value>
 		</property>
-		<property name="pitch">
-			<value>6</value>
-		</property>
 		<relationship name="fadeOutCurve">
 			<destination>{cfb7995e-1610-40b5-9342-f5260599da04}</destination>
 		</relationship>
