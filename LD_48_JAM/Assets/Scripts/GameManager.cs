@@ -34,12 +34,13 @@ public class GameManager : UnitySingleton<GameManager>
 
     public void AddSuspicion(float amount)
     {
+        float addedAmount = amount;
         if(suspicionAmount > PanicThreshold)
         {
-            amount /= 2;
+            addedAmount = addedAmount / Mathf.Lerp(1,3, (suspicionAmount- PanicThreshold) * (1/(1-PanicThreshold)));
         }
 
-        suspicionAmount += amount;
+        suspicionAmount += addedAmount;
 
 
         if (suspicionAmount > 1)
