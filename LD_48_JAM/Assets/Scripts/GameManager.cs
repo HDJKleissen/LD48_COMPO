@@ -30,6 +30,7 @@ public class GameManager : UnitySingleton<GameManager>
     {
         if (suspicionLevelHoldTimer > SuspicionLevelHoldTime)
         {
+            suspiciometer.FillArea.transform.localScale = new Vector3(1, Mathf.Lerp(suspiciometer.FillArea.transform.localScale.y, 1, Time.deltaTime * (1 + 3 * (1 - suspicionAmount))), 1);
             if (suspicionAmount < PanicThreshold)
             {
                 musicSystemPlayer.panicForMusic = 0;
@@ -47,13 +48,13 @@ public class GameManager : UnitySingleton<GameManager>
         else
         {
             suspicionLevelHoldTimer += Time.deltaTime;
+            suspiciometer.FillArea.transform.localScale = new Vector3(1, 1 + Mathf.Abs(Mathf.Sin(suspicionLevelHoldTimer * (2 + 4 * suspicionAmount)) / (2 + 2 * (1 - suspicionAmount))), 1);
         }
 
-        if(suspicionAmount >= PanicThreshold)
+        if (suspicionAmount >= PanicThreshold)
         {
             musicSystemPlayer.panicForMusic = 1;
         }
-        
     }
 
     public void DescribeArea(Area area)
