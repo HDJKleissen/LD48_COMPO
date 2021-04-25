@@ -7,6 +7,8 @@ public class CameraCone : MonoBehaviour
     public OfficeCamera parentCamera;
     PlayerController player;
 
+    bool lookingAtPlayer = false;
+
     FMOD.Studio.EventInstance cameraSound;
 
     // Start is called before the first frame update
@@ -18,7 +20,10 @@ public class CameraCone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(lookingAtPlayer)
+        {
+            GameManager.Instance.AddSuspicion(0.4f * Time.deltaTime);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,6 +35,8 @@ public class CameraCone : MonoBehaviour
             cameraSound.start();
             FMODUnity.RuntimeManager.AttachInstanceToGameObject(cameraSound, GetComponent<Transform>(), GetComponent<Rigidbody>());
             cameraSound.release();
+            GameManager.Instance.AddSuspicion(0.2f);
+            lookingAtPlayer = true;
         }
     }
 
@@ -47,6 +54,7 @@ public class CameraCone : MonoBehaviour
         {
             parentCamera.SetPlayerSeen(false);
             cameraSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            lookingAtPlayer = false;
         }
     }
 
