@@ -95,5 +95,11 @@ public class PlayerController : MonoBehaviour
 
 public enum PlayerDisguise {
     None,
-    Cactus
+    Cactus,
+    Man,
+    ManBald,
+    ManTie,
+    Woman,
+    WomanBlack,
+    WomanDress
 }
