@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="EncodableAsset" id="{92c5c1bc-b5d0-451b-9df8-8bdec934fc8d}">
+		<property name="assetPath">
+			<value>NPC Barks/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a50f6f8d-deb4-4cc6-9be2-77a68d3a69ec}</destination>
+		</relationship>
+	</object>
+</objects>
