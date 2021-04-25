@@ -8,9 +8,11 @@ public class PlayerController : MonoBehaviour
     public float MoveSpeed;
     public Vector3 Velocity;
     public PlayerDisguise Disguise = PlayerDisguise.None;
+    public GameObject ClothesChangeCloudPrefab;
 
     public PlayerAnimationController animationController;
     public CircleCollider2D FeetCollider;
+    public Animator ClothesChangeCloudAnimator;
 
     public Area CurrentArea = null;
 
@@ -94,6 +96,7 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeDisguise(PlayerDisguise disguise)
     {
+        GameObject cloud = Instantiate(ClothesChangeCloudPrefab, transform);
         Disguise = disguise;
         animationController.ChangeDisguise(disguise);
         //needs wrapping in an if statement to check that the new disguise is not the same as the previous one
