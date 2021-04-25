@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{3ffdcc1d-dd11-46c9-a05a-a7a220fe85a8}">
 		<property name="name">
-			<value>H 2</value>
+			<value>H1</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>
@@ -30,6 +30,9 @@
 		</relationship>
 		<relationship name="timeline">
 			<destination>{c318b4cd-0feb-4122-9728-08d7e5f3e311}</destination>
+		</relationship>
+		<relationship name="banks">
+			<destination>{98b7dd9e-9dac-4b40-b5cc-7617a462a4f5}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{323d4839-14a4-408f-ac22-2a82c08f8251}">

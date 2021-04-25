@@ -95,9 +95,6 @@
 		<property name="length">
 			<value>0.265625</value>
 		</property>
-		<property name="pitch">
-			<value>6</value>
-		</property>
 		<relationship name="audioFile">
 			<destination>{87469a93-f628-4927-b59f-d783ab580905}</destination>
 		</relationship>
