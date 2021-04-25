@@ -9,25 +9,51 @@ public class GameManager : UnitySingleton<GameManager>
     public AreaDescriber areaDescriber;
     public Suspiciometer suspiciometer;
     public SpriteRenderer LightsOffOverlay;
-    public float SuspicionLostPerSecond;
+    public MusicSystemPlayer musicSystemPlayer;
+    public float SuspicionLevelHoldTime;
+    public float MaxSuspicionLostPerSecond;
     public float PanicThreshold;
     public bool LightsOn;
 
-    float suspicionAmount;
-    
+    public float suspicionAmount;
+    public float suspicionLossSpeed = 0;
+    float suspicionLevelHoldTimer = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        suspiciometer.UpdateSusValue(suspicionAmount);
     }
 
     // Update is called once per frame
     void Update()
     {
-        suspicionAmount -= SuspicionLostPerSecond * Time.deltaTime;
-        suspicionAmount = Mathf.Clamp01(suspicionAmount);
-        suspiciometer.UpdateSusValue(suspicionAmount);
+        if (suspicionLevelHoldTimer > SuspicionLevelHoldTime)
+        {
+            if (suspicionAmount < PanicThreshold)
+            {
+                musicSystemPlayer.panicForMusic = 0;
+            }
+            if (suspicionLossSpeed == 0)
+            {
+                suspicionLossSpeed = .01f;
+            }
+            suspicionLossSpeed += suspicionLossSpeed * Time.deltaTime;
+            suspicionLossSpeed = Mathf.Clamp(suspicionLossSpeed, 0, MaxSuspicionLostPerSecond);
+            suspicionAmount -= suspicionLossSpeed * Time.deltaTime;
+            suspicionAmount = Mathf.Clamp01(suspicionAmount);
+            suspiciometer.UpdateSusValue(suspicionAmount);
+        }
+        else
+        {
+            suspicionLevelHoldTimer += Time.deltaTime;
+        }
+
+        if(suspicionAmount >= PanicThreshold)
+        {
+            musicSystemPlayer.panicForMusic = 1;
+        }
+        
     }
 
     public void DescribeArea(Area area)
@@ -37,6 +63,8 @@ public class GameManager : UnitySingleton<GameManager>
 
     public void AddSuspicion(float amount)
     {
+        suspicionLevelHoldTimer = 0;
+        suspicionLossSpeed = 0;
         float addedAmount = amount;
         if(suspicionAmount > PanicThreshold)
         {
@@ -45,6 +73,7 @@ public class GameManager : UnitySingleton<GameManager>
 
         suspicionAmount += addedAmount;
 
+        suspiciometer.UpdateSusValue(suspicionAmount);
 
         if (suspicionAmount > 1)
         {
