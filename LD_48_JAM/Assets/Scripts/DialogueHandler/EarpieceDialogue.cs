@@ -18,6 +18,8 @@ public class EarpieceDialogue : MonoBehaviour
 
     int displayIndex = 0;
 
+    bool playLetterSound = true;
+
     bool CurrentDialogueIsDone {
         get {
             return displayIndex > currentDialogue.Length;
@@ -94,9 +96,14 @@ public class EarpieceDialogue : MonoBehaviour
         {
             dialogueText.text = currentDialogue.Insert(displayIndex, colorEndTag);
             char currentLetter = currentDialogue[Mathf.Clamp(displayIndex - 1, 0, currentDialogue.Length)];
+            char nextLetter = currentDialogue[Mathf.Clamp(displayIndex, 0, currentDialogue.Length)];
             if (Char.IsLetter(currentLetter))
             {
-                FMODUnity.RuntimeManager.PlayOneShot("event:/Alphabet/" + currentLetter);
+                if (playLetterSound)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Alphabet/" + currentLetter + (nextLetter == '?' ? "1" : ""));
+                }
+                playLetterSound = !playLetterSound;
             }
 
             switch (currentLetter)
