@@ -8,6 +8,7 @@ TagManager:
   - Interactable
   - Tilemap
   - NPC
+  - CameraCone
   layers:
   - Default
   - TransparentFX
