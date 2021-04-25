@@ -83,6 +83,7 @@ public class NPCController : MonoBehaviour
             {
                 if (RecognizePlayer())
                 {
+                    FMODUnity.RuntimeManager.PlayOneShotAttached("event:/NpcDetectedBark", gameObject);
                     animationController.ColorSprite(Color.red);
                     return;
                 }
