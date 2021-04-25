@@ -5,7 +5,7 @@
 			<value>K</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{e4a6f758-97a2-493b-8744-7b0c80c6f3be}</destination>
@@ -93,11 +93,14 @@
 	<object class="MixerBusPanner" id="{1423c317-fa19-44d5-a29d-9c5e0c049e5f}" />
 	<object class="SingleSound" id="{f967e672-e1a8-4df8-8d29-42762f0fb019}">
 		<property name="length">
-			<value>0.125</value>
+			<value>0.25</value>
 		</property>
-		<property name="startOffset">
-			<value>30</value>
+		<property name="pitch">
+			<value>6</value>
 		</property>
+		<relationship name="fadeInCurve">
+			<destination>{95fc2b3a-7aba-479c-83b5-3827e30c3840}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{deb6c665-1fe0-4a8d-bc57-ebd1f0681e97}</destination>
 		</relationship>
@@ -123,6 +126,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{ec59ae3e-90b8-4e56-8e3e-e7fd36d11d6f}" />
 	<object class="MixerBusFader" id="{63cc51ba-52c3-41c8-9fa7-5ee5f6fc13ce}" />
+	<object class="FadeCurve" id="{95fc2b3a-7aba-479c-83b5-3827e30c3840}">
+		<relationship name="startPoint">
+			<destination>{3cd01b8f-1fa7-418a-95ef-9af8b0375dc6}</destination>
+		</relationship>
+		<relationship name="endPoint">
+			<destination>{34e9a76d-16f5-45c6-a8f9-bdb54831bb3f}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{520142bf-a365-4ccf-9167-905cb3081829}">
 		<relationship name="effects">
 			<destination>{09c55c98-4834-477c-aee1-581c5420c1bf}</destination>
@@ -130,5 +141,24 @@
 	</object>
 	<object class="MixerBusPanner" id="{f9f59e43-ce92-46ea-a573-cf3bc48612e1}" />
 	<object class="MixerBusFader" id="{668d9e89-fad8-4273-89b5-65eaa7dca71a}" />
+	<object class="AutomationPoint" id="{3cd01b8f-1fa7-418a-95ef-9af8b0375dc6}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+		<property name="curveShape">
+			<value>-0.2547189</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{34e9a76d-16f5-45c6-a8f9-bdb54831bb3f}">
+		<property name="position">
+			<value>0.01</value>
+		</property>
+		<property name="value">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{09c55c98-4834-477c-aee1-581c5420c1bf}" />
 </objects>
