@@ -11,7 +11,9 @@ public class PlayerController : MonoBehaviour
 
     public PlayerAnimationController animationController;
     public CircleCollider2D FeetCollider;
-    
+
+    public Area CurrentArea = null;
+
     public List<Interactable> interactablesInRange = new List<Interactable>();
 
     // Start is called before the first frame update
@@ -48,6 +50,10 @@ public class PlayerController : MonoBehaviour
         animationController.UpdateAnimator(Velocity);
 
         transform.position += Velocity;
+        if (CurrentArea.FloorHeight != (int)transform.position.z)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, CurrentArea.FloorHeight);
+        }
         //transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
     }
 
@@ -56,7 +62,7 @@ public class PlayerController : MonoBehaviour
         if (collision.tag == "Interactable" && collision.isTrigger)
         {
             Interactable other = collision.GetComponent<Interactable>();
-            if(other != null)
+            if (other != null)
             {
                 interactablesInRange.Insert(0, collision.GetComponent<Interactable>());
             }
@@ -66,6 +72,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Interactable" && collision.isTrigger)
@@ -93,7 +100,8 @@ public class PlayerController : MonoBehaviour
     }
 }
 
-public enum PlayerDisguise {
+public enum PlayerDisguise
+{
     None,
     Cactus,
     Man,

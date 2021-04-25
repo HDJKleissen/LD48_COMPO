@@ -81,7 +81,7 @@ public class NPCController : MonoBehaviour
             //Debug.Log(rayHit.collider.name);
             if (rayHit.collider != null && rayHit.collider == player.FeetCollider)
             {
-                if (RecognizePlayer())
+                if (RecognizePlayer() && !player.CurrentArea.IsPlayerAllowed())
                 {
                     FMODUnity.RuntimeManager.PlayOneShotAttached("event:/NpcDetectedBark", gameObject);
                     animationController.ColorSprite(Color.red);

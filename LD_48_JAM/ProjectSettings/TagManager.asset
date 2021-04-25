@@ -9,6 +9,7 @@ TagManager:
   - Tilemap
   - NPC
   - CameraCone
+  - Area
   layers:
   - Default
   - TransparentFX

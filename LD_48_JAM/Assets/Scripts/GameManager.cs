@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : UnitySingleton<GameManager>
 {
     public PlayerController Player;
+    public AreaDescriber areaDescriber;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,5 +17,10 @@ public class GameManager : UnitySingleton<GameManager>
     void Update()
     {
         
+    }
+
+    public void DescribeArea(Area area)
+    {
+        areaDescriber.StartDescription(area.Name);
     }
 }

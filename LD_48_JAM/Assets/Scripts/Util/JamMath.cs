@@ -13,5 +13,4 @@ public static class JamMath
 
         return new Vector2((vector.x - vector.z) / sqrt2, (vector.x + (2 * vector.y) + vector.z) / sqrt6);
     }
-
 }
