@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public Sprite ClosedSprite, OpenSprite;
-    public PolygonCollider2D OpenCollider, ClosedCollider;
+    public PolygonCollider2D ClosedCollider;
+    public PolygonCollider2D[] OpenColliders = new PolygonCollider2D[2];
 
     public bool Open, Locked;
 
-    SpriteRenderer spriteRenderer;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        UpdateSprite();
         UpdateCollider();
+        UpdateAnimation();
     }
 
     // Update is called once per frame
@@ -44,18 +43,20 @@ public class Door : MonoBehaviour
                 Locked = !Locked;
                 break;
         }
-        UpdateSprite();
         UpdateCollider();
+        UpdateAnimation();
     }
 
-    void UpdateSprite()
-    {
-        spriteRenderer.sprite = Open ? OpenSprite : ClosedSprite;
-    }
     void UpdateCollider()
     {
-        OpenCollider.enabled = Open;
         ClosedCollider.enabled = !Open;
+        OpenColliders[0].enabled = Open;
+        OpenColliders[1].enabled = Open;
+    }
+
+    void UpdateAnimation()
+    {
+        animator.SetBool("DoorOpen", Open);
     }
 }
 

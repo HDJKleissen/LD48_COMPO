@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Interactable")
+        if (collision.tag == "Interactable" && collision.isTrigger)
         {
             Interactable other = collision.GetComponent<Interactable>();
             if(other != null)
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Interactable")
+        if (collision.tag == "Interactable" && collision.isTrigger)
         {
             Interactable other = collision.GetComponent<Interactable>();
             if (other != null)

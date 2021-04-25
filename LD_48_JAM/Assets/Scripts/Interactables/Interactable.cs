@@ -18,10 +18,16 @@ public class Interactable : MonoBehaviour
     {
         gameObject.tag = "Interactable";
 
-        if(!GetComponent<Collider2D>().isTrigger)
+        Collider2D[] colliders = GetComponents<Collider2D>();
+
+        foreach (Collider2D collider in colliders)
         {
-            Debug.LogError("Interactable object " + name + " does not have a trigger collider attached.");
+            if (collider.isTrigger)
+            {
+                return;
+            }
         }
+        Debug.LogError("Interactable object " + name + " does not have a trigger collider attached.");
     }
 
     public void Interact()
