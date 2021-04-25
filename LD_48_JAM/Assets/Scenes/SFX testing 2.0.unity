@@ -1358,6 +1358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 819069638}
   - component: {fileID: 819069637}
+  - component: {fileID: 819069639}
   m_Layer: 0
   m_Name: LDeskComputer
   m_TagString: Untagged
@@ -1431,6 +1432,29 @@ Transform:
   m_Father: {fileID: 1552013834}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &819069639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819069636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Computer_Loop
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &877351874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2001,6 +2025,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1431107775}
   - component: {fileID: 1431107774}
+  - component: {fileID: 1431107776}
   m_Layer: 0
   m_Name: DeskComputer
   m_TagString: Untagged
@@ -2074,6 +2099,29 @@ Transform:
   m_Father: {fileID: 1552013834}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1431107776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431107773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Computer_DialTone
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1431620903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6363,6 +6411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1970999024}
   - component: {fileID: 1970999025}
+  - component: {fileID: 1970999026}
   m_Layer: 0
   m_Name: LDeskComputer (1)
   m_TagString: Untagged
@@ -6436,6 +6485,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1970999026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970999023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Computer_Loop
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1986570741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16272,7 +16344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2360424825627047907, guid: 3964170eeed8c4ed3ada7528e017a006, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3964170eeed8c4ed3ada7528e017a006, type: 3}
