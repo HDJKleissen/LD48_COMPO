@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{4fc1a39c-abcc-4f7f-a864-bef00dc315a0}">
+		<property name="assetPath">
+			<value>Pizz_Footstep_02.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a50f6f8d-deb4-4cc6-9be2-77a68d3a69ec}</destination>
+		</relationship>
+	</object>
+</objects>
