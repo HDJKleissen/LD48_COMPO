@@ -7,6 +7,7 @@ TagManager:
   - Walls
   - Interactable
   - Tilemap
+  - NPC
   layers:
   - Default
   - TransparentFX

@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
-    public float MoveSpeed, ViewDistance;
-    
+    public float MoveSpeed, ViewDistance, WalkIntoWallTime;
+
     public NPCAnimationController animationController;
-    public CircleCollider2D NPCCollider;
-    
+    public CircleCollider2D FeetCollider;
+
     Vector2 Destination;
     public int LookDirection;
 
     PlayerController player;
 
     bool waitingForDestination = true;
+
+    Vector3 previousPosition;
+    public float walkIntoWallTimer = 0;
+
 
     public Vector3[] lookCones = new Vector3[]
     {
@@ -60,21 +64,50 @@ public class NPCController : MonoBehaviour
 
         transform.position += movement * MoveSpeed * Time.fixedDeltaTime;
         //transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
+        previousPosition = transform.position;
 
-
-        Debug.DrawRay(transform.position, (Quaternion.AngleAxis(-33, Vector3.forward) * lookCones[LookDirection]).normalized * ViewDistance, Color.red);
-        Debug.DrawRay(transform.position, (Quaternion.AngleAxis(33, Vector3.forward) * lookCones[LookDirection]).normalized * ViewDistance, Color.red);
-        Debug.DrawRay(transform.position, lookCones[LookDirection].normalized * ViewDistance, Color.red);
+        //Debug.DrawRay(transform.position, (Quaternion.AngleAxis(-33, Vector3.forward) * lookCones[LookDirection]).normalized * ViewDistance, Color.red);
+        //Debug.DrawRay(transform.position, (Quaternion.AngleAxis(33, Vector3.forward) * lookCones[LookDirection]).normalized * ViewDistance, Color.red);
+        //Debug.DrawRay(transform.position, lookCones[LookDirection].normalized * ViewDistance, Color.red);
 
         //Debug.Log(Vector3.Dot((player.transform.position - transform.position).normalized, LookDirection.normalized));
 
-        if (Vector3.Dot((player.transform.position - transform.position).normalized, lookCones[LookDirection].normalized) > 0.66f && Vector3.Distance(transform.position, player.transform.position) < ViewDistance)
+        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+        if (Vector3.Dot((player.transform.position - transform.position).normalized, lookCones[LookDirection].normalized) > 0.66f && distanceToPlayer < ViewDistance)
         {
-            animationController.ColorSprite(Color.red);
+            //Debug.DrawRay(FeetCollider.bounds.center, (player.FeetCollider.bounds.center - FeetCollider.bounds.center).normalized * distanceToPlayer, Color.green);
+
+            RaycastHit2D rayHit = Physics2D.Raycast(FeetCollider.bounds.center, player.FeetCollider.bounds.center - FeetCollider.bounds.center, distanceToPlayer);
+            //Debug.Log(rayHit.collider.name);
+            if (rayHit.collider != null && rayHit.collider == player.FeetCollider)
+            {
+                animationController.ColorSprite(Color.red);
+            }
+            else
+            {
+                animationController.ColorSprite(Color.white);
+            }
         }
         else
         {
             animationController.ColorSprite(Color.white);
+        }
+    }
+
+    private void Update()
+    {
+        if (Vector3.Distance(previousPosition, transform.position) < 0.1f && !waitingForDestination)
+        {
+            walkIntoWallTimer += Time.deltaTime;
+        }
+        else
+        {
+            walkIntoWallTimer = 0;
+        }
+        if(walkIntoWallTimer > WalkIntoWallTime)
+        {
+            Destination = transform.position;
         }
     }
 
@@ -89,22 +122,30 @@ public class NPCController : MonoBehaviour
 
     IEnumerator ChooseRandomPosition()
     {
-        List<RaycastHit2D> rays;
         yield return new WaitForSeconds(Random.Range(1.5f, 4));
+        RaycastHit2D walkRayHit;
+        Collider2D standRayHit;
         do
         {
-            Destination = transform.position + new Vector3(Random.Range(2.5f, 7.5f) * (Random.Range(0, 2) * 2 - 1), Random.Range(2.5f, 7.5f) * (Random.Range(0, 2) * 2 - 1), 0);
+            Destination = transform.position + new Vector3(Random.Range(1.5f, 7.5f) * (Random.Range(0, 2) * 2 - 1), Random.Range(1.5f, 7.5f) * (Random.Range(0, 2) * 2 - 1), 0);
             //Debug.Log("Position: " + transform.position);
             //Debug.Log("Destination: " + Destination);
-            //Debug.DrawRay(NPCCollider.bounds.center, Destination - new Vector2(transform.position.x, transform.position.y), Color.green, 1f);
+            //Debug.DrawRay(FeetCollider.bounds.center, Destination - new Vector2(transform.position.x, transform.position.y), Color.green, 5f);
             Vector2 destinationDiff = Destination - new Vector2(transform.position.x, transform.position.y);
-            rays = new List<RaycastHit2D>(Physics2D.RaycastAll(NPCCollider.bounds.center, destinationDiff, destinationDiff.magnitude));
+            walkRayHit = Physics2D.Raycast(FeetCollider.bounds.center, destinationDiff, destinationDiff.magnitude + (FeetCollider.bounds.extents.x * 2));
+            standRayHit = Physics2D.OverlapCircle(Destination, FeetCollider.radius);
             //foreach(RaycastHit2D hit in rays)
             //{
             //    Debug.Log("Hit: " + hit.collider.name);
             //}
+            //Debug.Log("Walking path ray: " + walkRayHit.collider?.name);
+            //Debug.Log("Destination circle check: " + standRayHit?.name);
             yield return null;
-        } while (rays.Count > 0 || Destination == new Vector2(transform.position.x, transform.position.y));
+        } while (
+        (walkRayHit.collider != null && (walkRayHit.collider.tag != player.tag || walkRayHit.collider.tag != "NPC"))
+        || (standRayHit != null && (standRayHit.tag != player.tag || standRayHit.tag != "NPC"))
+        || Destination == new Vector2(transform.position.x, transform.position.y)
+        );
 
         //Debug.Log("Finished choosing destination");
         waitingForDestination = false;

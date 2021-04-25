@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1066810117746439442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1066810117912845321}
   m_RootOrder: 0
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 1066810117912845320}
   m_Layer: 0
   m_Name: NPC
-  m_TagString: Player
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,9 +216,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 8
   ViewDistance: 20
+  WalkIntoWallTime: 0.2
   animationController: {fileID: 1066810117746439443}
-  NPCCollider: {fileID: 1066810117912845366}
+  FeetCollider: {fileID: 1066810117912845366}
   LookDirection: 0
+  walkIntoWallTimer: 0
   lookCones:
   - {x: 1, y: 1, z: 0}
   - {x: 1, y: -1, z: 0}

@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public float MoveSpeed;
     public PlayerAnimationController animationController;
+    public CircleCollider2D FeetCollider;
 
     public Sprite[] sprites;
 
