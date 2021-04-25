@@ -8,6 +8,13 @@ public class PlayerAnimationController : MonoBehaviour
     public Animator animator;
     public SpriteRenderer spriteRenderer;
 
+    public RuntimeAnimatorController[] animatorControllers = new RuntimeAnimatorController[Enum.GetNames(typeof(PlayerDisguise)).Length];
+
+    public void ChangeDisguise(PlayerDisguise disguise)
+    {
+        animator.runtimeAnimatorController = animatorControllers[(int)disguise];
+    }
+
     public void UpdateAnimator(Vector3 movement)
     {
         int horizontalMovement = Math.Sign(movement.x);

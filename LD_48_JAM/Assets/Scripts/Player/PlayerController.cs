@@ -6,11 +6,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float MoveSpeed;
+    public Vector3 Velocity;
+    public PlayerDisguise Disguise = PlayerDisguise.None;
+
     public PlayerAnimationController animationController;
     public CircleCollider2D FeetCollider;
-
-    public Sprite[] sprites;
-
+    
     public List<Interactable> interactablesInRange = new List<Interactable>();
 
     // Start is called before the first frame update
@@ -29,16 +30,24 @@ public class PlayerController : MonoBehaviour
                 interactable.Interact();
             }
         }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            ChangeDisguise(PlayerDisguise.None);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            ChangeDisguise(PlayerDisguise.Cactus);
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized * MoveSpeed * Time.fixedDeltaTime;
+        Velocity = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized * MoveSpeed * Time.fixedDeltaTime;
 
-        animationController.UpdateAnimator(movement);
+        animationController.UpdateAnimator(Velocity);
 
-        transform.position += movement;
+        transform.position += Velocity;
         //transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
     }
 
@@ -75,4 +84,16 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    void ChangeDisguise(PlayerDisguise disguise)
+    {
+        Disguise = disguise;
+        animationController.ChangeDisguise(disguise);
+        // Play whoosh sound
+    }
+}
+
+public enum PlayerDisguise {
+    None,
+    Cactus
 }

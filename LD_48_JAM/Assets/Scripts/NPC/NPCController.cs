@@ -82,17 +82,14 @@ public class NPCController : MonoBehaviour
             //Debug.Log(rayHit.collider.name);
             if (rayHit.collider != null && rayHit.collider == player.FeetCollider)
             {
-                animationController.ColorSprite(Color.red);
-            }
-            else
-            {
-                animationController.ColorSprite(Color.white);
+                if (RecognizePlayer())
+                {
+                    animationController.ColorSprite(Color.red);
+                    return;
+                }
             }
         }
-        else
-        {
-            animationController.ColorSprite(Color.white);
-        }
+        animationController.ColorSprite(Color.white);
     }
 
     private void Update()
@@ -105,7 +102,7 @@ public class NPCController : MonoBehaviour
         {
             walkIntoWallTimer = 0;
         }
-        if(walkIntoWallTimer > WalkIntoWallTime)
+        if (walkIntoWallTimer > WalkIntoWallTime)
         {
             Destination = transform.position;
         }
@@ -118,6 +115,17 @@ public class NPCController : MonoBehaviour
             Debug.Log("Hit a wall, rerouting");
             Destination = transform.position;
         }
+    }
+
+    bool RecognizePlayer()
+    {
+        switch (player.Disguise)
+        {
+            case PlayerDisguise.Cactus:
+                return player.Velocity != Vector3.zero;
+        }
+
+        return true;
     }
 
     IEnumerator ChooseRandomPosition()
