@@ -5,7 +5,7 @@
 			<value>M</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{e4a6f758-97a2-493b-8744-7b0c80c6f3be}</destination>
@@ -93,10 +93,10 @@
 	<object class="MixerBusPanner" id="{d25eda77-bee4-4be3-844d-8f711004bd17}" />
 	<object class="SingleSound" id="{b431e150-a226-4514-a3cd-ddefc680b622}">
 		<property name="length">
-			<value>0.125</value>
+			<value>0.25390625</value>
 		</property>
-		<property name="startOffset">
-			<value>9</value>
+		<property name="pitch">
+			<value>6</value>
 		</property>
 		<relationship name="fadeOutCurve">
 			<destination>{cfb7995e-1610-40b5-9342-f5260599da04}</destination>
@@ -143,7 +143,7 @@
 	<object class="MixerBusFader" id="{4eae9071-4a6d-43b2-a119-b2f28894ee8c}" />
 	<object class="AutomationPoint" id="{1d0eb420-ee06-46ad-a9e1-81da7d9eaa87}">
 		<property name="position">
-			<value>0.096000000000000002</value>
+			<value>0.25388541666666664</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -154,7 +154,7 @@
 	</object>
 	<object class="AutomationPoint" id="{d8d82586-2f92-4661-81a5-7de58512727e}">
 		<property name="position">
-			<value>0.125</value>
+			<value>0.25390625</value>
 		</property>
 		<property name="value">
 			<value>0</value>
