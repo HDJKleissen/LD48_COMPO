@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
-	<object class="AudioFile" id="{18521502-e6e7-4855-a3b6-30f10e43ea0d}">
+	<object class="AudioFile" id="{d92b7202-d960-4c39-b441-3efb8ca5d1c3}">
 		<property name="assetPath">
-			<value>NPC Barks/Detected/NPC_Bark_07(Deaper?).wav</value>
+			<value>NPC Barks/Detected/NPC_Bark_07_Deaper.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
