@@ -5,7 +5,7 @@
 			<value>C</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{e4a6f758-97a2-493b-8744-7b0c80c6f3be}</destination>
@@ -95,8 +95,8 @@
 		<property name="length">
 			<value>0.21875</value>
 		</property>
-		<property name="startOffset">
-			<value>20.5</value>
+		<property name="pitch">
+			<value>6</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{c5d77c70-f87a-4fea-97b4-af2b652cf18f}</destination>

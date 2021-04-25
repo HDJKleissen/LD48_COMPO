@@ -5,7 +5,7 @@
 			<value>J</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{e4a6f758-97a2-493b-8744-7b0c80c6f3be}</destination>
@@ -93,10 +93,10 @@
 	<object class="MixerBusPanner" id="{19c874dc-61a4-4ad0-aaed-d68c104180d0}" />
 	<object class="SingleSound" id="{ae2a5dbc-78d6-414e-aa77-c05e82f84970}">
 		<property name="length">
-			<value>0.1484375</value>
+			<value>0.265625</value>
 		</property>
-		<property name="startOffset">
-			<value>2</value>
+		<property name="pitch">
+			<value>6</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{87469a93-f628-4927-b59f-d783ab580905}</destination>
