@@ -64,11 +64,10 @@ public class NPCController : MonoBehaviour
 
         transform.position += movement * MoveSpeed * Time.fixedDeltaTime;
         //transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
-        previousPosition = transform.position;
 
-        //Debug.DrawRay(transform.position, (Quaternion.AngleAxis(-33, Vector3.forward) * lookCones[LookDirection]).normalized * ViewDistance, Color.red);
-        //Debug.DrawRay(transform.position, (Quaternion.AngleAxis(33, Vector3.forward) * lookCones[LookDirection]).normalized * ViewDistance, Color.red);
-        //Debug.DrawRay(transform.position, lookCones[LookDirection].normalized * ViewDistance, Color.red);
+        Debug.DrawRay(transform.position, (Quaternion.AngleAxis(-33, Vector3.forward) * lookCones[LookDirection]).normalized * ViewDistance, Color.red);
+        Debug.DrawRay(transform.position, (Quaternion.AngleAxis(33, Vector3.forward) * lookCones[LookDirection]).normalized * ViewDistance, Color.red);
+        Debug.DrawRay(transform.position, lookCones[LookDirection].normalized * ViewDistance, Color.red);
 
         //Debug.Log(Vector3.Dot((player.transform.position - transform.position).normalized, LookDirection.normalized));
 
@@ -94,18 +93,20 @@ public class NPCController : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(previousPosition, transform.position) < 0.1f && !waitingForDestination)
-        {
-            walkIntoWallTimer += Time.deltaTime;
-        }
-        else
-        {
-            walkIntoWallTimer = 0;
-        }
-        if (walkIntoWallTimer > WalkIntoWallTime)
-        {
-            Destination = transform.position;
-        }
+        //if (Vector3.Distance(previousPosition, transform.position) < 0.01f && !waitingForDestination)
+        //{
+        //    walkIntoWallTimer += Time.deltaTime;
+        //}
+        //else
+        //{
+        //    walkIntoWallTimer = 0;
+        //}
+        //if (walkIntoWallTimer > WalkIntoWallTime)
+        //{
+        //    Destination = transform.position;
+        //}
+        //previousPosition = transform.position;
+
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -138,7 +139,7 @@ public class NPCController : MonoBehaviour
             Destination = transform.position + new Vector3(Random.Range(1.5f, 7.5f) * (Random.Range(0, 2) * 2 - 1), Random.Range(1.5f, 7.5f) * (Random.Range(0, 2) * 2 - 1), 0);
             //Debug.Log("Position: " + transform.position);
             //Debug.Log("Destination: " + Destination);
-            //Debug.DrawRay(FeetCollider.bounds.center, Destination - new Vector2(transform.position.x, transform.position.y), Color.green, 5f);
+            Debug.DrawRay(FeetCollider.bounds.center, Destination - new Vector2(transform.position.x, transform.position.y), Color.green, 5f);
             Vector2 destinationDiff = Destination - new Vector2(transform.position.x, transform.position.y);
             walkRayHit = Physics2D.Raycast(FeetCollider.bounds.center, destinationDiff, destinationDiff.magnitude + (FeetCollider.bounds.extents.x * 2));
             standRayHit = Physics2D.OverlapCircle(Destination, FeetCollider.radius);
