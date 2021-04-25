@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: NPCmanbald_animations
+  m_Controller: {fileID: 9100000, guid: 69557681cb2ef74438cf722b12e10dd5, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 46c868ba14eebae4b9d7d337dfc9f209, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: dcc397c2770151f4a875b1457d0542a0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1637936642958de4b8cfdd5ef69f2868, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 243fa8b78aea98741abbec8e08b99c79, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 2cf2cc6aee4590540995ea53e20e69bc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a70ee06f9b266bc49a58ee5f2f1d5a85, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 3490494001197ec468bbe0ae9bc173d9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 39f7541dab23f024d813170e3b6be571, type: 2}

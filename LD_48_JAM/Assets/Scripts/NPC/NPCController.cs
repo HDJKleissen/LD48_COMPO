@@ -111,7 +111,7 @@ public class NPCController : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (!waitingForDestination && Destination != new Vector2(transform.position.x, transform.position.y) && collision.collider.tag == "Walls")
+        if (!waitingForDestination && collision.collider.tag == "Walls")
         {
             Debug.Log("Hit a wall, rerouting");
             Destination = transform.position;

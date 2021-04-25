@@ -16,19 +16,6 @@ public class PlayerAnimationController : MonoBehaviour
         animator.runtimeAnimatorController = animatorControllers[(int)disguise];
     }
 
-    void Update()
-    {
-        spriteMask.sprite = spriteRenderer.sprite;
-        if (spriteRenderer.flipX)
-        {
-            spriteMask.transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
-        else
-        {
-            spriteMask.transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-    }
-
     public void UpdateAnimator(Vector3 movement)
     {
         int horizontalMovement = Math.Sign(movement.x);
