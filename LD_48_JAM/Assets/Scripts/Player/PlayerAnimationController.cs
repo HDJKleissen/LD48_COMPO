@@ -24,13 +24,18 @@ public class PlayerAnimationController : MonoBehaviour
         animator.SetInteger("HorizontalMovement", horizontalMovement);
         animator.SetInteger("VerticalMovement", verticalMovement);
 
-        if(horizontalMovement > 0)
+        if (horizontalMovement > 0)
         {
             spriteRenderer.flipX = true;
         }
-        else if(horizontalMovement < 0)
+        else if (horizontalMovement < 0)
         {
             spriteRenderer.flipX = false;
         }
+    }
+
+    public bool IsAnimationFinished(string stateName)
+    {
+        return animator.GetCurrentAnimatorStateInfo(0).length <= animator.GetCurrentAnimatorStateInfo(0).normalizedTime && animator.GetCurrentAnimatorStateInfo(0).IsName(stateName);
     }
 }

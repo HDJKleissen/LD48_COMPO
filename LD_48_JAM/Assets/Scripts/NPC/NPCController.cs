@@ -81,11 +81,11 @@ public class NPCController : MonoBehaviour
             //Debug.Log(rayHit.collider.name);
             if (rayHit.collider != null && rayHit.collider == player.FeetCollider)
             {
-                if (RecognizePlayer() && !player.CurrentArea.IsPlayerAllowed())
+                if (RecognizePlayer() && !player.CurrentArea.IsPlayerAllowed() && GameManager.Instance.LightsOn)
                 {
                     FMODUnity.RuntimeManager.PlayOneShotAttached("event:/NpcDetectedBark", gameObject);
                     animationController.ColorSprite(Color.red);
-                    GameManager.Instance.AddSuspicion(0.1f);
+                    //GameManager.Instance.AddSuspicion(0.1f);
                     return;
                 }
             }
@@ -125,7 +125,7 @@ public class NPCController : MonoBehaviour
         switch (player.Disguise)
         {
             case PlayerDisguise.Cactus:
-                return player.Velocity != Vector3.zero;
+                return !(player.Velocity == Vector3.zero && player.animationController.IsAnimationFinished("Player_idle"));
         }
 
         return true;

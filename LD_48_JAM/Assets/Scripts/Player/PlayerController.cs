@@ -32,14 +32,7 @@ public class PlayerController : MonoBehaviour
                 interactable.Interact();
             }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            ChangeDisguise(PlayerDisguise.None);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            ChangeDisguise(PlayerDisguise.Cactus);
-        }
+
     }
 
     // Update is called once per frame

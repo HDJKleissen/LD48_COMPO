@@ -7,7 +7,7 @@ public class CameraCone : MonoBehaviour
     public OfficeCamera parentCamera;
     PlayerController player;
 
-    bool lookingAtPlayer = false;
+    bool lookingAtPlayer = false, cameraBeepPlaying = false;
 
     FMOD.Studio.EventInstance cameraSound;
 
@@ -35,8 +35,8 @@ public class CameraCone : MonoBehaviour
             cameraSound.start();
             FMODUnity.RuntimeManager.AttachInstanceToGameObject(cameraSound, GetComponent<Transform>(), GetComponent<Rigidbody>());
             cameraSound.release();
-            GameManager.Instance.AddSuspicion(0.2f);
             lookingAtPlayer = true;
+            cameraBeepPlaying = true;
         }
     }
 
@@ -44,7 +44,26 @@ public class CameraCone : MonoBehaviour
     {
         if (other == player.FeetCollider)
         {
-            parentCamera.SetPlayerSeen(RecognizePlayer());
+            bool playerRecognized = RecognizePlayer();
+            parentCamera.SetPlayerSeen(playerRecognized);
+            if (!playerRecognized)
+            {
+                cameraSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                cameraBeepPlaying = false;
+                lookingAtPlayer = false;
+            }
+            else
+            {
+                if (!cameraBeepPlaying)
+                {
+                    cameraSound = FMODUnity.RuntimeManager.CreateInstance("event:/Camera");
+                    cameraSound.start();
+                    FMODUnity.RuntimeManager.AttachInstanceToGameObject(cameraSound, GetComponent<Transform>(), GetComponent<Rigidbody>());
+                    cameraSound.release();
+                }
+                lookingAtPlayer = true;
+                cameraBeepPlaying = true;
+            }
         }
     }
 
@@ -60,12 +79,12 @@ public class CameraCone : MonoBehaviour
 
     bool RecognizePlayer()
     {
+        Debug.Log("Recognize? " + (player.Velocity != Vector3.zero && !player.animationController.IsAnimationFinished("Player_idle")));
         switch (player.Disguise)
         {
             case PlayerDisguise.Cactus:
-                return player.Velocity != Vector3.zero;
+                return !(player.Velocity == Vector3.zero && player.animationController.IsAnimationFinished("Player_idle"));
         }
-
         return true;
     }
 }

@@ -11,9 +11,10 @@ public class GameManager : UnitySingleton<GameManager>
     public SpriteRenderer LightsOffOverlay;
     public float SuspicionLostPerSecond;
     public float PanicThreshold;
+    public bool LightsOn;
 
     float suspicionAmount;
-    bool lightsOn;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -57,16 +58,16 @@ public class GameManager : UnitySingleton<GameManager>
 
     public void ToggleLights()
     {
-        if (lightsOn)
+        if (LightsOn)
         {
             // Turn them off sequence
-            lightsOn = false;
+            LightsOn = false;
             LightsOffOverlay.gameObject.SetActive(true);
         }
         else
         {
             // Turn them on sequence
-            lightsOn = true;
+            LightsOn = true;
             LightsOffOverlay.gameObject.SetActive(false);
         }
     }

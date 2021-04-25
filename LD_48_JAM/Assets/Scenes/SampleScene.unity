@@ -621,9 +621,9 @@ MonoBehaviour:
   m_RefResolutionY: 180
   m_UpscaleRT: 0
   m_PixelSnapping: 1
-  m_CropFrameX: 0
-  m_CropFrameY: 0
-  m_StretchFill: 0
+  m_CropFrameX: 1
+  m_CropFrameY: 1
+  m_StretchFill: 1
 --- !u!20 &455224183
 Camera:
   m_ObjectHideFlags: 0
@@ -80035,7 +80035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5879956784524354748, guid: 25100b079addb424c95d5905ee426954, type: 3}
       propertyPath: allowedDisguises.Array.size
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5879956784524354748, guid: 25100b079addb424c95d5905ee426954, type: 3}
       propertyPath: allowedDisguises.Array.data[0]
@@ -80043,7 +80043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5879956784524354748, guid: 25100b079addb424c95d5905ee426954, type: 3}
       propertyPath: allowedDisguises.Array.data[1]
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5879956784524354748, guid: 25100b079addb424c95d5905ee426954, type: 3}
       propertyPath: allowedDisguises.Array.data[2]
