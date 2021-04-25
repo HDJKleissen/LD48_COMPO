@@ -27,9 +27,9 @@ public class Area : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("something entered " + Name);
-        Debug.Log("it was " + collision.tag);
-        Debug.Log("with their feet? " + (collision == player.FeetCollider));
+        //Debug.Log("something entered " + Name);
+        //Debug.Log("it was " + collision.tag);
+        //Debug.Log("with their feet? " + (collision == player.FeetCollider));
         if (collision.tag == "Player" && collision == player.FeetCollider)
         {
             if(UpdateDescriberWhenEntered)
@@ -42,9 +42,9 @@ public class Area : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("something exited " + Name);
-        Debug.Log("it was " + collision.tag);
-        Debug.Log("with their feet? " + (collision == player.FeetCollider));
+        //Debug.Log("something exited " + Name);
+        //Debug.Log("it was " + collision.tag);
+        //Debug.Log("with their feet? " + (collision == player.FeetCollider));
         if (collision.tag == "Player")
         {
             player.FeetCollider.enabled = false;

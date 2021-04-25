@@ -15,18 +15,12 @@ public class NPCController : MonoBehaviour
     PlayerController player;
 
     bool waitingForDestination = true;
+    bool lookingAtPlayer = false;
 
     Vector3 previousPosition;
     public float walkIntoWallTimer = 0;
 
-
-    public Vector3[] lookCones = new Vector3[]
-    {
-        new Vector3(1,-1),
-        new Vector3(1,1),
-        new Vector3(-1,1),
-        new Vector3(-1,-1),
-    };
+    public GameObject[] lookConeObjects = new GameObject[4];
 
     // Start is called before the first frame update
     void Start()
@@ -63,32 +57,28 @@ public class NPCController : MonoBehaviour
         animationController.UpdateAnimator(movement);
 
         transform.position += movement * MoveSpeed * Time.fixedDeltaTime;
-        //transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
 
-        Debug.DrawRay(transform.position, (Quaternion.AngleAxis(-33, Vector3.forward) * lookCones[LookDirection]).normalized * ViewDistance, Color.red);
-        Debug.DrawRay(transform.position, (Quaternion.AngleAxis(33, Vector3.forward) * lookCones[LookDirection]).normalized * ViewDistance, Color.red);
-        Debug.DrawRay(transform.position, lookCones[LookDirection].normalized * ViewDistance, Color.red);
-
-        //Debug.Log(Vector3.Dot((player.transform.position - transform.position).normalized, LookDirection.normalized));
-
-        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-
-        if (Vector3.Dot((player.transform.position - transform.position).normalized, lookCones[LookDirection].normalized) > 0.66f && distanceToPlayer < ViewDistance)
+        for (int i = 0; i < lookConeObjects.Length; i++)
         {
-            //Debug.DrawRay(FeetCollider.bounds.center, (player.FeetCollider.bounds.center - FeetCollider.bounds.center).normalized * distanceToPlayer, Color.green);
-
-            RaycastHit2D rayHit = Physics2D.Raycast(FeetCollider.bounds.center, player.FeetCollider.bounds.center - FeetCollider.bounds.center, distanceToPlayer);
-            //Debug.Log(rayHit.collider.name);
-            if (rayHit.collider != null && rayHit.collider == player.FeetCollider)
+            if (i == LookDirection)
             {
-                if (RecognizePlayer() && !player.CurrentArea.IsPlayerAllowed() && GameManager.Instance.LightsOn)
-                {
-                    FMODUnity.RuntimeManager.PlayOneShotAttached("event:/NpcDetectedBark", gameObject);
-                    animationController.ColorSprite(Color.red);
-                    //GameManager.Instance.AddSuspicion(0.1f);
-                    return;
-                }
+                lookConeObjects[i].SetActive(true);
             }
+            else
+            {
+                lookConeObjects[i].SetActive(false);
+            }
+        }
+
+        if (lookingAtPlayer)
+        {
+            if (RecognizePlayer() && !player.CurrentArea.IsPlayerAllowed() && GameManager.Instance.LightsOn)
+            {
+                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/NpcDetectedBark", gameObject);
+                animationController.ColorSprite(Color.red);
+                return;
+            }
+
         }
         animationController.ColorSprite(Color.white);
     }
@@ -117,6 +107,16 @@ public class NPCController : MonoBehaviour
         {
             Debug.Log("Hit a wall, rerouting");
             Destination = transform.position;
+        }
+    }
+
+
+    public void SetSeePlayer(bool seen)
+    {
+        lookingAtPlayer = seen;
+        if (seen)
+        {
+            GameManager.Instance.AddSuspicion(0.1f);
         }
     }
 
