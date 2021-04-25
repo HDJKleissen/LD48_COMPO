@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
-	<object class="AudioFile" id="{ffdeea65-13bd-4e11-9156-10c503b1a120}">
+	<object class="AudioFile" id="{a0b47287-0b5b-4602-b026-b4a4cc936841}">
 		<property name="assetPath">
-			<value>Music/LD_JAM_48 background music sketch 2.0.wav</value>
+			<value>Music/Panic_Loop.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>48</value>
+			<value>96</value>
 		</property>
 		<property name="channelCount">
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>96</value>
+			<value>24.510645833333335</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{a50f6f8d-deb4-4cc6-9be2-77a68d3a69ec}</destination>
