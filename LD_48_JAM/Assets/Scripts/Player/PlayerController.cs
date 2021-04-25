@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void ChangeDisguise(PlayerDisguise disguise)
+    public void ChangeDisguise(PlayerDisguise disguise)
     {
         Disguise = disguise;
         animationController.ChangeDisguise(disguise);
