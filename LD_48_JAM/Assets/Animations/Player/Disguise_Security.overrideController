@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disguise_Security
+  m_Controller: {fileID: 9100000, guid: 43da715dbbf5403429fcb2a602d84b98, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 847a2124f5ffe9e468fd4e4d554cc646, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 24c6bcf33b5d5ab4ea67617d40310c41, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d7ce85b0849843e4eb6f85916e74ca42, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: bbea773a5e6baa046b182774d112296c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 60ff3db3852c13744ab320debe65ed1d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 46a44c0bd0f4262469038fdd61edad0d, type: 2}

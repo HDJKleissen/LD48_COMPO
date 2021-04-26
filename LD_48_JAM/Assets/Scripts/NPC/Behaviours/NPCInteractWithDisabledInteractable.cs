@@ -9,7 +9,7 @@ public class NPCInteractWithDisabledInteractable : NPCBehaviour
     public float ReturnMoveSpeed, yOffset;
     public bool targetState;
 
-    int pathPoint;
+    int pathPoint = 0;
     int walkDirection = 1;
 
     [DraggablePoint]
@@ -23,6 +23,7 @@ public class NPCInteractWithDisabledInteractable : NPCBehaviour
     {
         if (target.Open != targetState || (startedPath && !finishedPath))
         {
+            npc.AlertNPC();
             return BehaviorPriority.Immediate;
         }
         return BasePriority;
@@ -45,6 +46,7 @@ public class NPCInteractWithDisabledInteractable : NPCBehaviour
             else if (pathPoint - 1 < 0 && walkDirection < 0)
             {
                 Debug.Log("Found beginning of path");
+                pathPoint = 0;
                 finishedPath = true;
                 return false;
             }
@@ -63,7 +65,6 @@ public class NPCInteractWithDisabledInteractable : NPCBehaviour
 
     public override bool StartBehaviour()
     {
-        pathPoint = 0;
         actualPath = new List<Vector3>(fixPath);
         actualPath.Add(target.transform.position + new Vector3(0, yOffset, 0));
         npc.Destination = actualPath[pathPoint];

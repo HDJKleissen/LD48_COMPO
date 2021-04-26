@@ -10,9 +10,23 @@ public class NPCAnimationController : MonoBehaviour
 
     public void UpdateAnimator(Vector3 movement)
     {
-        int horizontalMovement = Math.Sign(movement.x);
-        int verticalMovement = Math.Sign(movement.y);
-
+        int horizontalMovement, verticalMovement;
+        if(movement.x != 0)
+        {
+            horizontalMovement = Math.Sign(movement.x);
+        }
+        else
+        {
+            horizontalMovement = 0;
+        }
+        if (movement.y != 0)
+        {
+            verticalMovement = Math.Sign(movement.y);
+        }
+        else
+        {
+            verticalMovement = 0;
+        }
         animator.SetInteger("HorizontalMovement", horizontalMovement);
         animator.SetInteger("VerticalMovement", verticalMovement);
 

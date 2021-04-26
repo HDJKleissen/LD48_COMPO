@@ -14,6 +14,7 @@ public class NPCFixLights : NPCBehaviour
     {
         if (!GameManager.Instance.LightsOn)
         {
+            npc.AlertNPC();
             return BehaviorPriority.Immediate;
         }
         return BasePriority;

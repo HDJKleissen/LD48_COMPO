@@ -241,8 +241,10 @@ MonoBehaviour:
   animationController: {fileID: 1066810117746439443}
   FeetCollider: {fileID: 1066810117912845366}
   LookDirection: 2
+  LookAtPlayerDistance: 4
   HasKey: 1
   walkIntoWallTimer: 0
+  NPCAlertPrefab: {fileID: 7900416769791279523, guid: 655cfea672da88e47895f31ebbe3c779, type: 3}
   lookConeObjects:
   - {fileID: 4555520052306587844}
   - {fileID: 8279388595377617988}
