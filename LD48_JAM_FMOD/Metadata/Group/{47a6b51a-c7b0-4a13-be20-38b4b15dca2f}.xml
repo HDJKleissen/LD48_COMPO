@@ -18,6 +18,7 @@
 		<relationship name="effects">
 			<destination>{71e2fecc-a615-4f70-9878-60f483f63ed2}</destination>
 			<destination>{3caa392c-ce6d-496f-b75d-05c98fcafbd4}</destination>
+			<destination>{cb3cf399-9098-4fbe-b653-897eb802fef2}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{676d94c6-e1b4-4fb0-a8aa-1b2aec72b5d9}" />
@@ -32,5 +33,9 @@
 		<property name="attackTime">
 			<value>0.300000012</value>
 		</property>
+		<property name="gain">
+			<value>7.5</value>
+		</property>
 	</object>
+	<object class="Sidechain" id="{cb3cf399-9098-4fbe-b653-897eb802fef2}" />
 </objects>
