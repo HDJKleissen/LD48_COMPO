@@ -72,28 +72,7 @@ public class NPCController : MonoBehaviour
             }
         }
 
-        Vector3 playerFeet = player.FeetCollider.bounds.center;
-        Vector3 npcFeet = FeetCollider.bounds.center;
-        List<RaycastHit2D> rayHits = new List<RaycastHit2D>(Physics2D.RaycastAll(npcFeet, playerFeet - npcFeet, Vector3.Distance(playerFeet, npcFeet)));
-
-        bool playerBehindWall = false;
-        foreach (RaycastHit2D rayHit in rayHits)
-        {
-            if (rayHit.collider != null)
-            {
-                if (name == "NPC_womanblack (1)")
-                {
-                    Debug.Log(rayHit.collider);
-                    Debug.Log(rayHit.collider.tag);
-                }
-                if (rayHit.collider.tag == "Walls")
-                {
-                    playerBehindWall = true;
-                }
-            }
-        }
-        
-        if (!playerBehindWall && lookingAtPlayer)
+        if (lookingAtPlayer)
         {
             if (player.CurrentArea == null || (RecognizePlayer() && !player.CurrentArea.IsPlayerAllowed() && GameManager.Instance.LightsOn))
             {
