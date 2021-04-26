@@ -100,4 +100,10 @@ public class GameManager : UnitySingleton<GameManager>
             LightsOffOverlay.gameObject.SetActive(false);
         }
     }
+
+    public void WinGame()
+    {
+        // Do win game anim! 
+        SceneManager.LoadScene("SuccessEnd");
+    }
 }
