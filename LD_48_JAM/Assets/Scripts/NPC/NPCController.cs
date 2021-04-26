@@ -6,15 +6,16 @@ public class NPCController : MonoBehaviour
 {
     public float MoveSpeed, ViewDistance, WalkIntoWallTime;
 
+    NPCBehaviour currentBehaviour;
+    public NPCBehaviour[] behaviours;
     public NPCAnimationController animationController;
     public CircleCollider2D FeetCollider;
 
-    Vector2 Destination;
+    internal Vector2 Destination;
     public int LookDirection;
 
     PlayerController player;
 
-    bool waitingForDestination = true;
     bool lookingAtPlayer = false;
 
     Vector3 previousPosition;
@@ -25,37 +26,40 @@ public class NPCController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(ChooseRandomPosition());
         player = GameManager.Instance.Player;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 movement = Vector3.zero;
-        if (!waitingForDestination && Vector2.Distance(new Vector2(transform.position.x, transform.position.y), Destination) > 0.5f)
+        bool behaviourContinuing = false;
+        if (currentBehaviour == null)
         {
-            //Debug.Log("movement");
+            ChooseBehaviour();
+            behaviourContinuing = currentBehaviour.DoBehaviour();
+        }
+        else
+        {
+            behaviourContinuing = currentBehaviour.DoBehaviour();
+        }
+
+        if (!behaviourContinuing)
+        {
+            currentBehaviour = null;
+        }
+        ChooseBehaviour();
+
+        Vector3 movement = Vector3.zero;
+        if (Vector2.Distance(new Vector2(transform.position.x, transform.position.y), Destination) > 0.5f)
+        {
             movement = new Vector3(Destination.x, Destination.y, 0) - transform.position;
-            //Debug.Log(movement);
             movement.z = 0;
-            //Debug.Log(movement);
             movement.Normalize();
-            //Debug.Log(movement);
-            Debug.DrawRay(transform.position, movement);
 
             float angle = Mathf.Atan2(0 - movement.x, 1 - movement.y);
             LookDirection = Mathf.FloorToInt((((angle * Mathf.Rad2Deg) / 90) + 1) * 2);
         }
-        else if (!waitingForDestination)
-        {
-            //Debug.Log("Delaying random pos choose");
-            StartCoroutine("ChooseRandomPosition");
-            waitingForDestination = true;
-        }
-
         animationController.UpdateAnimator(movement);
-
         transform.position += movement * MoveSpeed * Time.fixedDeltaTime;
 
         for (int i = 0; i < lookConeObjects.Length; i++)
@@ -103,13 +107,56 @@ public class NPCController : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (!waitingForDestination && collision.collider.tag == "Walls")
-        {
-            Debug.Log("Hit a wall, rerouting");
-            Destination = transform.position;
-        }
+        // GOTS TA FIX WALL HUMPING
+        //if (collision.collider.tag == "Walls")
+        //{
+        //    Debug.Log("Hit a wall, rerouting");
+        //    Destination = transform.position;
+        //}
     }
 
+    private void OnValidate()
+    {
+        behaviours = GetComponents<NPCBehaviour>();
+    }
+
+    void ChooseBehaviour()
+    {
+        if(behaviours.Length == 0)
+        {
+            Debug.LogWarning("NPC " + name + " does not have any behaviours. If this is intended, please use the StandStill behaviour.");
+            return;
+        }
+        NPCBehaviour newBehaviour;
+
+        List<NPCBehaviour> highestPrioritizedBehaviours = new List<NPCBehaviour>();
+        BehaviorPriority highestPriority = BehaviorPriority.Low;
+
+        for (int i = 0; i < behaviours.Length; i++)
+        {
+            BehaviorPriority priority = behaviours[i].GetBehaviorPriority();
+
+            if (priority > highestPriority)
+            {
+                highestPrioritizedBehaviours.Clear();
+                highestPriority = priority;
+                highestPrioritizedBehaviours.Add(behaviours[i]);
+            }
+        }
+        if(highestPrioritizedBehaviours.Count == 1)
+        {
+            newBehaviour = highestPrioritizedBehaviours[0];
+        }
+        else
+        {
+            newBehaviour = highestPrioritizedBehaviours[Random.Range(0, highestPrioritizedBehaviours.Count)];
+        }
+        if(newBehaviour != currentBehaviour)
+        {
+            currentBehaviour = newBehaviour;
+            currentBehaviour.StartBehaviour();
+        }
+    }
 
     public void SetSeePlayer(bool seen)
     {
@@ -131,34 +178,5 @@ public class NPCController : MonoBehaviour
         return true;
     }
 
-    IEnumerator ChooseRandomPosition()
-    {
-        yield return new WaitForSeconds(Random.Range(1.5f, 4));
-        RaycastHit2D walkRayHit;
-        Collider2D standRayHit;
-        do
-        {
-            Destination = transform.position + new Vector3(Random.Range(1.5f, 7.5f) * (Random.Range(0, 2) * 2 - 1), Random.Range(1.5f, 7.5f) * (Random.Range(0, 2) * 2 - 1), 0);
-            //Debug.Log("Position: " + transform.position);
-            //Debug.Log("Destination: " + Destination);
-            Debug.DrawRay(FeetCollider.bounds.center, Destination - new Vector2(transform.position.x, transform.position.y), Color.green, 5f);
-            Vector2 destinationDiff = Destination - new Vector2(transform.position.x, transform.position.y);
-            walkRayHit = Physics2D.Raycast(FeetCollider.bounds.center, destinationDiff, destinationDiff.magnitude + (FeetCollider.bounds.extents.x * 2));
-            standRayHit = Physics2D.OverlapCircle(Destination, FeetCollider.radius);
-            //foreach(RaycastHit2D hit in rays)
-            //{
-            //    Debug.Log("Hit: " + hit.collider.name);
-            //}
-            //Debug.Log("Walking path ray: " + walkRayHit.collider?.name);
-            //Debug.Log("Destination circle check: " + standRayHit?.name);
-            yield return null;
-        } while (
-        (walkRayHit.collider != null && (walkRayHit.collider.tag != player.tag || walkRayHit.collider.tag != "NPC"))
-        || (standRayHit != null && (standRayHit.tag != player.tag || standRayHit.tag != "NPC"))
-        || Destination == new Vector2(transform.position.x, transform.position.y)
-        );
-
-        //Debug.Log("Finished choosing destination");
-        waitingForDestination = false;
-    }
+    
 }
