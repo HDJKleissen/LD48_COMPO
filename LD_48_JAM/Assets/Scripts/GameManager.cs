@@ -78,6 +78,7 @@ public class GameManager : UnitySingleton<GameManager>
 
         if (suspicionAmount > 1)
         {
+            MusicSystemPlayer.Instance.panicForMusic = 0;
             SceneManager.LoadScene("CaughtEnd");
         }
     }

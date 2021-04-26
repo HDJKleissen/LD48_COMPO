@@ -7,6 +7,7 @@ public class OfficeCamera : Toggleable
 {
     public GameObject CameraCone;
     public SpriteRenderer spriteRenderer;
+    public GameObject AlertPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -34,5 +35,10 @@ public class OfficeCamera : Toggleable
     internal void SetPlayerSeen(bool playerSeen)
     {
         spriteRenderer.color = playerSeen ? Color.red : Color.white;
+    }
+
+    public void AlertCamera()
+    {
+        Instantiate(AlertPrefab, transform);
     }
 }

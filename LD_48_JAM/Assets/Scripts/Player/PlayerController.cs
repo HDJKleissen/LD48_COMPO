@@ -19,6 +19,14 @@ public class PlayerController : MonoBehaviour
 
     public List<Interactable> interactablesInRange = new List<Interactable>();
 
+    GameObject spawnedCloud;
+
+    public bool Disguising {
+        get {
+            return spawnedCloud != null;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +75,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (Disguising)
+        {
+            return;
+        }
         Velocity = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized * MoveSpeed * Time.fixedDeltaTime;
 
         animationController.UpdateAnimator(Velocity);
@@ -134,7 +146,7 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeDisguise(PlayerDisguise disguise)
     {
-        GameObject cloud = Instantiate(ClothesChangeCloudPrefab, transform);
+        spawnedCloud = Instantiate(ClothesChangeCloudPrefab, transform);
         Disguise = disguise;
         animationController.ChangeDisguise(disguise);
         //needs wrapping in an if statement to check that the new disguise is not the same as the previous one

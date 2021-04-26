@@ -186,6 +186,10 @@ public class NPCController : MonoBehaviour
 
     bool RecognizePlayer()
     {
+        if (player.Disguising)
+        {
+            return true;
+        }
         switch (player.Disguise)
         {
             case PlayerDisguise.Cactus:

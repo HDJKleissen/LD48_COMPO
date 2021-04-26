@@ -313,10 +313,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee3997e6a4ed5974ea196e36d978ae76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Open: 0
+  Open: 1
   Locked: 0
   CameraCone: {fileID: 2059614195160936206}
   spriteRenderer: {fileID: 2059614195603471686}
+  AlertPrefab: {fileID: 7900416769791279523, guid: 655cfea672da88e47895f31ebbe3c779, type: 3}
 --- !u!114 &2059614195603471684
 MonoBehaviour:
   m_ObjectHideFlags: 0

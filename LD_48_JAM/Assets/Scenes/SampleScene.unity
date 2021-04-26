@@ -1106,7 +1106,7 @@ MonoBehaviour:
   LightsOffOverlay: {fileID: 986944001}
   SuspicionLevelHoldTime: 2
   MaxSuspicionLostPerSecond: 0.15
-  PanicThreshold: 0.75
+  PanicThreshold: 0.5
   LightsOn: 1
   suspicionAmount: 0
   suspicionLossSpeed: 0
@@ -81633,10 +81633,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 573080979}
     m_Modifications:
-    - target: {fileID: 2059614195603471685, guid: 0f707782da84e19458a650b851fe8836, type: 3}
-      propertyPath: Open
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2059614195603471687, guid: 0f707782da84e19458a650b851fe8836, type: 3}
       propertyPath: m_RootOrder
       value: 0

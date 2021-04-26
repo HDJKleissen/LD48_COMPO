@@ -63,6 +63,7 @@ public class CameraCone : MonoBehaviour
                 }
                 lookingAtPlayer = true;
                 cameraBeepPlaying = true;
+                parentCamera.AlertCamera();
             }
         }
     }
