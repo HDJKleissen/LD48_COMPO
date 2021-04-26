@@ -18,7 +18,7 @@ public class NPCController : MonoBehaviour
     PlayerController player;
 
     bool lookingAtPlayer = false;
-    public bool HasKey = true;
+    public List<Door> HasDoorKey;
     Vector3 previousPosition;
     public float walkIntoWallTimer = 0;
 
@@ -71,8 +71,23 @@ public class NPCController : MonoBehaviour
                 lookConeObjects[i].SetActive(false);
             }
         }
+        Vector3 playerFeet = player.FeetCollider.bounds.center;
+        Vector3 npcFeet = FeetCollider.bounds.center;
+        List<RaycastHit2D> rayHits = new List<RaycastHit2D>(Physics2D.RaycastAll(npcFeet, playerFeet - npcFeet, Vector3.Distance(playerFeet, npcFeet)));
 
-        if (lookingAtPlayer)
+        bool playerBehindWall = false;
+        foreach (RaycastHit2D rayHit in rayHits)
+        {
+            if (rayHit.collider != null)
+            {
+                if (rayHit.collider.tag == "Walls")
+                {
+                    playerBehindWall = true;
+                }
+            }
+        }
+
+        if (!playerBehindWall && lookingAtPlayer)
         {
             if (player.CurrentArea == null || (RecognizePlayer() && !player.CurrentArea.IsPlayerAllowed() && GameManager.Instance.LightsOn))
             {
@@ -122,7 +137,7 @@ public class NPCController : MonoBehaviour
             Door door = collision.collider.GetComponent<Door>();
             if (door != null && !door.Open && currentBehaviour.doorsOnRoute.Contains(door))
             {
-                door.Toggle(HasKey);
+                door.Toggle(HasDoorKey.Contains(door));
             }
         }
     }
@@ -133,7 +148,7 @@ public class NPCController : MonoBehaviour
             Door door = collision.collider.GetComponent<Door>();
             if (door != null && door.Open && currentBehaviour.doorsOnRoute.Contains(door))
             {
-                StartCoroutine(CoroutineHelper.DelaySeconds(() => door.Toggle(HasKey), .5f));
+                StartCoroutine(CoroutineHelper.DelaySeconds(() => door.Toggle(HasDoorKey.Contains(door)), .5f));
             }
         }
     }

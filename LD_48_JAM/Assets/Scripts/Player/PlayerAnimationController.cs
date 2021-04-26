@@ -26,11 +26,11 @@ public class PlayerAnimationController : MonoBehaviour
 
         if (horizontalMovement > 0)
         {
-            spriteRenderer.flipX = true;
+            transform.parent.localScale = new Vector3(-1, 1, 1);
         }
         else if (horizontalMovement < 0)
         {
-            spriteRenderer.flipX = false;
+            transform.parent.localScale = new Vector3(1, 1, 1);
         }
     }
 

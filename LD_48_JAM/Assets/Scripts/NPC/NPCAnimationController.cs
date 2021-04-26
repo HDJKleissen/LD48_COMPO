@@ -30,13 +30,13 @@ public class NPCAnimationController : MonoBehaviour
         animator.SetInteger("HorizontalMovement", horizontalMovement);
         animator.SetInteger("VerticalMovement", verticalMovement);
 
-        if(horizontalMovement > 0)
+        if (horizontalMovement > 0)
         {
-            spriteRenderer.flipX = true;
+            transform.parent.localScale = new Vector3(-1, 1, 1);
         }
-        else if(horizontalMovement < 0)
+        else if (horizontalMovement < 0)
         {
-            spriteRenderer.flipX = false;
+            transform.parent.localScale = new Vector3(1, 1, 1);
         }
     }
 
