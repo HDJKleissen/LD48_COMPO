@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{121b29f2-796b-44f3-9515-7e59f5729764}">
 		<property name="name">
-			<value>NpcRecogniseDisguiseBark</value>
+			<value>NpcRecogniseFemaleDisguiseBark</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
