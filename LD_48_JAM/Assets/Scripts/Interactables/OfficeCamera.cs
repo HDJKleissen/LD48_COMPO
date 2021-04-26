@@ -19,6 +19,14 @@ public class OfficeCamera : Toggleable
     {
         if(CameraCone.activeInHierarchy != Open)
         {
+            if (Open)
+            {
+                CameraPowerSounds.PlayCameraPowerOn(gameObject);
+            }
+            else
+            {
+                CameraPowerSounds.PlayCameraPowerOff(gameObject);
+            }
             CameraCone.SetActive(Open);
         }
     }

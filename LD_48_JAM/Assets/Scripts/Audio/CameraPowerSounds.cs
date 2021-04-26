@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraPowerSounds : MonoBehaviour
+public class CameraPowerSounds
 {
-    public void PlayCameraPowerOn()
+    public static void PlayCameraPowerOn(GameObject gameObject)
     {
         FMODUnity.RuntimeManager.PlayOneShotAttached("event:/CameraPowerUp", gameObject);
     }
 
-    public void PlayCameraPowerOff()
+    public static void PlayCameraPowerOff(GameObject gameObject)
     {
         FMODUnity.RuntimeManager.PlayOneShotAttached("event:/CameraPowerDown", gameObject);
     }

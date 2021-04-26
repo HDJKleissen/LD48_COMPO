@@ -19,9 +19,18 @@ public class Switch : Toggleable
     {
         UpdateSprite();
     }
-    public void ToggleSwitch()
+
+    public override void Toggle()
     {
-        Open = !Open;
+        base.Toggle();
+        if(Open)
+        {
+            CameraButtonSounds.PlayCameraButtonOn(gameObject);
+        }
+        else
+        {
+            CameraButtonSounds.PlayCameraButtonOff(gameObject);
+        }
     }
 
     void UpdateSprite()

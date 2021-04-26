@@ -11,6 +11,7 @@ public class Area : MonoBehaviour
 
     public PolygonCollider2D areaCollider;
 
+    bool playerInArea = false;
     PlayerController player;
 
     // Start is called before the first frame update
@@ -45,11 +46,11 @@ public class Area : MonoBehaviour
         //Debug.Log("something exited " + Name);
         //Debug.Log("it was " + collision.tag);
         //Debug.Log("with their feet? " + (collision == player.FeetCollider));
-        if (collision.tag == "Player")
-        {
-            player.FeetCollider.enabled = false;
-            player.FeetCollider.enabled = true;
-        }
+        //if (collision.tag == "Player")
+        //{
+        //    player.FeetCollider.enabled = false;
+        //    player.FeetCollider.enabled = true;
+        //}
     }
 
     public bool IsPlayerAllowed()
