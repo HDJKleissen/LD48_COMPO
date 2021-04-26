@@ -14,13 +14,15 @@ public class NPCController : MonoBehaviour
 
     internal Vector2 Destination;
     public int LookDirection;
-
+    public float LookAtPlayerDistance;
     PlayerController player;
 
     bool lookingAtPlayer = false;
     public bool HasKey = true;
     Vector3 previousPosition;
     public float walkIntoWallTimer = 0;
+
+    public GameObject NPCAlertPrefab;
 
     public GameObject[] lookConeObjects = new GameObject[4];
 
@@ -57,8 +59,6 @@ public class NPCController : MonoBehaviour
             float angle = Mathf.Atan2(0 - movement.x, 1 - movement.y);
             LookDirection = Mathf.FloorToInt((((angle * Mathf.Rad2Deg) / 90) + 1) * 2);
         }
-        animationController.UpdateAnimator(movement);
-        transform.position += movement * MoveSpeed * Time.fixedDeltaTime;
 
         for (int i = 0; i < lookConeObjects.Length; i++)
         {
@@ -76,6 +76,10 @@ public class NPCController : MonoBehaviour
         {
             if (player.CurrentArea == null || (RecognizePlayer() && !player.CurrentArea.IsPlayerAllowed() && GameManager.Instance.LightsOn))
             {
+                if(Vector3.Distance(player.transform.position, transform.position) < LookAtPlayerDistance)
+                {
+                    movement = Vector3.zero;
+                }
                 GameManager.Instance.AddSuspicion(0.25f * Time.fixedDeltaTime);
 
                 if(GameManager.Instance.Player.Disguise == PlayerDisguise.Cactus)
@@ -88,10 +92,12 @@ public class NPCController : MonoBehaviour
                 }
                 animationController.ColorSprite(Color.red);
                 return;
+                AlertNPC();
             }
 
         }
-        animationController.ColorSprite(Color.white);
+        animationController.UpdateAnimator(movement);
+        transform.position += movement * MoveSpeed * Time.fixedDeltaTime;
     }
 
     private void Update()
@@ -176,6 +182,11 @@ public class NPCController : MonoBehaviour
             currentBehaviour = newBehaviour;
             currentBehaviour.DoStartBehaviour();
         }
+    }
+
+    public void AlertNPC()
+    {
+        Instantiate(NPCAlertPrefab, transform);
     }
 
     public void SetSeePlayer(bool seen)

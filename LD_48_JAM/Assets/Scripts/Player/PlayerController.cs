@@ -151,5 +151,6 @@ public enum PlayerDisguise
     ManTie,
     Woman,
     WomanBlack,
-    WomanDress
+    WomanDress,
+    Security
 }
