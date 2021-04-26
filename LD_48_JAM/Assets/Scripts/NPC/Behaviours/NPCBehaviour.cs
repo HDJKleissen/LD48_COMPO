@@ -8,6 +8,8 @@ public abstract class NPCBehaviour : MonoBehaviour
     public BehaviorPriority BasePriority = BehaviorPriority.Medium;
     public float MoveSpeed = 8;
 
+    public List<Door> doorsOnRoute = new List<Door>();
+
     public virtual BehaviorPriority GetBehaviorPriority()
     {
         return BasePriority;

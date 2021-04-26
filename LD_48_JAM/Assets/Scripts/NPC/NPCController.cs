@@ -18,7 +18,7 @@ public class NPCController : MonoBehaviour
     PlayerController player;
 
     bool lookingAtPlayer = false;
-
+    public bool HasKey = true;
     Vector3 previousPosition;
     public float walkIntoWallTimer = 0;
 
@@ -105,14 +105,27 @@ public class NPCController : MonoBehaviour
 
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        // GOTS TA FIX WALL HUMPING
-        //if (collision.collider.tag == "Walls")
-        //{
-        //    Debug.Log("Hit a wall, rerouting");
-        //    Destination = transform.position;
-        //}
+        if (collision.collider.tag == "Interactable")
+        {
+            Door door = collision.collider.GetComponent<Door>();
+            if (door != null && !door.Open && currentBehaviour.doorsOnRoute.Contains(door))
+            {
+                door.Toggle(HasKey);
+            }
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Interactable")
+        {
+            Door door = collision.collider.GetComponent<Door>();
+            if (door != null && door.Open && currentBehaviour.doorsOnRoute.Contains(door))
+            {
+                StartCoroutine(CoroutineHelper.DelaySeconds(() => door.Toggle(HasKey), .5f));
+            }
+        }
     }
 
     private void OnValidate()

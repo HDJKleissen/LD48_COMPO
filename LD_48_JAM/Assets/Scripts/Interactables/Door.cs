@@ -32,11 +32,13 @@ public class Door : Toggleable
 
     }
 
-    public override void Toggle()
+    public override void Toggle(bool ignoreLock)
     {
         if (Locked)
-        { 
-            DialogueHandler.Instance.CreateDiegeticDialog(GameManager.Instance.Player.transform, CharacterMood.Angry, new List<DiegeticDialogueStruct>
+        {
+            if (!ignoreLock)
+            {
+                DialogueHandler.Instance.CreateDiegeticDialog(GameManager.Instance.Player.transform, CharacterMood.Angry, new List<DiegeticDialogueStruct>
                 {
                     new DiegeticDialogueStruct
                     {
@@ -45,6 +47,7 @@ public class Door : Toggleable
                     }
                 }, true
             );
+            }
         }
         else if (IsFrontDoor)
         {
@@ -55,7 +58,7 @@ public class Door : Toggleable
                 }
             );
         }
-        base.Toggle();
+        base.Toggle(ignoreLock);
         if (Open)
         {
             FMODUnity.RuntimeManager.PlayOneShotAttached("event:/DoorOpen", gameObject);
@@ -81,8 +84,8 @@ public class Door : Toggleable
     void UpdateCollider()
     {
         ClosedCollider.enabled = !Open;
-        OpenColliders[0].enabled = Open;
-        OpenColliders[1].enabled = Open;
+        //OpenColliders[0].enabled = Open;
+        //OpenColliders[1].enabled = Open;
     }
 
     void UpdateAnimation()

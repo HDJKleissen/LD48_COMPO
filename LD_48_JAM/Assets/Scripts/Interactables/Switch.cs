@@ -15,9 +15,9 @@ public class Switch : Toggleable
     }
 
 
-    public override void Toggle()
+    public override void Toggle(bool ignoreLock)
     {
-        base.Toggle();
+        base.Toggle(ignoreLock);
         if(Open)
         {
             CameraButtonSounds.PlayCameraButtonOn(gameObject);

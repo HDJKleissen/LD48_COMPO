@@ -6,9 +6,9 @@ public abstract class Toggleable : MonoBehaviour
 {
     public bool Open, Locked;
 
-    public virtual void Toggle()
+    public virtual void Toggle(bool ignoreLock)
     {
-        if (!Locked)
+        if (!Locked || ignoreLock)
         {
             Open = !Open;
         }

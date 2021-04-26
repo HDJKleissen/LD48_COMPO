@@ -241,6 +241,7 @@ MonoBehaviour:
   animationController: {fileID: 1066810117746439443}
   FeetCollider: {fileID: 1066810117912845366}
   LookDirection: 2
+  HasKey: 1
   walkIntoWallTimer: 0
   lookConeObjects:
   - {fileID: 4555520052306587844}

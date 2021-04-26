@@ -441,6 +441,7 @@ MonoBehaviour:
   npc: {fileID: 58956750}
   BasePriority: 2
   MoveSpeed: 8
+  doorsOnRoute: []
 --- !u!114 &58956750 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6111353453383166219, guid: 794e6d998768cc04cb71517746e53ce7, type: 3}
@@ -595,6 +596,18 @@ MonoBehaviour:
       - m_Target: {fileID: 129426157}
         m_TargetAssemblyTypeName: Switch, Assembly-CSharp
         m_MethodName: Toggle
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1084998815}
+        m_TargetAssemblyTypeName: Door, Assembly-CSharp
+        m_MethodName: ToggleLocked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -604,7 +617,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1084998815}
+      - m_Target: {fileID: 1765870496}
         m_TargetAssemblyTypeName: Door, Assembly-CSharp
         m_MethodName: ToggleLocked
         m_Mode: 1
@@ -791,6 +804,8 @@ MonoBehaviour:
   npc: {fileID: 177857176}
   BasePriority: 2
   MoveSpeed: 8
+  doorsOnRoute:
+  - {fileID: 1765870496}
   patrolPoints:
   - {x: -22.174206, y: -49.08002, z: 0}
   - {x: -3.5912342, y: -38.267956, z: 0}
@@ -1133,7 +1148,6 @@ MonoBehaviour:
   areaDescriber: {fileID: 1998922571}
   suspiciometer: {fileID: 1534579484}
   LightsOffOverlay: {fileID: 986944001}
-  musicSystemPlayer: {fileID: 7987353543324411787}
   SuspicionLevelHoldTime: 2
   MaxSuspicionLostPerSecond: 0.15
   PanicThreshold: 0.75
@@ -1994,6 +2008,7 @@ Transform:
   - {fileID: 513965192}
   - {fileID: 539146872}
   - {fileID: 953921697}
+  - {fileID: 1510337855}
   m_Father: {fileID: 1780889967}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3382,6 +3397,7 @@ MonoBehaviour:
   npc: {fileID: 984103701}
   BasePriority: 2
   MoveSpeed: 8
+  doorsOnRoute: []
 --- !u!114 &984103701 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2895510253868574405, guid: 493838aecd967f24c8adb2e1a9e7532c, type: 3}
@@ -3824,6 +3840,7 @@ MonoBehaviour:
   npc: {fileID: 1088773008}
   BasePriority: 2
   MoveSpeed: 8
+  doorsOnRoute: []
 --- !u!114 &1088773008 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 391775395743602093, guid: 61ce4c464a4d7bb4fbd6825f4338d45a, type: 3}
@@ -46386,6 +46403,72 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1510337854
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 573080979}
+    m_Modifications:
+    - target: {fileID: 8459267074679115031, guid: 982c7eff936d26d48b1a4117e48d869d, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459267074679115031, guid: 982c7eff936d26d48b1a4117e48d869d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459267074679115031, guid: 982c7eff936d26d48b1a4117e48d869d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459267074679115031, guid: 982c7eff936d26d48b1a4117e48d869d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -43.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459267074679115031, guid: 982c7eff936d26d48b1a4117e48d869d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459267074679115031, guid: 982c7eff936d26d48b1a4117e48d869d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459267074679115031, guid: 982c7eff936d26d48b1a4117e48d869d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459267074679115031, guid: 982c7eff936d26d48b1a4117e48d869d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459267074679115031, guid: 982c7eff936d26d48b1a4117e48d869d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459267074679115031, guid: 982c7eff936d26d48b1a4117e48d869d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459267074679115031, guid: 982c7eff936d26d48b1a4117e48d869d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459267074679115031, guid: 982c7eff936d26d48b1a4117e48d869d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459267074679115049, guid: 982c7eff936d26d48b1a4117e48d869d, type: 3}
+      propertyPath: m_Name
+      value: HallwayToSecurityDoors
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 982c7eff936d26d48b1a4117e48d869d, type: 3}
+--- !u!4 &1510337855 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8459267074679115031, guid: 982c7eff936d26d48b1a4117e48d869d, type: 3}
+  m_PrefabInstance: {fileID: 1510337854}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1534579482
 GameObject:
   m_ObjectHideFlags: 0
@@ -46752,6 +46835,7 @@ MonoBehaviour:
   npc: {fileID: 1595405928}
   BasePriority: 2
   MoveSpeed: 8
+  doorsOnRoute: []
   StandPosition: {x: -1.493393, y: 1.1460929, z: 0}
 --- !u!114 &1595405926
 MonoBehaviour:
@@ -46768,6 +46852,7 @@ MonoBehaviour:
   npc: {fileID: 1595405928}
   BasePriority: 0
   MoveSpeed: 10
+  doorsOnRoute: []
   target: {fileID: 1099541031}
   ReturnMoveSpeed: 6
   yOffset: -2
@@ -46882,6 +46967,7 @@ MonoBehaviour:
   npc: {fileID: 1728280460}
   BasePriority: 2
   MoveSpeed: 8
+  doorsOnRoute: []
 --- !u!114 &1728280460 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7757417463261961761, guid: 93302bf39857c2e49af3e4cfa2e67443, type: 3}
@@ -47064,6 +47150,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4582335149471727344, guid: 0092ad00f639d6a40b1ef2e2477f5438, type: 3}
   m_PrefabInstance: {fileID: 586591364433609175}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1765870496 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8459267074978060125, guid: 982c7eff936d26d48b1a4117e48d869d, type: 3}
+  m_PrefabInstance: {fileID: 1510337854}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4c840d50c74e0c42a2ee6853273345f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1770944012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47517,6 +47614,7 @@ MonoBehaviour:
   npc: {fileID: 1919912304}
   BasePriority: 2
   MoveSpeed: 8
+  doorsOnRoute: []
   patrolPoints:
   - {x: -80.363914, y: -42.61391, z: 0}
   - {x: -88.52664, y: -46.282547, z: 0}
@@ -47560,6 +47658,7 @@ MonoBehaviour:
   npc: {fileID: 1919921783}
   BasePriority: 3
   MoveSpeed: 6
+  doorsOnRoute: []
   patrolPoints:
   - {x: -54.23863, y: -51.87048, z: 0}
   - {x: -76.19542, y: -47.58918, z: 0}
@@ -47586,6 +47685,7 @@ MonoBehaviour:
   npc: {fileID: 1919921783}
   BasePriority: 0
   MoveSpeed: 10
+  doorsOnRoute: []
   LightSwitchCheckRadius: 200
 --- !u!114 &1919921783 stripped
 MonoBehaviour:
@@ -48117,6 +48217,7 @@ MonoBehaviour:
   npc: {fileID: 2007257245}
   BasePriority: 2
   MoveSpeed: 8
+  doorsOnRoute: []
 --- !u!114 &2007257245 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3887564123595548657, guid: 4e2f1d46aca037441bc6d13178e91a60, type: 3}
@@ -82388,17 +82489,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3964170eeed8c4ed3ada7528e017a006, type: 3}
---- !u!114 &7987353543324411787 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -8911398112931461653, guid: 3964170eeed8c4ed3ada7528e017a006, type: 3}
-  m_PrefabInstance: {fileID: 7987353543324411786}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 144cf0d31727145db960e44f67f98f7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8459267074487168055
 PrefabInstance:
   m_ObjectHideFlags: 0
