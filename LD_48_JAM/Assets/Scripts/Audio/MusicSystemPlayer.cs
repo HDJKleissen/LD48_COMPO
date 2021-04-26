@@ -10,6 +10,8 @@ public class MusicSystemPlayer : MonoBehaviour
     FMOD.Studio.EventInstance music;
     public int panicForMusic = 0;
 
+    public static MusicSystemPlayer Instance;
+
     private void Awake()
     {
         int musicPlayerCount = FindObjectsOfType<MusicSystemPlayer>().Length;
@@ -20,6 +22,7 @@ public class MusicSystemPlayer : MonoBehaviour
         }
         else
         {
+            MusicSystemPlayer.Instance = this;
             DontDestroyOnLoad(gameObject);
         }
     }
