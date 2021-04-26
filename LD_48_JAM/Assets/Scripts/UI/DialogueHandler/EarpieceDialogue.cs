@@ -103,7 +103,7 @@ public class EarpieceDialogue : MonoBehaviour
                 {
                     FMODUnity.RuntimeManager.PlayOneShot("event:/Alphabet/" + currentLetter + (nextLetter == '?' ? "1" : ""));
                 }
-                //playLetterSound = !playLetterSound;
+                playLetterSound = !playLetterSound;
             }
 
             switch (currentLetter)
