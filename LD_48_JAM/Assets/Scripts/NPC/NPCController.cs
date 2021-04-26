@@ -101,9 +101,18 @@ public class NPCController : MonoBehaviour
                 {
                     FMODUnity.RuntimeManager.PlayOneShotAttached("event:/NpcCactusBark", gameObject);
                 }
-                else
+                else if (GameManager.Instance.Player.Disguise == PlayerDisguise.Woman ||
+                    GameManager.Instance.Player.Disguise == PlayerDisguise.WomanBlack ||
+                    GameManager.Instance.Player.Disguise == PlayerDisguise.WomanDress)
                 {
-                    FMODUnity.RuntimeManager.PlayOneShotAttached("event:/NpcDetectedBark", gameObject);
+                    FMODUnity.RuntimeManager.PlayOneShotAttached("event:/NpcRecogniseFemaleDisguiseBark", gameObject);
+                }
+                else if (GameManager.Instance.Player.Disguise == PlayerDisguise.Man ||
+                    GameManager.Instance.Player.Disguise == PlayerDisguise.ManBald ||
+                    GameManager.Instance.Player.Disguise == PlayerDisguise.ManTie ||
+                    GameManager.Instance.Player.Disguise == PlayerDisguise.Security)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShotAttached("event:/NpcRecogniseMaleDisguiseBark", gameObject);
                 }
             }
 
