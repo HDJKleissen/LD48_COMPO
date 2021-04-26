@@ -9,7 +9,7 @@ public class NPCMoveRandomly : NPCBehaviour
     {
         if(!waitingForDestination && NPCAtDestination)
         {
-            Debug.Log("Delaying random pos choose");
+            //Debug.Log("Delaying random pos choose");
             StartCoroutine("ChooseRandomPosition");
             waitingForDestination = true;
         }

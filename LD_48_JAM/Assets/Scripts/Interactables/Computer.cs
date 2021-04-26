@@ -6,7 +6,7 @@ public class Computer : MonoBehaviour
 {
     public Interactable LinkedInteractable;
 
-    string wrongComputerDialogue, correctComputerDialogue;
+    public List<string> wrongComputerDialogue, correctComputerDialogue;
 
     // Start is called before the first frame update
     void Start()
@@ -24,12 +24,27 @@ public class Computer : MonoBehaviour
     {
         if (LinkedInteractable != null)
         {
-            // Dialogue play!
+            DialogueHandler.Instance.CreateEarpieceDialogue(CharacterMood.Happy, correctComputerDialogue);
             LinkedInteractable.Interact();
         }
         else
         {
-            // Play not correct computer dialogue :(
+            string chosenDialogue = wrongComputerDialogue[Random.Range(0, wrongComputerDialogue.Count)];
+
+            string[] splitOnPipes = chosenDialogue.Split('|');
+
+            List<DiegeticDialogueStruct> dialogue = new List<DiegeticDialogueStruct>();
+
+            for(int i =0; i < splitOnPipes.Length; i++)
+            {
+                dialogue.Add(new DiegeticDialogueStruct()
+                {
+                    Dialogue = splitOnPipes[i],
+                    ShowTime = 1
+                });
+            }
+
+            DialogueHandler.Instance.CreateDiegeticDialog(GameManager.Instance.Player.transform,CharacterMood.Sad, dialogue, true);
         }
     }
 }

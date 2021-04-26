@@ -10,6 +10,7 @@ TagManager:
   - NPC
   - CameraCone
   - Area
+  - CameraBounds
   layers:
   - Default
   - TransparentFX

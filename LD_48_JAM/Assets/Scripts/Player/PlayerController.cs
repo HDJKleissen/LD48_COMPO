@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public PlayerAnimationController animationController;
     public CircleCollider2D FeetCollider;
     public Animator ClothesChangeCloudAnimator;
+    public PlayerCamera playerCamera;
 
     public Area CurrentArea = null;
 
@@ -80,6 +81,11 @@ public class PlayerController : MonoBehaviour
                 Debug.LogWarning("Object " + collision.name + " has the interactable tag but no Interactable component! Please fix!");
             }
         }
+        else if(collision.tag == "CameraBounds")
+        {
+            Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAASSSSSSSSAAAAAAVCCCCCCC");
+            playerCamera.Following = false;
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -99,6 +105,10 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.LogWarning("Object " + collision.name + " has the interactable tag but no Interactable component! Please fix!");
             }
+        }
+        else if (collision.tag == "CameraBounds")
+        {
+            playerCamera.Following = true;
         }
     }
 

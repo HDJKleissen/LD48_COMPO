@@ -20,7 +20,7 @@ public class DiegeticDialogue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.position = Camera.main.WorldToScreenPoint(Character.position) + new Vector3(0, DistanceToAboveHead);
     }
 
     // Update is called once per frame

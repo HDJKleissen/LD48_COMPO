@@ -410,6 +410,7 @@ MonoBehaviour:
   - {fileID: 8459267074978060127}
   - {fileID: 8459267074978060113}
   animator: {fileID: 8459267074978060126}
+  IsFrontDoor: 0
 --- !u!95 &8459267074978060126
 Animator:
   serializedVersion: 3

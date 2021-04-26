@@ -282,6 +282,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LinkedInteractable: {fileID: 0}
+  wrongComputerDialogue:
+  - Only salary records on this one...
+  - Hmm... This computer doesn't have any hard drives.|Let's try another one.
+  - Wait, is this computer made of cardboard?
+  - No browser histories here.
+  correctComputerDialogue: []
 --- !u!114 &539146875
 MonoBehaviour:
   m_ObjectHideFlags: 0

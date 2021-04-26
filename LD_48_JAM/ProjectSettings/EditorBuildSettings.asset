@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OptionsMenu.unity
     guid: ca6f1d936b8fd6342934edb9df490594
+  - enabled: 1
+    path: Assets/Scenes/CowardEnd.unity
+    guid: 99a9a2bece665c94eaa90b8c02235f52
   m_configObjects: {}
