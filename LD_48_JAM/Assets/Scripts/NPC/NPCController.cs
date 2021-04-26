@@ -64,7 +64,7 @@ public class NPCController : MonoBehaviour
 
         for (int i = 0; i < lookConeObjects.Length; i++)
         {
-            if (i == LookDirection)
+            if (i == LookDirection && GameManager.Instance.LightsOn)
             {
                 lookConeObjects[i].SetActive(true);
             }
@@ -78,6 +78,8 @@ public class NPCController : MonoBehaviour
         {
             if (RecognizePlayer() && !player.CurrentArea.IsPlayerAllowed() && GameManager.Instance.LightsOn)
             {
+                GameManager.Instance.AddSuspicion(0.25f * Time.fixedDeltaTime);
+
                 FMODUnity.RuntimeManager.PlayOneShotAttached("event:/NpcDetectedBark", gameObject);
                 animationController.ColorSprite(Color.red);
                 return;
@@ -154,17 +156,13 @@ public class NPCController : MonoBehaviour
         if(newBehaviour != currentBehaviour)
         {
             currentBehaviour = newBehaviour;
-            currentBehaviour.StartBehaviour();
+            currentBehaviour.DoStartBehaviour();
         }
     }
 
     public void SetSeePlayer(bool seen)
     {
         lookingAtPlayer = seen;
-        if (seen)
-        {
-            GameManager.Instance.AddSuspicion(0.1f);
-        }
     }
 
     bool RecognizePlayer()

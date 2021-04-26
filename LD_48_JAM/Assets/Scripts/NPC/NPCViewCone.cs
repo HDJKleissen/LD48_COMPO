@@ -13,15 +13,12 @@ public class NPCViewCone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("AAAAAAAAAAAAH, a: " + collision.tag );
         if (collision.tag == "Player" && collision == GameManager.Instance.Player.FeetCollider)
         {
-            Debug.Log("whassup playa");
             npc.SetSeePlayer(true);
         }
     }

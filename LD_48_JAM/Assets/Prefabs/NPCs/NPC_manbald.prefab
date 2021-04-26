@@ -67,5 +67,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_manbald
       objectReference: {fileID: 0}
+    - target: {fileID: 1372679976926883453, guid: 0f18cab28be29a24eb3b6e73c1f61937, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3760813958522897709, guid: 0f18cab28be29a24eb3b6e73c1f61937, type: 3}
+      propertyPath: hoverOutline
+      value: 
+      objectReference: {fileID: 1778203499816904664}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f18cab28be29a24eb3b6e73c1f61937, type: 3}
+--- !u!212 &1778203499816904664 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1372679976926883453, guid: 0f18cab28be29a24eb3b6e73c1f61937, type: 3}
+  m_PrefabInstance: {fileID: 838179171106933157}
+  m_PrefabAsset: {fileID: 0}

@@ -8,6 +8,8 @@ public class NPCFixLights : NPCBehaviour
 
     LightSwitch chosenSwitch;
 
+    bool switchedLights = false, startedSwitching = false;
+
     public override BehaviorPriority GetBehaviorPriority()
     {
         if (!GameManager.Instance.LightsOn)
@@ -19,16 +21,20 @@ public class NPCFixLights : NPCBehaviour
 
     public override bool DoBehaviour()
     {
-        if (NPCAtDestination)
+        if (NPCAtDestination && !startedSwitching)
         {
-            if(chosenSwitch != null)
+            if (chosenSwitch != null)
             {
-                chosenSwitch.GetComponent<Interactable>().Interact();
-                return false;
+                startedSwitching = true;
+                StartCoroutine(CoroutineHelper.DelaySeconds(() =>
+                {
+                    chosenSwitch.GetComponent<Interactable>().Interact();
+                    switchedLights = true;
+                }, 0.5f));
             }
         }
 
-        return true;
+        return !switchedLights;
     }
 
     public override void DoValidation()

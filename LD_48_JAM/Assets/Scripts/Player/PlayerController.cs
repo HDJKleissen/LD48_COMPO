@@ -25,15 +25,22 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Interact"))
+        foreach (Interactable interactable in interactablesInRange)
         {
-            if (interactablesInRange.Count > 0)
+            if (!interactable.AllowInteract)
             {
-                Interactable interactable = interactablesInRange[0];
-
-                interactable.Interact();
+                interactable.AllowInteract = true;
             }
         }
+        //if (Input.GetButtonDown("Interact"))
+        //{
+        //    if (interactablesInRange.Count > 0)
+        //    {
+        //        Interactable interactable = interactablesInRange[0];
+
+        //        interactable.Interact();
+        //    }
+        //}
 
     }
 
@@ -84,6 +91,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (interactablesInRange.Contains(other))
                 {
+                    other.AllowInteract = false;
                     interactablesInRange.Remove(collision.GetComponent<Interactable>());
                 }
             }
