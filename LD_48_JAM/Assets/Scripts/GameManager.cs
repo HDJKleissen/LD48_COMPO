@@ -91,12 +91,14 @@ public class GameManager : UnitySingleton<GameManager>
         if (LightsOn)
         {
             // Turn them off sequence
+            FMODUnity.RuntimeManager.PlayOneShot("event:/LightsOff");
             LightsOn = false;
             LightsOffOverlay.gameObject.SetActive(true);
         }
         else
         {
             // Turn them on sequence
+            FMODUnity.RuntimeManager.PlayOneShot("event:/LightsOn");
             LightsOn = true;
             LightsOffOverlay.gameObject.SetActive(false);
         }
