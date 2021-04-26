@@ -26,13 +26,32 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Interactable closestToMouse = null;
+        float closestDistanceToMouse = float.PositiveInfinity;
+
         foreach (Interactable interactable in interactablesInRange)
         {
-            if (!interactable.AllowInteract)
+            if (!interactable.PlayerInRange)
             {
-                interactable.AllowInteract = true;
+                interactable.PlayerInRange = true;
+            }
+            interactable.ClosestToMouse = false;
+
+            if (interactable.IsHovered())
+            {
+                if (interactable.MouseDistance < closestDistanceToMouse)
+                {
+                    closestDistanceToMouse = interactable.MouseDistance;
+                    closestToMouse = interactable;
+                }
             }
         }
+
+        if (closestToMouse != null)
+        {
+            closestToMouse.ClosestToMouse = true;
+        }
+
         //if (Input.GetButtonDown("Interact"))
         //{
         //    if (interactablesInRange.Count > 0)
@@ -97,7 +116,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (interactablesInRange.Contains(other))
                 {
-                    other.AllowInteract = false;
+                    other.PlayerInRange = false;
                     interactablesInRange.Remove(collision.GetComponent<Interactable>());
                 }
             }

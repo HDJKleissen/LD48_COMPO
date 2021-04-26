@@ -14,11 +14,6 @@ public class Switch : Toggleable
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        UpdateSprite();
-    }
 
     public override void Toggle()
     {
@@ -26,15 +21,12 @@ public class Switch : Toggleable
         if(Open)
         {
             CameraButtonSounds.PlayCameraButtonOn(gameObject);
+            spriteRenderer.sprite = OnSprite;
         }
         else
         {
             CameraButtonSounds.PlayCameraButtonOff(gameObject);
+            spriteRenderer.sprite = OffSprite;
         }
-    }
-
-    void UpdateSprite()
-    {
-        spriteRenderer.sprite = Open ? OnSprite : OffSprite;
     }
 }

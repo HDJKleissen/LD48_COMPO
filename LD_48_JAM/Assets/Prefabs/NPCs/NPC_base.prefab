@@ -303,7 +303,8 @@ MonoBehaviour:
         m_CallState: 2
   MouseInteractRadius: 3
   outlineScale: 1.2
-  AllowInteract: 0
+  PlayerInRange: 0
+  ClosestToMouse: 0
 --- !u!70 &-6201534328597947942
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

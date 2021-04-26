@@ -11,7 +11,8 @@ public class Interactable : MonoBehaviour
     Animator animator;
     public float MouseInteractRadius, outlineScale = 1.2f;
 
-    public bool AllowInteract = false;
+    public bool PlayerInRange = false;
+    public bool ClosestToMouse = false;
 
     void Awake()
     {
@@ -33,7 +34,7 @@ public class Interactable : MonoBehaviour
 
     private void Update()
     {
-        if (AllowInteract)
+        if (PlayerInRange)
         {
             objectSprite.color = new Color(0.807f, 0.537f, 0.184f);
         }
@@ -41,15 +42,18 @@ public class Interactable : MonoBehaviour
         {
             objectSprite.color = Color.white;
         }
-        if (IsHovered() && AllowInteract)
+        if (IsHovered() && PlayerInRange)
         {
-            if(!hoverOutline.gameObject.activeInHierarchy)
+            if (ClosestToMouse)
             {
-                hoverOutline.gameObject.SetActive(true);
-            }
-            if (Input.GetMouseButtonDown(0))
-            {
-                Interact();
+                if (!hoverOutline.gameObject.activeInHierarchy)
+                {
+                    hoverOutline.gameObject.SetActive(true);
+                }
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Interact();
+                }
             }
         }
         else if (hoverOutline.gameObject.activeInHierarchy)
@@ -57,15 +61,14 @@ public class Interactable : MonoBehaviour
             hoverOutline.gameObject.SetActive(false);
         }
 
-        if(animator != null)
+        if (objectSprite != null)
         {
-            if (objectSprite != null)
-            {
-                hoverOutline.sprite = objectSprite.sprite;
-                hoverOutline.flipX = objectSprite.flipX;
-            }
+            hoverOutline.sprite = objectSprite.sprite;
+            hoverOutline.flipX = objectSprite.flipX;
+
         }
     }
+
     void OnValidate()
     {
         if(hoverOutline != null)
@@ -95,7 +98,13 @@ public class Interactable : MonoBehaviour
 
     public bool IsHovered()
     {
-        return Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position) < MouseInteractRadius;
+        return MouseDistance < MouseInteractRadius;
+    }
+
+    public float MouseDistance {
+        get {
+            return Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position);
+        }
     }
 
     public void Interact()

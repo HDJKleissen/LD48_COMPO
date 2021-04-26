@@ -24,9 +24,9 @@ public class DiegeticDialogue : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        transform.position = Camera.main.WorldToScreenPoint(Character.position) + new Vector3(0,DistanceToAboveHead);
+        //transform.position = Camera.main.WorldToScreenPoint(Character.position) + new Vector3(0,DistanceToAboveHead);
 
         timer += Time.deltaTime;
         if (timer > currentDialogue.ShowTime)

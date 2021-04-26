@@ -312,7 +312,8 @@ MonoBehaviour:
         m_CallState: 2
   MouseInteractRadius: 1
   outlineScale: 1.4
-  AllowInteract: 0
+  PlayerInRange: 0
+  ClosestToMouse: 0
 --- !u!114 &788461864975026055
 MonoBehaviour:
   m_ObjectHideFlags: 0

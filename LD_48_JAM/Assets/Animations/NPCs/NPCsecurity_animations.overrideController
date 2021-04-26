@@ -6,7 +6,7 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NPCmanbald_animations
+  m_Name: NPCsecurity_animations
   m_Controller: {fileID: 9100000, guid: 69557681cb2ef74438cf722b12e10dd5, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: 46c868ba14eebae4b9d7d337dfc9f209, type: 2}
