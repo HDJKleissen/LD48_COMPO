@@ -81,11 +81,13 @@ public class AreaDescriber : MonoBehaviour
         {
             text.text = currentDialogue.Insert(displayIndex, opaqueEndTag);
             char currentLetter = currentDialogue[Mathf.Clamp(displayIndex - 1, 0, currentDialogue.Length)];
-            if (Char.IsLetter(currentLetter))
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Typewriter");
+            /*if (Char.IsLetter(currentLetter))
             {
-                //FMODUnity.RuntimeManager.PlayOneShot("event:/Typewriter/" + currentLetter);
-            }
 
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Typewriter/" + currentLetter);
+            }
+            */
             switch (currentLetter)
             {
                 case '.':
