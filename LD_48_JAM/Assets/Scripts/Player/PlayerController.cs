@@ -102,8 +102,9 @@ public class PlayerController : MonoBehaviour
         }
         else if(collision.tag == "CameraBounds")
         {
-            Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAASSSSSSSSAAAAAAVCCCCCCC");
-            playerCamera.Following = false;
+            playerCamera.exactlyFollowing = false;
+            playerCamera.lerpFollowing = false;
+            playerCamera.startedRefollowing= true;
         }
     }
 
@@ -127,7 +128,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.tag == "CameraBounds")
         {
-            playerCamera.Following = true;
+            playerCamera.startedRefollowing = false;
         }
     }
 
