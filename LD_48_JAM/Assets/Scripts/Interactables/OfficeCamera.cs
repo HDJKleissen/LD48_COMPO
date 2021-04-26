@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OfficeCamera : MonoBehaviour
+public class OfficeCamera : Toggleable
 {
     public GameObject CameraCone;
     public SpriteRenderer spriteRenderer;
@@ -17,12 +17,10 @@ public class OfficeCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    public void ToggleCamera()
-    {
-        CameraCone.SetActive(!CameraCone.activeInHierarchy);
+        if(CameraCone.activeInHierarchy != Open)
+        {
+            CameraCone.SetActive(Open);
+        }
     }
 
     internal void SetPlayerSeen(bool playerSeen)

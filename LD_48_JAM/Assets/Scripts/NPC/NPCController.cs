@@ -6,6 +6,7 @@ public class NPCController : MonoBehaviour
 {
     public float MoveSpeed, ViewDistance, WalkIntoWallTime;
 
+    [SerializeField]
     NPCBehaviour currentBehaviour;
     public NPCBehaviour[] behaviours;
     public NPCAnimationController animationController;
@@ -36,12 +37,9 @@ public class NPCController : MonoBehaviour
         if (currentBehaviour == null)
         {
             ChooseBehaviour();
-            behaviourContinuing = currentBehaviour.DoBehaviour();
         }
-        else
-        {
-            behaviourContinuing = currentBehaviour.DoBehaviour();
-        }
+        behaviourContinuing = currentBehaviour.DoBehaviour();
+        
 
         if (!behaviourContinuing)
         {
@@ -76,7 +74,7 @@ public class NPCController : MonoBehaviour
 
         if (lookingAtPlayer)
         {
-            if (RecognizePlayer() && !player.CurrentArea.IsPlayerAllowed() && GameManager.Instance.LightsOn)
+            if (player.CurrentArea == null || (RecognizePlayer() && !player.CurrentArea.IsPlayerAllowed() && GameManager.Instance.LightsOn))
             {
                 GameManager.Instance.AddSuspicion(0.25f * Time.fixedDeltaTime);
 

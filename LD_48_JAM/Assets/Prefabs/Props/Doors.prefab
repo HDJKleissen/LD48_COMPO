@@ -403,12 +403,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c840d50c74e0c42a2ee6853273345f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Open: 0
+  Locked: 1
   ClosedCollider: {fileID: 8459267074978060112}
   OpenColliders:
   - {fileID: 8459267074978060127}
   - {fileID: 8459267074978060113}
-  Open: 0
-  Locked: 1
   animator: {fileID: 8459267074978060126}
 --- !u!95 &8459267074978060126
 Animator:

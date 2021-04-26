@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Switch : MonoBehaviour
+public class Switch : Toggleable
 {
     public Sprite OffSprite, OnSprite;
-
-    public bool On;
 
     SpriteRenderer spriteRenderer;
 
@@ -19,16 +17,15 @@ public class Switch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        UpdateSprite();
     }
     public void ToggleSwitch()
     {
-        On = !On;
-        UpdateSprite();
+        Open = !Open;
     }
 
     void UpdateSprite()
     {
-        spriteRenderer.sprite = On ? OnSprite : OffSprite;
+        spriteRenderer.sprite = Open ? OnSprite : OffSprite;
     }
 }

@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1131367110}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 2059614195603471687}
   m_RootOrder: 1
@@ -313,6 +313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee3997e6a4ed5974ea196e36d978ae76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Open: 0
+  Locked: 0
   CameraCone: {fileID: 2059614195160936206}
   spriteRenderer: {fileID: 2059614195603471686}
 --- !u!114 &2059614195603471684
@@ -333,8 +335,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2059614195603471685}
-        m_TargetAssemblyTypeName: OfficeCamera, Assembly-CSharp
-        m_MethodName: ToggleCamera
+        m_TargetAssemblyTypeName: Toggleable, Assembly-CSharp
+        m_MethodName: Toggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -344,8 +346,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  MouseInteractRadius: 0
-  outlineScale: 0
+  MouseInteractRadius: 1
+  outlineScale: 1.2
   AllowInteract: 0
 --- !u!58 &2059614195603471683
 CircleCollider2D:

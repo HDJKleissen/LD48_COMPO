@@ -2,12 +2,10 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door : Toggleable
 {
     public PolygonCollider2D ClosedCollider;
     public PolygonCollider2D[] OpenColliders = new PolygonCollider2D[2];
-
-    public bool Open, Locked;
 
     public Animator animator;
 
@@ -24,27 +22,24 @@ public class Door : MonoBehaviour
         
     }
 
-    public void ToggleDoor(string interactionTypeString)
+    public override void Toggle()
     {
-        DoorInteraction interactionType = (DoorInteraction)Enum.Parse(typeof(DoorInteraction), interactionTypeString);
-        switch (interactionType)
+        if (Locked)
         {
-            case DoorInteraction.ToggleOpen:
-                if (Locked)
-                {
-                    // Some dialogue probably
-                }
-                else
-                {
-                    Open = !Open;
-                }
-                break;
-            case DoorInteraction.ToggleLocked:
-                Locked = !Locked;
-                break;
+            // Dialogue: Hmm.. seems to be locked.
         }
+        base.Toggle();
         UpdateCollider();
         UpdateAnimation();
+    }
+
+    public override void ToggleLocked()
+    {
+        base.ToggleLocked();
+        if (!Locked)
+        {
+            // Dialogue: Got it! The door is now unlocked.
+        }
     }
 
     void UpdateCollider()
@@ -60,9 +55,3 @@ public class Door : MonoBehaviour
     }
 }
 
-[Serializable]
-public enum DoorInteraction
-{
-    ToggleOpen,
-    ToggleLocked
-}

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NPCStandStill : NPCBehaviour
 {
+    [DraggablePoint]
+    public Vector3 StandPosition;
     public override bool DoBehaviour()
     {
         return true;
@@ -11,7 +13,7 @@ public class NPCStandStill : NPCBehaviour
 
     public override bool StartBehaviour()
     {
-        npc.Destination = transform.position;
+        npc.Destination = StandPosition;
         return true;
     }
     public override void DoValidation()
