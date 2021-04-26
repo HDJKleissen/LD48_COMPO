@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NPCwoman_sleeping
+  m_Name: NPCman_sleeping
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,11 +20,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -9125136267880199113, guid: 1719751aa4c953841a7f29992334a1c1, type: 3}
+      value: {fileID: 8797187718114019460, guid: 1719751aa4c953841a7f29992334a1c1, type: 3}
     - time: 0.41666666
-      value: {fileID: -4804663792901561974, guid: 1719751aa4c953841a7f29992334a1c1, type: 3}
+      value: {fileID: 3989090333449423724, guid: 1719751aa4c953841a7f29992334a1c1, type: 3}
     - time: 0.8333333
-      value: {fileID: -9125136267880199113, guid: 1719751aa4c953841a7f29992334a1c1, type: 3}
+      value: {fileID: 8797187718114019460, guid: 1719751aa4c953841a7f29992334a1c1, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,9 +44,9 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -9125136267880199113, guid: 1719751aa4c953841a7f29992334a1c1, type: 3}
-    - {fileID: -4804663792901561974, guid: 1719751aa4c953841a7f29992334a1c1, type: 3}
-    - {fileID: -9125136267880199113, guid: 1719751aa4c953841a7f29992334a1c1, type: 3}
+    - {fileID: 8797187718114019460, guid: 1719751aa4c953841a7f29992334a1c1, type: 3}
+    - {fileID: 3989090333449423724, guid: 1719751aa4c953841a7f29992334a1c1, type: 3}
+    - {fileID: 8797187718114019460, guid: 1719751aa4c953841a7f29992334a1c1, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
