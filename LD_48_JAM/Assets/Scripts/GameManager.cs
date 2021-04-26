@@ -9,7 +9,6 @@ public class GameManager : UnitySingleton<GameManager>
     public AreaDescriber areaDescriber;
     public Suspiciometer suspiciometer;
     public SpriteRenderer LightsOffOverlay;
-    public MusicSystemPlayer musicSystemPlayer;
     public float SuspicionLevelHoldTime;
     public float MaxSuspicionLostPerSecond;
     public float PanicThreshold;
@@ -34,7 +33,7 @@ public class GameManager : UnitySingleton<GameManager>
             suspiciometer.FillArea.transform.localScale = new Vector3(1, Mathf.Lerp(suspiciometer.FillArea.transform.localScale.y, 1, Time.deltaTime * (1 + 3 * (1 - suspicionAmount))), 1);
             if (suspicionAmount < PanicThreshold)
             {
-                musicSystemPlayer.panicForMusic = 0;
+                MusicSystemPlayer.Instance.panicForMusic = 0;
             }
             if (suspicionLossSpeed == 0)
             {
@@ -54,7 +53,7 @@ public class GameManager : UnitySingleton<GameManager>
 
         if (suspicionAmount >= PanicThreshold)
         {
-            musicSystemPlayer.panicForMusic = 1;
+            MusicSystemPlayer.Instance.panicForMusic = 1;
         }
     }
 
@@ -79,9 +78,7 @@ public class GameManager : UnitySingleton<GameManager>
 
         if (suspicionAmount > 1)
         {
-            Debug.Log("YOU LOSE");
-
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("CaughtEnd");
         }
     }
 

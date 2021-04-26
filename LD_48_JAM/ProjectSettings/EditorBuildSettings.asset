@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CowardEnd.unity
     guid: 99a9a2bece665c94eaa90b8c02235f52
+  - enabled: 1
+    path: Assets/Scenes/CaughtEnd.unity
+    guid: e2ad89ce10c3a074a9ac322687cc9213
   m_configObjects: {}
