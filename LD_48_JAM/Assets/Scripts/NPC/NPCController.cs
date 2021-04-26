@@ -114,6 +114,10 @@ public class NPCController : MonoBehaviour
                 {
                     FMODUnity.RuntimeManager.PlayOneShotAttached("event:/NpcRecogniseMaleDisguiseBark", gameObject);
                 }
+                else
+                {
+                    FMODUnity.RuntimeManager.PlayOneShotAttached("event:/NpcDetectedBark", gameObject);
+                }
             }
 
         }
