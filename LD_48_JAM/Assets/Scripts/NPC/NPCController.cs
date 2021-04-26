@@ -62,13 +62,13 @@ public class NPCController : MonoBehaviour
 
         for (int i = 0; i < lookConeObjects.Length; i++)
         {
+            lookConeObjects[i].SetActive(false);
+        }
+        for (int i = 0; i < lookConeObjects.Length; i++)
+        {
             if (i == LookDirection && GameManager.Instance.LightsOn)
             {
                 lookConeObjects[i].SetActive(true);
-            }
-            else
-            {
-                lookConeObjects[i].SetActive(false);
             }
         }
         Vector3 playerFeet = player.FeetCollider.bounds.center;
@@ -95,7 +95,16 @@ public class NPCController : MonoBehaviour
                 {
                     movement = Vector3.zero;
                 }
-                GameManager.Instance.AddSuspicion(0.25f * Time.fixedDeltaTime);
+
+                if (player.Disguising)
+                {
+                    GameManager.Instance.AddSuspicion(0.5f * Time.fixedDeltaTime);
+                }
+                else
+                {
+                    GameManager.Instance.AddSuspicion(0.25f * Time.fixedDeltaTime);
+                }
+                
                 AlertNPC();
                 if (GameManager.Instance.Player.Disguise == PlayerDisguise.Cactus)
                 {

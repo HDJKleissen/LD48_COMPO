@@ -246,10 +246,12 @@ MonoBehaviour:
   walkIntoWallTimer: 0
   NPCAlertPrefab: {fileID: 7900416769791279523, guid: 655cfea672da88e47895f31ebbe3c779, type: 3}
   lookConeObjects:
-  - {fileID: 4555520052306587844}
-  - {fileID: 8279388595377617988}
+  - {fileID: 1493896546451564195}
+  - {fileID: 3890369075120211273}
   - {fileID: 3890369075120211273}
   - {fileID: 1493896546451564195}
+  - {fileID: 4555520052306587844}
+  - {fileID: 8279388595377617988}
 --- !u!114 &-6759954462538502667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +308,7 @@ MonoBehaviour:
         m_CallState: 2
   MouseInteractRadius: 3
   outlineScale: 1.2
+  electricityLines: {fileID: 0}
   PlayerInRange: 0
   ClosestToMouse: 0
 --- !u!70 &-6201534328597947942

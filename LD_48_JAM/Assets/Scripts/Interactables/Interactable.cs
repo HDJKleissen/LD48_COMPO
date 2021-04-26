@@ -10,7 +10,7 @@ public class Interactable : MonoBehaviour
     public UnityEvent OnInteract;
     Animator animator;
     public float MouseInteractRadius, outlineScale = 1.2f;
-
+    public GameObject electricityLines;
     public bool PlayerInRange = false;
     public bool ClosestToMouse = false;
 
@@ -36,10 +36,18 @@ public class Interactable : MonoBehaviour
     {
         if (PlayerInRange)
         {
+            if (electricityLines != null)
+            {
+                electricityLines.SetActive(true);
+            }
             objectSprite.color = new Color(0.807f, 0.537f, 0.184f);
         }
         else
         {
+            if (electricityLines != null)
+            {
+                electricityLines.SetActive(false);
+            }
             objectSprite.color = Color.white;
         }
         if (IsHovered() && PlayerInRange)
