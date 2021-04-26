@@ -82,7 +82,14 @@ public class NPCController : MonoBehaviour
                 }
                 GameManager.Instance.AddSuspicion(0.25f * Time.fixedDeltaTime);
                 AlertNPC();
-                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/NpcDetectedBark", gameObject);
+                if (GameManager.Instance.Player.Disguise == PlayerDisguise.Cactus)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShotAttached("event:/NpcCactusBark", gameObject);
+                }
+                else
+                {
+                    FMODUnity.RuntimeManager.PlayOneShotAttached("event:/NpcDetectedBark", gameObject);
+                }
             }
 
         }
