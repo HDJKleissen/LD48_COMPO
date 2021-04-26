@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="AudioFile" id="{b1030d18-5479-4964-a5df-81e5134c0a8b}">
 		<property name="assetPath">
-			<value>Lights_On_Click.wav</value>
+			<value>Lights/Lights_On_Click.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>96</value>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
-	<object class="AudioFile" id="{7d5ccd1a-99cf-456e-89c9-28845d102dee}">
+	<object class="AudioFile" id="{13e9c907-e13f-4d86-babd-b6ab9d881d86}">
 		<property name="assetPath">
-			<value>Lights/Lights_On_Tail.wav</value>
+			<value>Typewriter/Typewriter_03.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>96</value>
 		</property>
 		<property name="channelCount">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<property name="length">
-			<value>4.625</value>
+			<value>0.515625</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{a50f6f8d-deb4-4cc6-9be2-77a68d3a69ec}</destination>

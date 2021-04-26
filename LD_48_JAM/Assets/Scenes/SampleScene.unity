@@ -38230,7 +38230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npc: {fileID: 1595405928}
   BasePriority: 2
-  MoveSpeed: 0
+  MoveSpeed: 8
   StandPosition: {x: -1.493393, y: 1.1460929, z: 0}
 --- !u!114 &1595405926
 MonoBehaviour:
