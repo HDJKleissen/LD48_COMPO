@@ -10,6 +10,20 @@ public class MusicSystemPlayer : MonoBehaviour
     FMOD.Studio.EventInstance music;
     public int panicForMusic = 0;
 
+    private void Awake()
+    {
+        int musicPlayerCount = FindObjectsOfType<MusicSystemPlayer>().Length;
+        if (musicPlayerCount > 1)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
