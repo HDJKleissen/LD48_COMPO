@@ -80,8 +80,6 @@ public class GameManager : UnitySingleton<GameManager>
         {
             Debug.Log("YOU LOSE");
 
-            // Stop all sounds here, or they (for example camera beeping) continues into end screen
-            Player.transform.position = new Vector3(-20000,20000,20000);
             SceneManager.LoadScene("MainMenu");
         }
     }
