@@ -56,6 +56,15 @@ public class Door : Toggleable
             );
         }
         base.Toggle();
+        if (Open)
+        {
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/DoorOpen", gameObject);
+        }
+        else
+        {
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/DoorClose", gameObject);
+
+        }
         UpdateCollider();
         UpdateAnimation();
     }
