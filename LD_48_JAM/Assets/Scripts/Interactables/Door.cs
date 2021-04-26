@@ -29,6 +29,15 @@ public class Door : Toggleable
             // Dialogue: Hmm.. seems to be locked.
         }
         base.Toggle();
+        if (Open)
+        {
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/DoorOpen", gameObject);
+        }
+        else
+        {
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/DoorClose", gameObject);
+
+        }
         UpdateCollider();
         UpdateAnimation();
     }
