@@ -110,6 +110,102 @@ TextureImporter:
   - first:
       213: 3338683395931293031
     second: NPC_animations_35
+  - first:
+      213: -1424930029957115523
+    second: NPC_animations_36
+  - first:
+      213: -7574071722251513346
+    second: NPC_animations_37
+  - first:
+      213: -7686561548356315267
+    second: NPC_animations_38
+  - first:
+      213: 9164891234842321370
+    second: NPC_animations_39
+  - first:
+      213: 3591048986057778317
+    second: NPC_animations_40
+  - first:
+      213: -1054301338849731361
+    second: NPC_animations_41
+  - first:
+      213: 4572649492433801825
+    second: NPC_animations_42
+  - first:
+      213: -5753453049975936465
+    second: NPC_animations_43
+  - first:
+      213: 4085951403713740011
+    second: NPC_animations_44
+  - first:
+      213: 3371091492597083516
+    second: NPC_animations_45
+  - first:
+      213: 2640400308544705317
+    second: NPC_animations_46
+  - first:
+      213: 728669484686706781
+    second: NPC_animations_47
+  - first:
+      213: 4251983624525735654
+    second: NPC_animations_48
+  - first:
+      213: -2483849829522761934
+    second: NPC_animations_49
+  - first:
+      213: 8481249185176961595
+    second: NPC_animations_50
+  - first:
+      213: 8053862335167850174
+    second: NPC_animations_51
+  - first:
+      213: -8181505834150461081
+    second: NPC_animations_52
+  - first:
+      213: -6210811349693868914
+    second: NPC_animations_53
+  - first:
+      213: 5594879040264565841
+    second: NPC_animations_54
+  - first:
+      213: -6884017638000453694
+    second: NPC_animations_55
+  - first:
+      213: -5435202923786464788
+    second: NPC_animations_56
+  - first:
+      213: -131295446999592244
+    second: NPC_animations_57
+  - first:
+      213: -2572154984936768056
+    second: NPC_animations_58
+  - first:
+      213: 7845394899151292094
+    second: NPC_animations_59
+  - first:
+      213: 4408744273572768561
+    second: NPC_animations_60
+  - first:
+      213: -5639698114927211609
+    second: NPC_animations_61
+  - first:
+      213: 8180801218207878681
+    second: NPC_animations_62
+  - first:
+      213: -8138384931784850479
+    second: NPC_animations_63
+  - first:
+      213: 7800889792764551486
+    second: NPC_animations_64
+  - first:
+      213: 3184760763962510146
+    second: NPC_animations_65
+  - first:
+      213: 73899867961206006
+    second: NPC_animations_66
+  - first:
+      213: -2366292580920626666
+    second: NPC_animations_67
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -251,7 +347,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 200
+        y: 233
         width: 24
         height: 56
       alignment: 0
@@ -272,7 +368,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 24
-        y: 200
+        y: 233
         width: 24
         height: 56
       alignment: 0
@@ -293,7 +389,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 200
+        y: 233
         width: 24
         height: 56
       alignment: 0
@@ -314,7 +410,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 72
-        y: 200
+        y: 233
         width: 24
         height: 56
       alignment: 0
@@ -335,7 +431,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 200
+        y: 233
         width: 24
         height: 56
       alignment: 0
@@ -356,7 +452,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 120
-        y: 200
+        y: 233
         width: 24
         height: 56
       alignment: 0
@@ -377,7 +473,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 144
-        y: 200
+        y: 233
         width: 24
         height: 56
       alignment: 0
@@ -398,7 +494,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 168
-        y: 200
+        y: 233
         width: 24
         height: 56
       alignment: 0
@@ -419,7 +515,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 200
+        y: 233
         width: 24
         height: 56
       alignment: 0
@@ -440,7 +536,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 216
-        y: 200
+        y: 233
         width: 24
         height: 56
       alignment: 0
@@ -461,7 +557,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 144
+        y: 177
         width: 24
         height: 56
       alignment: 0
@@ -482,7 +578,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 24
-        y: 144
+        y: 177
         width: 24
         height: 56
       alignment: 0
@@ -503,7 +599,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 144
+        y: 177
         width: 24
         height: 56
       alignment: 0
@@ -524,7 +620,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 72
-        y: 144
+        y: 177
         width: 24
         height: 56
       alignment: 0
@@ -545,7 +641,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 144
+        y: 177
         width: 24
         height: 56
       alignment: 0
@@ -566,7 +662,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 120
-        y: 144
+        y: 177
         width: 24
         height: 56
       alignment: 0
@@ -587,7 +683,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 144
-        y: 144
+        y: 177
         width: 24
         height: 56
       alignment: 0
@@ -608,7 +704,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 168
-        y: 144
+        y: 177
         width: 24
         height: 56
       alignment: 0
@@ -629,7 +725,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 144
+        y: 177
         width: 24
         height: 56
       alignment: 0
@@ -650,7 +746,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 216
-        y: 144
+        y: 177
         width: 24
         height: 56
       alignment: 0
@@ -671,7 +767,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 88
+        y: 121
         width: 24
         height: 56
       alignment: 0
@@ -692,7 +788,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 24
-        y: 88
+        y: 121
         width: 24
         height: 56
       alignment: 0
@@ -713,7 +809,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 88
+        y: 121
         width: 24
         height: 56
       alignment: 0
@@ -734,7 +830,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 72
-        y: 88
+        y: 121
         width: 24
         height: 56
       alignment: 0
@@ -755,7 +851,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 88
+        y: 121
         width: 24
         height: 56
       alignment: 0
@@ -776,7 +872,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 120
-        y: 88
+        y: 121
         width: 24
         height: 56
       alignment: 0
@@ -797,7 +893,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 144
-        y: 88
+        y: 121
         width: 24
         height: 56
       alignment: 0
@@ -818,7 +914,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 168
-        y: 88
+        y: 121
         width: 24
         height: 56
       alignment: 0
@@ -839,7 +935,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 88
+        y: 121
         width: 24
         height: 56
       alignment: 0
@@ -860,7 +956,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 216
-        y: 88
+        y: 121
         width: 24
         height: 56
       alignment: 0
@@ -881,7 +977,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
+        y: 65
         width: 24
         height: 56
       alignment: 0
@@ -902,7 +998,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 24
-        y: 32
+        y: 65
         width: 24
         height: 56
       alignment: 0
@@ -923,7 +1019,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 32
+        y: 65
         width: 24
         height: 56
       alignment: 0
@@ -944,7 +1040,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 72
-        y: 32
+        y: 65
         width: 24
         height: 56
       alignment: 0
@@ -965,7 +1061,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 32
+        y: 65
         width: 24
         height: 56
       alignment: 0
@@ -986,7 +1082,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 120
-        y: 32
+        y: 65
         width: 24
         height: 56
       alignment: 0
@@ -998,6 +1094,132 @@ TextureImporter:
       bones: []
       spriteID: 765caf70cd2655e20800000000000000
       internalID: 3338683395931293031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_animations_36
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 65
+        width: 24
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d719e96ffa1a93ce0800000000000000
+      internalID: -1424930029957115523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_animations_37
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 65
+        width: 24
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef11ed3d5ed73e690800000000000000
+      internalID: -7574071722251513346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_animations_38
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 65
+        width: 24
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d779b063ff8d35590800000000000000
+      internalID: -7686561548356315267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_animations_39
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 65
+        width: 24
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad12ed9350c303f70800000000000000
+      internalID: 9164891234842321370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_animations_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9
+        width: 24
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d842001d608f5d130800000000000000
+      internalID: 3591048986057778317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_animations_41
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 9
+        width: 24
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdc94aba48e5e51f0800000000000000
+      internalID: -1054301338849731361
       vertices: []
       indices: 
       edges: []
