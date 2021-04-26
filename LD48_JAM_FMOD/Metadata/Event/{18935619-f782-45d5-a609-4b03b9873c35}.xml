@@ -53,7 +53,7 @@
 			<destination>{290caa44-c744-46f5-8481-d5184a2fecee}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{1e3e6121-284d-4c4b-aa7d-0f6177eba55e}</destination>
+			<destination>{47a6b51a-c7b0-4a13-be20-38b4b15dca2f}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{1ea46147-9b5d-407d-b263-2406a70a5a6d}" />
@@ -93,8 +93,11 @@
 	<object class="MixerBusPanner" id="{290caa44-c744-46f5-8481-d5184a2fecee}" />
 	<object class="SingleSound" id="{387bec69-e38d-4880-b98b-129e46d37f61}">
 		<property name="length">
-			<value>0.25</value>
+			<value>0.15625</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{2d145e6c-201f-4b69-8a6a-4e1d6c8ea95b}</destination>
+		</relationship>
 		<relationship name="fadeInCurve">
 			<destination>{a792e596-fe24-4fd1-a35f-8a1d55d7f190}</destination>
 		</relationship>
@@ -126,6 +129,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{79b1a75b-cfff-4792-a739-fbf78f40a6f1}" />
 	<object class="MixerBusFader" id="{ba00e1a9-511f-4910-98ec-890dab46e3d7}" />
+	<object class="RandomizerModulator" id="{2d145e6c-201f-4b69-8a6a-4e1d6c8ea95b}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>6.25</value>
+		</property>
+	</object>
 	<object class="FadeCurve" id="{a792e596-fe24-4fd1-a35f-8a1d55d7f190}">
 		<relationship name="startPoint">
 			<destination>{2de1a7ea-4b92-4012-9502-c9b7ddcb5fca}</destination>
@@ -170,18 +181,18 @@
 	</object>
 	<object class="AutomationPoint" id="{9b35895c-b4ab-479a-9baa-08aa34cd763f}">
 		<property name="position">
-			<value>0.2499791666666667</value>
+			<value>0</value>
 		</property>
 		<property name="value">
 			<value>1</value>
 		</property>
 		<property name="curveShape">
-			<value>-1.00000048</value>
+			<value>1</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{70683cef-d74f-4efe-9829-1fdba4d5c5e0}">
 		<property name="position">
-			<value>0.25</value>
+			<value>0.15625</value>
 		</property>
 		<property name="value">
 			<value>0</value>

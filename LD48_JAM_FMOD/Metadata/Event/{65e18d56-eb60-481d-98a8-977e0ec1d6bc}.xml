@@ -53,7 +53,7 @@
 			<destination>{828c564e-d296-4352-8ed5-d9ebead0bdb9}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{1e3e6121-284d-4c4b-aa7d-0f6177eba55e}</destination>
+			<destination>{47a6b51a-c7b0-4a13-be20-38b4b15dca2f}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{60351185-9184-4fb7-92e4-2ae35238bf2c}" />
@@ -93,8 +93,11 @@
 	<object class="MixerBusPanner" id="{828c564e-d296-4352-8ed5-d9ebead0bdb9}" />
 	<object class="SingleSound" id="{10c674a6-ccc4-48dd-8413-53ed289a9626}">
 		<property name="length">
-			<value>0.17348850373500344</value>
+			<value>0.18359375</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{886332c9-f92d-4c01-972f-21a39555ee7c}</destination>
+		</relationship>
 		<relationship name="fadeInCurve">
 			<destination>{04a4dce3-5fa8-4a3c-8538-298d46cd8270}</destination>
 		</relationship>
@@ -126,6 +129,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{40ac40f7-d7c6-428a-b877-9e71f634b975}" />
 	<object class="MixerBusFader" id="{c07b76a8-1838-4cb2-a498-60e53e53f899}" />
+	<object class="RandomizerModulator" id="{886332c9-f92d-4c01-972f-21a39555ee7c}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>6.25</value>
+		</property>
+	</object>
 	<object class="FadeCurve" id="{04a4dce3-5fa8-4a3c-8538-298d46cd8270}">
 		<relationship name="startPoint">
 			<destination>{e1a632d5-f4ce-4ea8-a8c7-2466824d4379}</destination>
@@ -170,18 +181,18 @@
 	</object>
 	<object class="AutomationPoint" id="{d31a8f24-d769-4541-864d-a8b4fa85a6c8}">
 		<property name="position">
-			<value>0.17346767040167008</value>
+			<value>0</value>
 		</property>
 		<property name="value">
 			<value>1</value>
 		</property>
 		<property name="curveShape">
-			<value>-1.00000048</value>
+			<value>1</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{b16ea332-fd81-41ed-8055-ac643eadd3c6}">
 		<property name="position">
-			<value>0.17348850373500338</value>
+			<value>0.18359374999999994</value>
 		</property>
 		<property name="value">
 			<value>0</value>

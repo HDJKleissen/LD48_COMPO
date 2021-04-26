@@ -53,7 +53,7 @@
 			<destination>{443ce7ea-4ac4-4342-8adc-05ce378525c3}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{1e3e6121-284d-4c4b-aa7d-0f6177eba55e}</destination>
+			<destination>{47a6b51a-c7b0-4a13-be20-38b4b15dca2f}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{ad13a9f6-17db-420c-bb93-69f52572b7d2}" />
@@ -93,8 +93,11 @@
 	<object class="MixerBusPanner" id="{443ce7ea-4ac4-4342-8adc-05ce378525c3}" />
 	<object class="SingleSound" id="{cbdfa091-0029-41c4-aee2-34614b15593e}">
 		<property name="length">
-			<value>0.23828125</value>
+			<value>0.15625</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{643819ed-c183-4fa6-8683-736f9c9e69d8}</destination>
+		</relationship>
 		<relationship name="fadeOutCurve">
 			<destination>{68d67c63-4f50-4e5a-a030-0e8e72b95780}</destination>
 		</relationship>
@@ -123,6 +126,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{2e740d9d-4c18-4808-84c5-dfd2baeb96ac}" />
 	<object class="MixerBusFader" id="{81aeb73f-498b-491d-99de-bad63b13340e}" />
+	<object class="RandomizerModulator" id="{643819ed-c183-4fa6-8683-736f9c9e69d8}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>6.25</value>
+		</property>
+	</object>
 	<object class="FadeCurve" id="{68d67c63-4f50-4e5a-a030-0e8e72b95780}">
 		<relationship name="startPoint">
 			<destination>{3c3929ee-9969-44a2-a36c-7ca9a978426e}</destination>
@@ -140,18 +151,18 @@
 	<object class="MixerBusFader" id="{15dc14fa-77d7-4e0c-a7e4-f8cd9cea01ae}" />
 	<object class="AutomationPoint" id="{3c3929ee-9969-44a2-a36c-7ca9a978426e}">
 		<property name="position">
-			<value>0.23826041666666667</value>
+			<value>0</value>
 		</property>
 		<property name="value">
 			<value>1</value>
 		</property>
 		<property name="curveShape">
-			<value>-0.420634806</value>
+			<value>1</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{509abab5-f610-46a0-a532-08df728d5731}">
 		<property name="position">
-			<value>0.23828125</value>
+			<value>0.15625</value>
 		</property>
 		<property name="value">
 			<value>0</value>
