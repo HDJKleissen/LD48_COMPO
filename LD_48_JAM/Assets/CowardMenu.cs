@@ -3,31 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class CowardMenu : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        MusicSystemPlayer.Instance.SetMenuMusic();        
+        MusicSystemPlayer.Instance.StartYouLoseMusic();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    public void StartGame()
-    {
-        LoadScene("SampleScene");
-    }
 
+    }
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
     }
 }

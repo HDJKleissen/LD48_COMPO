@@ -22,6 +22,7 @@ public class GameManager : UnitySingleton<GameManager>
     // Start is called before the first frame update
     void Start()
     {
+        MusicSystemPlayer.Instance.StartLevelMusic();
         suspiciometer.UpdateSusValue(suspicionAmount);
     }
 
