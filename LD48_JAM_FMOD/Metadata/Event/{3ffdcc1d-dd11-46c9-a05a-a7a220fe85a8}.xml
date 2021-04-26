@@ -53,7 +53,7 @@
 			<destination>{8cbcc6f2-9cb5-4825-a232-4185cc76e086}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{1e3e6121-284d-4c4b-aa7d-0f6177eba55e}</destination>
+			<destination>{47a6b51a-c7b0-4a13-be20-38b4b15dca2f}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{1287bd72-62b0-4c92-a1fa-f152468c8e60}" />
@@ -93,7 +93,7 @@
 	<object class="MixerBusPanner" id="{8cbcc6f2-9cb5-4825-a232-4185cc76e086}" />
 	<object class="SingleSound" id="{410acbc6-9417-47b2-9b77-bd6ebcbbc837}">
 		<property name="length">
-			<value>0.265625</value>
+			<value>0.515625</value>
 		</property>
 		<property name="pitch">
 			<value>6</value>
@@ -173,7 +173,7 @@
 	</object>
 	<object class="AutomationPoint" id="{22a9aac7-6771-42cc-b0fd-b08062a206ac}">
 		<property name="position">
-			<value>0.26560416666666664</value>
+			<value>0.51560416666666664</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -184,7 +184,7 @@
 	</object>
 	<object class="AutomationPoint" id="{4f52626b-1a96-4bc4-9062-83837b8af897}">
 		<property name="position">
-			<value>0.265625</value>
+			<value>0.515625</value>
 		</property>
 		<property name="value">
 			<value>0</value>
