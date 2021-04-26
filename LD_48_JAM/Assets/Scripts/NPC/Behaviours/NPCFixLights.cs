@@ -44,6 +44,8 @@ public class NPCFixLights : NPCBehaviour
 
     public override bool StartBehaviour()
     {
+        switchedLights = false;
+        startedSwitching = false;
         FMODUnity.RuntimeManager.PlayOneShotAttached("event:/NpcLightsBark", gameObject);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, LightSwitchCheckRadius);
 
