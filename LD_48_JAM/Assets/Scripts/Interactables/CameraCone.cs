@@ -87,4 +87,9 @@ public class CameraCone : MonoBehaviour
         }
         return true;
     }
+
+    private void OnDestroy()
+    {
+        cameraSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
 }
