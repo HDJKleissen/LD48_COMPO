@@ -448,8 +448,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8459267074978060125}
         m_TargetAssemblyTypeName: Door, Assembly-CSharp
-        m_MethodName: ToggleDoor
-        m_Mode: 5
+        m_MethodName: Toggle
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -58,16 +58,19 @@ public class AreaDescriber : MonoBehaviour
 
     internal void StartDescription(string areaName)
     {
-        fadingOut = false;
-        waitingForFade = false;
-        fadeoutTimer = 0;
-        displayIndex = 0;
-        currentDialogue = areaName;
+        if (currentDialogue != areaName)
+        {
+            fadingOut = false;
+            waitingForFade = false;
+            fadeoutTimer = 0;
+            displayIndex = 0;
+            currentDialogue = areaName;
 
-        overWritingCurrentDescription = text.text != "";
-        
-        text.text = currentDialogue.Insert(displayIndex, opaqueEndTag);
-        StartCoroutine("PlayText");
+            overWritingCurrentDescription = text.text != "";
+
+            text.text = currentDialogue.Insert(displayIndex, opaqueEndTag);
+            StartCoroutine("PlayText");
+        }
     }
 
     IEnumerator PlayText()
