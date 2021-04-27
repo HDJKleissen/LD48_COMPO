@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Computer : MonoBehaviour
 {
-    public Interactable LinkedInteractable;
+    public Toggleable LinkedToggleable;
 
     public List<string> wrongComputerDialogue, correctComputerDialogue;
 
@@ -22,10 +22,15 @@ public class Computer : MonoBehaviour
 
     public void CheckComputer()
     {
-        if (LinkedInteractable != null)
+        if (LinkedToggleable != null)
         {
-            DialogueHandler.Instance.CreateEarpieceDialogue(CharacterMood.Happy, correctComputerDialogue);
-            LinkedInteractable.Interact();
+            DialogueHandler.Instance.CreateEarpieceDialogue(CharacterMood.Happy, correctComputerDialogue, true);
+            DialogueHandler.Instance.CreateEarpieceDialogue(CharacterMood.Confused, new List<string> {
+                "Wait... macGuffinFactoryDoor/.exe? This is a paper supply company.",
+                "Do I smell a conspiracy? We have to go deeper.",
+                "... I ran the executable. I think that door to your right just unlocked.",
+            }, true);
+            LinkedToggleable.ToggleLocked();
         }
         else
         {
