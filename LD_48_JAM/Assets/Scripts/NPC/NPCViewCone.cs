@@ -30,7 +30,7 @@ public class NPCViewCone : MonoBehaviour
         {
             if (npc.name == "NPC_womanblack (1)")
             {
-                Debug.Log("end hit player");
+
             }
             //npc.SetSeePlayer(false);
         }

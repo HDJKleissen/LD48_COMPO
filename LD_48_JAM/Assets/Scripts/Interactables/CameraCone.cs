@@ -80,7 +80,6 @@ public class CameraCone : MonoBehaviour
 
     bool RecognizePlayer()
     {
-        Debug.Log("Recognize? " + (player.Velocity != Vector3.zero && !player.animationController.IsAnimationFinished("Player_idle")));
         switch (player.Disguise)
         {
             case PlayerDisguise.Cactus:

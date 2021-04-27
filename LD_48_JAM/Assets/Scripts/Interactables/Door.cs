@@ -74,9 +74,17 @@ public class Door : Toggleable
 
     public void UseRecordsRoomKey()
     {
+
+        Debug.Log(GameManager.Instance.Player.HasRecordsRoomKey);
         if (GameManager.Instance.Player.HasRecordsRoomKey)
         {
             ToggleLocked();
+            GetComponent<DialogueTrigger>().enabled = false;
+        }
+        else
+        {
+            Debug.Log("wat");
+            GetComponent<DialogueTrigger>().TriggerDialogue();
         }
     }
 

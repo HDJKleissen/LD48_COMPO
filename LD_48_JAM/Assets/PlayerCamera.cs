@@ -39,7 +39,6 @@ public class PlayerCamera : MonoBehaviour
         }
         else if (!startedRefollowing)
         {
-            Debug.Log("starting following again");
             exactlyFollowing = false;
             lerpFollowing = true;
             startedRefollowing = true;

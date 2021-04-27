@@ -16,11 +16,6 @@ public class NPCChasePlayer : NPCBehaviour
     {
         if(Vector3.Distance(transform.position, GameManager.Instance.Player.transform.position) <= ChaseDistance || chasing || returning)
         {
-            Debug.Log("Player is in range, we are chasing or we are returning");
-            Debug.Log("Chasing: " + chasing);
-            Debug.Log("returning: " + returning);
-            Debug.Log("Distance: " + (Vector3.Distance(transform.position, GameManager.Instance.Player.transform.position) <= ChaseDistance));
-
             return BehaviorPriority.Immediate;
         }
         return base.GetBehaviorPriority();

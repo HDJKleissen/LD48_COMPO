@@ -33,11 +33,8 @@ public class NPCInteractWithDisabledInteractable : NPCBehaviour
     {
         if (NPCAtDestination)
         {
-            Debug.Log("found point " + pathPoint);
             if (pathPoint + 1 > fixPath.Length && walkDirection > 0)
-            {
-                Debug.Log("end of path, switching interactable");
-                
+            {                
                 target.GetComponent<Interactable>().Interact();
                 walkDirection = -1;
                 npc.MoveSpeed = ReturnMoveSpeed;
@@ -45,7 +42,6 @@ public class NPCInteractWithDisabledInteractable : NPCBehaviour
             }
             else if (pathPoint - 1 < 0 && walkDirection < 0)
             {
-                Debug.Log("Found beginning of path");
                 pathPoint = 0;
                 finishedPath = true;
                 return false;

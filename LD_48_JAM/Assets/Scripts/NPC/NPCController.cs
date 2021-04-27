@@ -230,10 +230,6 @@ public class NPCController : MonoBehaviour
 
     public void SetSeePlayer(bool seen)
     {
-        if (name == "NPC_womanblack (1)")
-        {
-            Debug.Log("Setting see player " + seen);
-        }
         lookingAtPlayer = seen;
     }
 

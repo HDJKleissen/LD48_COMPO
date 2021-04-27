@@ -97,8 +97,11 @@ public class EarpieceDialogue : MonoBehaviour
             currentDialogue = dialogueQueue.Dequeue();
         }
 
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Radio_Static");
-        StartCoroutine("PlayText");
+        if (dialogueQueue.Count == dialoguePanes.Count - 1)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Radio_Static");
+            StartCoroutine("PlayText");
+        }
     }
 
     IEnumerator PlayText()
