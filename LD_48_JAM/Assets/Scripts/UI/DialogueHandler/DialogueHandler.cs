@@ -32,12 +32,8 @@ public class DialogueHandler : UnitySingleton<DialogueHandler>
 
     public void CreateEarpieceDialogue(CharacterMood mood, List<string> dialoguePanes, bool freezePlayer = false)
     {
-        if (freezePlayer)
-        {
-            GameManager.Instance.Player.playerFrozen = true;
-        }
         earpieceDialogue.gameObject.SetActive(true);
-        earpieceDialogue.StartDialogue(mood, dialoguePanes);
+        earpieceDialogue.StartDialogue(mood, dialoguePanes, freezePlayer);
     }
 }
 
