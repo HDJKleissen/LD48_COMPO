@@ -4,9 +4,6 @@
 		<property name="assetPath">
 			<value>Music/LD_JAM_48 background music sketch 2.0.wav</value>
 		</property>
-		<property name="isStreaming">
-			<value>true</value>
-		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
 		</property>

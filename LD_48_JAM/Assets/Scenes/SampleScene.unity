@@ -11570,6 +11570,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1923813789}
     m_Modifications:
+    - target: {fileID: 1793207134, guid: ef46ad432bbfb01488ea05912ecc5b62, type: 3}
+      propertyPath: TimeAfterCommas
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1793207134, guid: ef46ad432bbfb01488ea05912ecc5b62, type: 3}
+      propertyPath: TimeBetweenChars
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 1793207134, guid: ef46ad432bbfb01488ea05912ecc5b62, type: 3}
+      propertyPath: TimeAfterSentences
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4520775197235893664, guid: ef46ad432bbfb01488ea05912ecc5b62, type: 3}
       propertyPath: m_Name
       value: EarpieceDialogueBox
