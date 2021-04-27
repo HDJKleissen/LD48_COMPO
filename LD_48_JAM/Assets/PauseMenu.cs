@@ -30,6 +30,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Filter", 0f);
     }
 
     void Pause()
@@ -37,10 +38,12 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Filter", 1f);
     }
 
     public void LoadMenu()
     {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Filter", 0f);
         SceneManager.LoadScene("MainMenu");
     }
 }

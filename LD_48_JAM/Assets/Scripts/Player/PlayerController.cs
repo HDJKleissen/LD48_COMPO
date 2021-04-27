@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     GameObject spawnedCloud;
 
+    public bool HasRecordsRoomKey = false;
+    public bool playerFrozen = false;
     public bool Disguising {
         get {
             return spawnedCloud != null;
@@ -75,8 +77,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Disguising)
+        if (Disguising || playerFrozen)
         {
+            animationController.UpdateAnimator(Vector3.zero);
             return;
         }
         Velocity = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized * MoveSpeed * Time.fixedDeltaTime;

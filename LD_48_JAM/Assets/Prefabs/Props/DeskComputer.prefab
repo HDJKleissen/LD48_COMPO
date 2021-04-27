@@ -281,13 +281,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0f4978f1415584e8f10292cb663273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LinkedInteractable: {fileID: 0}
+  LinkedToggleable: {fileID: 0}
   wrongComputerDialogue:
   - Only salary records on this one...
   - Hmm... This computer doesn't have any hard drives.|Let's try another one.
   - Wait, is this computer made of cardboard?
   - No browser histories here.
-  correctComputerDialogue: []
+  correctComputerDialogue:
+  - 'That''s the one. Let me initialize the connection... '
+  - Finding browser histories... Ah!
+  - Got it! It's all history now. Heheheheh. Let's get out of here.
 --- !u!114 &539146875
 MonoBehaviour:
   m_ObjectHideFlags: 0

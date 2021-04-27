@@ -72,6 +72,14 @@ public class Door : Toggleable
         UpdateAnimation();
     }
 
+    public void UseRecordsRoomKey()
+    {
+        if (GameManager.Instance.Player.HasRecordsRoomKey)
+        {
+            ToggleLocked();
+        }
+    }
+
     public override void ToggleLocked()
     {
         base.ToggleLocked();

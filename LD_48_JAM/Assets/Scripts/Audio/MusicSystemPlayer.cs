@@ -39,6 +39,10 @@ public class MusicSystemPlayer : MonoBehaviour
     void Update()
     {
         music.setParameterByName("Panic", panicForMusic, false);
+        if (PauseMenu.GameIsPaused)
+        {
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Filter",1f);
+        }
     }
 
     public void SetMenuMusic()

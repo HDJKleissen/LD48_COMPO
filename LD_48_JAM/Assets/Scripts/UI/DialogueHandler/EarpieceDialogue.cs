@@ -19,7 +19,7 @@ public class EarpieceDialogue : MonoBehaviour
     int displayIndex = 0;
 
     bool playLetterSound = true;
-
+    bool waitingForNextDialogue = false;
     bool CurrentDialogueIsDone {
         get {
             return displayIndex > currentDialogue.Length;
@@ -37,12 +37,19 @@ public class EarpieceDialogue : MonoBehaviour
     {
         if (CurrentDialogueIsDone)
         {
-            if (dialogueQueue.Count > 0)
+            if (dialogueQueue.Count > 0 && !waitingForNextDialogue)
             {
-                currentDialogue = dialogueQueue.Dequeue();
-                displayIndex = 0;
+                waitingForNextDialogue = true;
+                StartCoroutine(CoroutineHelper.DelaySeconds(() =>
+                {
+                    waitingForNextDialogue = false;
+                    currentDialogue = dialogueQueue.Dequeue();
+                    displayIndex = 0;
+                    StartCoroutine("PlayText");
+                }, 0.5f));
             }
-            else
+
+            if (dialogueQueue.Count == 0)
             {
                 StartCoroutine(CoroutineHelper.DelaySeconds(() =>
                 {
@@ -50,15 +57,19 @@ public class EarpieceDialogue : MonoBehaviour
                     displayIndex = 0;
                     gameObject.SetActive(false);
                     FMODUnity.RuntimeManager.PlayOneShot("event:/Radio_Static");
+
+                    GameManager.Instance.Player.playerFrozen = false;
                 }, 1));
             }
-
-            StartCoroutine("PlayText");
         }
     }
 
-    internal void StartDialogue(CharacterMood mood, List<string> dialoguePanes)
+    internal void StartDialogue(CharacterMood mood, List<string> dialoguePanes, bool freezePlayer = false)
     {
+        if (freezePlayer)
+        {
+            GameManager.Instance.Player.playerFrozen = true;
+        }
         // set the image
         switch (mood)
         {
@@ -94,9 +105,10 @@ public class EarpieceDialogue : MonoBehaviour
     {
         while (!CurrentDialogueIsDone)
         {
-            dialogueText.text = currentDialogue.Insert(displayIndex, colorEndTag);
+            dialogueText.text = currentDialogue.Insert(displayIndex, colorEndTag).Replace("/","");
             char currentLetter = currentDialogue[Mathf.Clamp(displayIndex - 1, 0, currentDialogue.Length - 1)];
             char nextLetter = currentDialogue[Mathf.Clamp(displayIndex, 0, currentDialogue.Length - 1)];
+            char previousLetter = currentDialogue[Mathf.Clamp(displayIndex - 2, 0, currentDialogue.Length - 1)];
             if (Char.IsLetter(currentLetter))
             {
                 if (playLetterSound)
@@ -111,7 +123,14 @@ public class EarpieceDialogue : MonoBehaviour
                 case '.':
                 case '!':
                 case '?':
-                    yield return new WaitForSeconds(TimeAfterSentences);
+                    if(previousLetter == '/')
+                    {
+                        yield return new WaitForSeconds(TimeBetweenChars);
+                    }
+                    else
+                    {
+                        yield return new WaitForSeconds(TimeAfterSentences);
+                    }
                     break;
                 case ',':
                     yield return new WaitForSeconds(TimeAfterCommas);
