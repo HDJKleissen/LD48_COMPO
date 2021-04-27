@@ -43,6 +43,8 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
+        Time.timeScale = 1;
+        GameIsPaused = false;
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Filter", 0f);
         SceneManager.LoadScene("MainMenu");
     }
