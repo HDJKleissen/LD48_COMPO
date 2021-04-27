@@ -5085,6 +5085,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 573080979}
     m_Modifications:
+    - target: {fileID: 539146875, guid: 537f622312aec3941a848debcbf88be8, type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 539146875, guid: 537f622312aec3941a848debcbf88be8, type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 539146875, guid: 537f622312aec3941a848debcbf88be8, type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 867023228}
+    - target: {fileID: 539146875, guid: 537f622312aec3941a848debcbf88be8, type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 539146875, guid: 537f622312aec3941a848debcbf88be8, type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 539146875, guid: 537f622312aec3941a848debcbf88be8, type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.Behaviour, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 539146875, guid: 537f622312aec3941a848debcbf88be8, type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 539146875, guid: 537f622312aec3941a848debcbf88be8, type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 539146876, guid: 537f622312aec3941a848debcbf88be8, type: 3}
       propertyPath: LinkedToggleable
       value: 
@@ -8028,6 +8060,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56597fdcc46434542af85853156d9755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &867023228 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 539146875, guid: 537f622312aec3941a848debcbf88be8, type: 3}
+  m_PrefabInstance: {fileID: 539146871}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cdac3db05e11be4ab75cc1ce8daa61f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &877351876 stripped
@@ -14621,7 +14664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - There it is! Grab it!
-  isOnObject: 0
+  isOnObject: 1
 --- !u!4 &1426031731 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7092261429912030172, guid: 537f622312aec3941a848debcbf88be8, type: 3}

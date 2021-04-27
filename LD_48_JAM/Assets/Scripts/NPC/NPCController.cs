@@ -103,11 +103,11 @@ public class NPCController : MonoBehaviour
 
                 if (player.Disguising)
                 {
-                    GameManager.Instance.AddSuspicion(0.5f * Time.fixedDeltaTime);
+                    GameManager.Instance.AddSuspicion(0.8f * Time.fixedDeltaTime);
                 }
                 else
                 {
-                    GameManager.Instance.AddSuspicion(0.25f * Time.fixedDeltaTime);
+                    GameManager.Instance.AddSuspicion(0.6f * Time.fixedDeltaTime);
                 }
                 
                 AlertNPC();
