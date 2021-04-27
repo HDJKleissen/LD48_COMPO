@@ -5,7 +5,7 @@
 			<value>Footsteps/High_Heel_04.wav</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>48</value>
+			<value>96</value>
 		</property>
 		<property name="channelCount">
 			<value>1</value>
