@@ -94,7 +94,7 @@ public class NPCController : MonoBehaviour
 
         if (!playerBehindWall && lookingAtPlayer)
         {
-            if (player.CurrentArea == null || (RecognizePlayer() && !player.CurrentArea.IsPlayerAllowed() && GameManager.Instance.LightsOn))
+            if (player.CurrentArea == null || player.Disguising || (RecognizePlayer() && !player.CurrentArea.IsPlayerAllowed() && GameManager.Instance.LightsOn))
             {
                 if (Vector3.Distance(player.transform.position, transform.position) < LookAtPlayerDistance)
                 {

@@ -22,9 +22,9 @@ public class NPCFixLights : NPCBehaviour
 
     public override bool DoBehaviour()
     {
-        if (NPCAtDestination && !startedSwitching)
+        if (chosenSwitch != null)
         {
-            if (chosenSwitch != null)
+            if (Vector2.Distance(new Vector2(transform.position.x, transform.position.y), chosenSwitch.transform.position + new Vector3(0, -1, 0)) < 0.5f && !startedSwitching && !switchedLights)
             {
                 startedSwitching = true;
                 StartCoroutine(CoroutineHelper.DelaySeconds(() =>
@@ -47,17 +47,17 @@ public class NPCFixLights : NPCBehaviour
         switchedLights = false;
         startedSwitching = false;
         FMODUnity.RuntimeManager.PlayOneShotAttached("event:/NpcLightsBark", gameObject);
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, LightSwitchCheckRadius);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 200);
 
         List<LightSwitch> switches = new List<LightSwitch>();
 
         for (int i = 0; i < colliders.Length; i++)
         {
-            if(colliders[i].tag == "Interactable")
+            if (colliders[i].tag == "Interactable")
             {
                 LightSwitch lightSwitch = colliders[i].GetComponent<LightSwitch>();
 
-                if(lightSwitch != null)
+                if (lightSwitch != null)
                 {
                     switches.Add(lightSwitch);
                 }
@@ -67,7 +67,7 @@ public class NPCFixLights : NPCBehaviour
         chosenSwitch = null;
         float closestDistance = float.PositiveInfinity;
 
-        foreach(LightSwitch lSwitch in switches)
+        foreach (LightSwitch lSwitch in switches)
         {
             float distance = Vector3.Distance(lSwitch.transform.position, transform.position);
             if (distance < closestDistance)
@@ -82,21 +82,20 @@ public class NPCFixLights : NPCBehaviour
 
         List<Collider2D> collidersWithoutCharacters = new List<Collider2D>();
 
-        for(int i = 0; i < rayHits.Length; i++)
+        for (int i = 0; i < rayHits.Length; i++)
         {
-            if(!(rayHits[i].collider.tag == "Player" || rayHits[i].collider.tag == "NPC"))
+            if (!(rayHits[i].collider.tag == "Player" || rayHits[i].collider.tag == "NPC"))
             {
                 collidersWithoutCharacters.Add(rayHits[i].collider);
             }
         }
 
-        // The two guaranteed colliders: walls and switch
-        if(collidersWithoutCharacters.Count <= 2)
+        if (chosenSwitch != null)
         {
-            npc.Destination = chosenSwitch.transform.position + new Vector3(0,-1,0);
+            npc.Destination = chosenSwitch.transform.position + new Vector3(0, -1, 0);
             return true;
         }
-
         return false;
+
     }
 }
