@@ -22,7 +22,7 @@ public class CameraCone : MonoBehaviour
     {
         if(lookingAtPlayer)
         {
-            GameManager.Instance.AddSuspicion(0.4f * Time.deltaTime);
+            GameManager.Instance.AddSuspicion(0.75f * Time.deltaTime);
         }
     }
 
