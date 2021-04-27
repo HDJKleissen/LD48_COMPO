@@ -86,12 +86,13 @@ public class NPCController : MonoBehaviour
                 }
             }
         }
-
         if (!playerBehindWall && lookingAtPlayer)
         {
+            Debug.Log("A");
             if (player.CurrentArea == null || (RecognizePlayer() && !player.CurrentArea.IsPlayerAllowed() && GameManager.Instance.LightsOn))
             {
-                if(Vector3.Distance(player.transform.position, transform.position) < LookAtPlayerDistance)
+                Debug.Log("b");
+                if (Vector3.Distance(player.transform.position, transform.position) < LookAtPlayerDistance)
                 {
                     movement = Vector3.zero;
                 }

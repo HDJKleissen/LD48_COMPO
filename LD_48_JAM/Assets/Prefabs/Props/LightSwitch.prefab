@@ -230,6 +230,7 @@ MonoBehaviour:
         m_CallState: 2
   MouseInteractRadius: 0.75
   outlineScale: 1.7
+  electricityLines: {fileID: 0}
   PlayerInRange: 0
   ClosestToMouse: 0
 --- !u!114 &7733417232419264361
