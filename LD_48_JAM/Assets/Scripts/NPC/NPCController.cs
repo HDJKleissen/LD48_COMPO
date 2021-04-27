@@ -35,6 +35,10 @@ public class NPCController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (Vector3.Distance(player.transform.position, transform.position) > LookAtPlayerDistance * 2f)
+        {
+            SetSeePlayer(false);
+        }
         bool behaviourContinuing = false;
         if (currentBehaviour == null)
         {
@@ -86,12 +90,12 @@ public class NPCController : MonoBehaviour
                 }
             }
         }
+
+
         if (!playerBehindWall && lookingAtPlayer)
         {
-            Debug.Log("A");
             if (player.CurrentArea == null || (RecognizePlayer() && !player.CurrentArea.IsPlayerAllowed() && GameManager.Instance.LightsOn))
             {
-                Debug.Log("b");
                 if (Vector3.Distance(player.transform.position, transform.position) < LookAtPlayerDistance)
                 {
                     movement = Vector3.zero;
@@ -226,6 +230,10 @@ public class NPCController : MonoBehaviour
 
     public void SetSeePlayer(bool seen)
     {
+        if (name == "NPC_womanblack (1)")
+        {
+            Debug.Log("Setting see player " + seen);
+        }
         lookingAtPlayer = seen;
     }
 

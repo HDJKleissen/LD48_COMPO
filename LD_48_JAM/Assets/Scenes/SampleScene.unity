@@ -6745,6 +6745,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1760997512}
     m_Modifications:
+    - target: {fileID: 1446730611786621844, guid: 794e6d998768cc04cb71517746e53ce7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6111353453383166218, guid: 794e6d998768cc04cb71517746e53ce7, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -6801,10 +6805,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_womanblack (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 6111353453383166263, guid: 794e6d998768cc04cb71517746e53ce7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6346191138389508858, guid: 794e6d998768cc04cb71517746e53ce7, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -6812,6 +6812,10 @@ PrefabInstance:
     - target: {fileID: 6346191138389508858, guid: 794e6d998768cc04cb71517746e53ce7, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774867829329906422, guid: 794e6d998768cc04cb71517746e53ce7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 794e6d998768cc04cb71517746e53ce7, type: 3}
@@ -56127,6 +56131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_womanblack (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6111353453383166263, guid: 794e6d998768cc04cb71517746e53ce7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 794e6d998768cc04cb71517746e53ce7, type: 3}
 --- !u!1 &1928857734 stripped
@@ -97230,6 +97238,10 @@ PrefabInstance:
     - target: {fileID: 4582335149471727344, guid: 0092ad00f639d6a40b1ef2e2477f5438, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582335149471727345, guid: 0092ad00f639d6a40b1ef2e2477f5438, type: 3}
+      propertyPath: m_Interpolate
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4582335149471727348, guid: 0092ad00f639d6a40b1ef2e2477f5438, type: 3}
       propertyPath: m_Name

@@ -19,14 +19,20 @@ public class NPCViewCone : MonoBehaviour
     {
         if (collision.tag == "Player" && collision == GameManager.Instance.Player.FeetCollider)
         {
+            //Debug.Log("hit player");
             npc.SetSeePlayer(true);
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Player" && collision == GameManager.Instance.Player.FeetCollider)
         {
-            npc.SetSeePlayer(false);
+            if (npc.name == "NPC_womanblack (1)")
+            {
+                Debug.Log("end hit player");
+            }
+            //npc.SetSeePlayer(false);
         }
     }
 }
