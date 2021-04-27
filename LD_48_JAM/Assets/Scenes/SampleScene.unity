@@ -59166,7 +59166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - Nice, you got the key. Let's try it on that door.
-  isOnObject: 0
+  isOnObject: 1
 --- !u!4 &1827748630 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4734855319418442515, guid: 1d1222b4e9dc85d4bb6d509834046ea8, type: 3}
