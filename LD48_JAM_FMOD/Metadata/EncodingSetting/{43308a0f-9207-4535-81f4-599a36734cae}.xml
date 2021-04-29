@@ -7,6 +7,9 @@
 		<property name="quality">
 			<value>37</value>
 		</property>
+		<property name="sampleRateMode">
+			<value>1</value>
+		</property>
 		<relationship name="platform">
 			<destination>{dbad32af-ebc9-4357-8332-64a65df83fc8}</destination>
 		</relationship>
